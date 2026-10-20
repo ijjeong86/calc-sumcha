@@ -154,3 +154,8 @@ a{color:var(--accent)}
 .rk-foot{padding:8px 18px 4px;display:flex;flex-direction:column;gap:6px}
 .rk-foot p{margin:0;font-size:.74rem;color:var(--muted);line-height:1.5}
 .rk-foot button{align-self:flex-start}
+
+/* rail-dedupe: 양옆 광고가 보이는 넓은 화면에서는 아래쪽 같은 상품 숨기기 */
+@media (min-width:1460px) and (min-height:640px){
+  #coupangHead,#adCoupang,#coupangNote{display:none!important}
+}
