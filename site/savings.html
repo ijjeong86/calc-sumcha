@@ -55,7 +55,7 @@
         <h2>은행별 금리 순위 <span class="rk-date" id="rkDate"></span></h2>
         <div class="rk-ctl">
           <div class="in"><select id="rkTerm" aria-label="가입 기간"><option value="6">6개월</option><option value="12" selected>12개월</option><option value="24">24개월</option><option value="36">36개월</option></select></div>
-          <div class="in"><select id="rkGrp" aria-label="금융권"><option value="">은행 + 저축은행</option><option value="은행">은행만</option><option value="저축은행">저축은행만</option></select></div>
+          <div class="in"><select id="rkGrp" aria-label="금융권"><option value="top10" selected>주요 10대 은행</option><option value="은행">은행 전체</option><option value="">은행 + 저축은행</option><option value="저축은행">저축은행만</option></select></div>
           <div class="in"><select id="rkSort" aria-label="정렬"><option value="base" selected>기본금리순</option><option value="max">최고금리순</option></select></div>
           <div class="in"><input id="rkQ" type="search" placeholder="은행 이름 검색" aria-label="은행 이름 검색" style="text-align:left;font-family:var(--font-body)"></div>
         </div>
@@ -160,13 +160,15 @@ function rkKind(){return document.querySelector("input[name=kind]:checked").valu
 function rkRender(){const t=$("rkTable");
   if(!RATES){return;}
   const kind=rkKind(), term=+$("rkTerm").value, grp=$("rkGrp").value, sort=$("rkSort").value, q=$("rkQ").value.trim();
-  let list=(RATES[kind]||[]).filter(x=>x.term===term&&(!grp||x.g===grp)&&(!q||x.bank.includes(q)||x.name.includes(q)));
+  const TOP10=[/국민/,/신한/,/하나/,/우리/,/농협/,/기업은행/,/카카오뱅크/,/토스뱅크/,/케이뱅크/,/스탠다드차타드|SC제일/];
+  const inGrp=x=>grp==="top10"?(x.g==="은행"&&TOP10.some(r=>r.test(x.bank))):(!grp||x.g===grp);
+  let list=(RATES[kind]||[]).filter(x=>x.term===term&&inGrp(x)&&(!q||x.bank.includes(q)||x.name.includes(q)));
   list.sort((a,b)=>((sort==="max"?b.max??b.base:b.base??b.max)??0)-((sort==="max"?a.max??a.base:a.base??a.max)??0));
   if(!list.length){t.innerHTML=`<tr><td style="color:var(--muted)">조건에 맞는 상품이 없어요. 기간이나 금융권을 바꿔 보세요.</td></tr>`;$("rkMore").hidden=true;return;}
   let h=`<tr><th>#</th><th>은행 · 상품</th><th style="text-align:right">기본</th><th style="text-align:right">최고</th><th></th></tr>`;
   list.slice(0,rkLimit).forEach((x,i)=>{const r=(sort==="max"?x.max??x.base:x.base??x.max);
     const tags=[x.type,x.rsrv,x.g==="저축은행"?"저축은행":""].filter(Boolean).map(v=>`<span class="rk-tag">${v}</span>`).join("");
-    h+=`<tr><td class="rk-n">${i+1}</td><td class="rk-p"><b>${x.bank}</b> ${x.name}<div class="rk-meta">${tags}${x.cond?`<span class="rk-cond">${x.cond.slice(0,70)}${x.cond.length>70?"…":""}</span>`:""}</div></td>`
+    h+=`<tr><td class="rk-n">${i+1}</td><td class="rk-p"><b>${x.bank.replace(/주식회사|\(주\)/g,"").replace("한국스탠다드차타드은행","SC제일은행").replace("농협은행","NH농협은행").replace("중소기업은행","IBK기업은행").trim()}</b> ${x.name}<div class="rk-meta">${tags}${x.cond?`<span class="rk-cond">${x.cond.slice(0,70)}${x.cond.length>70?"…":""}</span>`:""}</div></td>`
       +`<td class="v" style="text-align:right">${x.base!=null?x.base.toFixed(2)+"%":"-"}</td><td class="v" style="text-align:right;color:var(--accent);font-weight:600">${x.max!=null?x.max.toFixed(2)+"%":"-"}</td>`
       +`<td><button type="button" class="rk-go" data-r="${r}" data-t="${x.type}" data-m="${x.term}">계산</button></td></tr>`;});
   t.innerHTML=h;
