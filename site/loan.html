@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="AyxEZnU_y9K-pHDFXkksgQXj9Bq7QUcYZUnuaR0Hlgc" />
+<meta name="naver-site-verification" content="7ae891ecb90476d9316299663bb02e29645ef1b4" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>대출 이자 계산기</title>
+<meta name="description" content="대출 금액·금리·기간을 넣으면 원리금균등·원금균등·만기일시 상환액과 총 이자, 월별 상환표를 바로 계산하는 무료 대출 이자 계산기">
+<meta property="og:title" content="대출 이자 계산기">
+<meta property="og:description" content="대출 금액·금리·기간을 넣으면 원리금균등·원금균등·만기일시 상환액과 총 이자, 월별 상환표를 바로 계산하는 무료 대출 이자 계산기">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://calc-sumcha.com/og-loan.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://calc-sumcha.com/loan.html">
+<meta property="og:site_name" content="숨차의 계산기">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://calc-sumcha.com/loan.html">
+<!-- [광고 승인 코드 자리] 애드센스·애드핏에서 "head 안에 넣으세요"라고 주는 코드가 있으면 이 줄 바로 아래에 붙여 넣으세요 -->
+</head>
+<body>
+<aside class="rail rail-l" aria-label="광고"><span class="rail-tag">광고</span><a href="https://link.coupang.com/a/h0qGxHPiuG" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/0be906d043593cc7da85ae628e67625d@2x.jpg" alt="LG전자 그램 17인치 i5 8GB 16GB 256GB 512GB 노트북 WIN11, WIN11 Pro" width="120" height="240"></a><a href="https://link.coupang.com/a/h0quo1j0qi" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image5.coupangcdn.com/image/affiliate/banner/4a448182838f266f4f207ae215f8763e@2x.jpg" alt="몸애비책 침향환 30% 선물세트(+보자기) 공진단경옥고상자 별매 30환, 112.5g, 1박스" width="120" height="240"></a><p class="rail-note">쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다.</p></aside>
+<aside class="rail rail-r" aria-label="광고"><span class="rail-tag">광고</span><a href="https://link.coupang.com/a/h0qwi0sQ6C" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image6.coupangcdn.com/image/affiliate/banner/f06feb1d6f8219a25e514665d037ff3b@2x.jpg" alt="무브핏 핏큐브 바이크 가정용 실내 자전거 접이식 미니, 크림 아이보리" width="120" height="240"></a><a href="https://link.coupang.com/a/h0qxBFWYZo" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/5a969659f84b7f338f6a91ea52635b7c@2x.jpg" alt="LG전자 코드제로 R5 로봇청소기 R585WKA, R585WKA1, 카밍베이지" width="120" height="240"></a><p class="rail-note">쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다.</p></aside>
+
+
+<div class="wrap">
+<div class="topnav"><a class="brand" href="index.html"><span class="mark" aria-hidden="true">₩</span>숨차의 계산기</a><nav><a href="index.html">연말정산</a><a href="salary.html">연봉 실수령액</a><a href="savings.html">예적금 이자</a><a href="loan.html" aria-current="page">대출 이자</a><a href="guide.html">공제 항목 정리</a><a class="minor" href="about.html">소개</a><a class="minor" href="contact.html">문의</a></nav></div>
+  <header>
+    <h1>대출 이자 계산기</h1>
+    <p>대출 금액, 금리, 기간을 넣으면 <strong>매달 갚을 돈과 총 이자</strong>를 계산해요. 원리금균등·원금균등·만기일시 세 가지 상환 방식을 한 번에 비교하고, 월별 상환표도 볼 수 있어요.</p>
+    <div class="note" style="margin-top:10px"><span class="chip" id="exampleChip">예시: 2억원 · 연 4.2% · 30년</span></div>
+  </header>
+
+  <div class="grid">
+    <form class="inputs" id="form" autocomplete="off">
+      <details open><summary>대출 조건</summary>
+        <div class="fields">
+          <div class="f"><label for="amt">대출 금액</label><div class="in"><input id="amt" type="number" min="0" step="100" value="20000"><span>만원</span></div><small>1억은 10000, 2억은 20000</small></div>
+          <div class="f"><label for="rate">연 이율</label><div class="in"><input id="rate" type="number" min="0" step="0.01" value="4.2"><span>%</span></div><small>변동금리면 현재 적용 금리</small></div>
+          <div class="f"><label for="years">대출 기간</label><div class="in"><input id="years" type="number" min="0" max="50" step="1" value="30"><span>년</span></div><small>개월로 따로 넣으려면 오른쪽 칸</small></div>
+          <div class="f"><label for="extraM">+ 개월</label><div class="in"><input id="extraM" type="number" min="0" max="11" step="1" value="0"><span>개월</span></div><small>예: 2년 6개월 → 2년 + 6개월</small></div>
+          <div class="f"><label for="grace">거치 기간</label><div class="in"><input id="grace" type="number" min="0" step="1" value="0"><span>개월</span></div><small>이자만 내는 기간 (대출 기간에 포함)</small></div>
+          <div class="f"><label for="method">상환 방식</label><div class="in"><select id="method"><option value="annuity">원리금균등 (매달 같은 금액)</option><option value="principal">원금균등 (원금을 똑같이 나눠 갚기)</option><option value="bullet">만기일시 (이자만 내다 마지막에 원금)</option></select></div><small>주택담보대출은 대부분 원리금균등</small></div>
+        </div>
+      </details>
+
+      <div class="slip" style="padding-bottom:10px">
+        <h2>상환 방식 비교</h2>
+        <div class="tablewrap" style="padding:0 18px"><table class="paytable" id="cmp"></table></div>
+      </div>
+
+      <div class="slip" style="padding-bottom:10px">
+        <h2 id="schTitle">월별 상환표</h2>
+        <div class="tablewrap" style="padding:0 18px"><table class="paytable sched" id="sched"></table></div>
+        <div style="padding:8px 18px 0"><button type="button" id="more">전체 보기</button></div>
+      </div>
+    </form>
+
+    <aside class="result" aria-live="polite">
+      <div class="hero owe">
+        <div class="lab" id="heroLab">첫 달 상환액</div>
+        <div class="big" id="first">0원</div>
+        <div class="split"><span>총 이자 <b id="totInt">0</b></span><span>총 상환액 <b id="totPay">0</b></span></div>
+      </div>
+      <div class="slip" id="slip"></div>
+      <div class="tip" id="tip"></div>
+    </aside>
+  </div>
+
+  <!-- [광고 자리 1] 애드핏·애드센스 광고 코드를 아래 두 줄 사이에 붙여 넣으세요 -->
+  <div class="ad-slot" id="adMain"></div>
+
+  <footer>
+    매달 같은 날 갚고 금리가 기간 내내 같다고 보고 계산한 추정치예요. 실제 은행은 일 단위로 이자를 계산하고 원 단위를 절사해서 몇 원~몇백 원 차이가 날 수 있어요. 변동금리 대출은 금리가 바뀌면 상환액도 달라지고, 중도상환수수료나 보증료·인지세 같은 부대비용은 포함하지 않았어요.
+  </footer>
+
+  <!-- [쿠팡파트너스 상품 자리] 상품을 넣으려면 아래 id="adCoupang" 칸 안에 블로그용 태그(<a>…</a>) 코드를 붙여 넣으세요 -->
+  <p class="ad-note" id="coupangHead" style="font-weight:500;color:var(--ink);font-size:.85rem">함께 보면 좋은 상품</p>
+  <div class="ad-slot" id="adCoupang"><a href="https://link.coupang.com/a/h0qGxHPiuG" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/0be906d043593cc7da85ae628e67625d@2x.jpg" alt="LG전자 그램 17인치 i5 8GB 16GB 256GB 512GB 노트북 WIN11, WIN11 Pro" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0quo1j0qi" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image5.coupangcdn.com/image/affiliate/banner/4a448182838f266f4f207ae215f8763e@2x.jpg" alt="몸애비책 침향환 30% 선물세트(+보자기) 공진단경옥고상자 별매 30환, 112.5g, 1박스" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0qwi0sQ6C" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image6.coupangcdn.com/image/affiliate/banner/f06feb1d6f8219a25e514665d037ff3b@2x.jpg" alt="무브핏 핏큐브 바이크 가정용 실내 자전거 접이식 미니, 크림 아이보리" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0qxBFWYZo" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/5a969659f84b7f338f6a91ea52635b7c@2x.jpg" alt="LG전자 코드제로 R5 로봇청소기 R585WKA, R585WKA1, 카밍베이지" width="120" height="240"></a></div>
+  <p class="ad-note" id="coupangNote" hidden>이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString("ko-KR")+"원";
+const man=n=>{const v=n/1e4;return (Math.abs(v)>=1?Math.round(v).toLocaleString("ko-KR"):v.toFixed(1))+"만원";};
+const row=(l,x,c="")=>`<div class="row ${c}"><span>${l}</span><span class="v">${x}</span></div>`;
+(function(){var s=$("adCoupang");if(s&&s.children.length)$("coupangNote").hidden=false;})();
+
+let showAll=false;
+function schedule(P,r,n,g,method){
+  const i=r/100/12, rows=[]; let bal=P, totI=0;
+  const m=n-g; // 원금 갚는 기간
+  const pmt = (method==="annuity"&&m>0) ? (i===0?P/m:P*i/(1-Math.pow(1+i,-m))) : 0;
+  for(let k=1;k<=n;k++){
+    const it=bal*i; let pr=0;
+    if(k>g){ if(method==="annuity") pr=pmt-it; else if(method==="principal") pr=P/m; else if(k===n) pr=bal; }
+    if(k===n) pr=bal; // 마지막 회차 잔액 정리
+    bal=Math.max(bal-pr,0); totI+=it;
+    rows.push({k,pay:pr+it,pr,it,bal});}
+  return {rows,totI,totP:P+totI};}
+function read(){const n=Math.max(1,Math.round((+$("years").value||0)*12+(+$("extraM").value||0)));
+  return{P:(+$("amt").value||0)*1e4,r:Math.max(0,+$("rate").value||0),n,g:Math.min(Math.max(0,Math.round(+$("grace").value||0)),n-1),method:$("method").value};}
+const LBL={annuity:"원리금균등",principal:"원금균등",bullet:"만기일시"};
+function render(){const a=read();const s=schedule(a.P,a.r,a.n,a.g,a.method);const first=s.rows[0], last=s.rows[s.rows.length-1];
+  const afterG=s.rows[a.g]||first;
+  $("heroLab").textContent=a.method==="annuity"?(a.g?"거치 후 매달 상환액":"매달 상환액"):"첫 달 상환액";
+  $("first").textContent=won(a.method==="annuity"?afterG.pay:first.pay);
+  $("totInt").textContent=won(s.totI);$("totPay").textContent=won(s.totP);
+  const yrs=Math.floor(a.n/12), mo=a.n%12;
+  let h=`<h2>${LBL[a.method]} · ${yrs?yrs+"년":""}${mo?" "+mo+"개월":""}</h2>`+row("대출 원금",won(a.P))+row("총 이자","+ "+won(s.totI),"sub")+row("총 상환액",won(s.totP),"tot");
+  if(a.g) h+=row(`거치 기간 ${a.g}개월 (이자만)`,won(first.it)+" / 월","sub");
+  if(a.method==="principal") h+=row("첫 달 → 마지막 달",won(afterG.pay)+" → "+won(last.pay),"sub");
+  if(a.method==="bullet") h+=row("마지막 달 (원금 + 이자)",won(last.pay),"sub");
+  $("slip").innerHTML=h;
+  // 비교표
+  let c=`<tr><th>방식</th><th style="text-align:right">첫 달</th><th style="text-align:right">총 이자</th></tr>`; const res={};
+  for(const k of ["annuity","principal","bullet"]){const x=schedule(a.P,a.r,a.n,a.g,k);res[k]=x;
+    const on=k===a.method?' style="background:var(--accent-soft)"':'';
+    c+=`<tr data-m="${k}" tabindex="0"${on}><td>${LBL[k]}</td><td class="v" style="text-align:right">${won(x.rows[a.g].pay)}</td><td class="v" style="text-align:right">${won(x.totI)}</td></tr>`;}
+  $("cmp").innerHTML=c;
+  $("cmp").querySelectorAll("tr[data-m]").forEach(tr=>{const go=()=>{$("method").value=tr.dataset.m;render();};tr.onclick=go;tr.onkeydown=e=>{if(e.key=="Enter")go();};});
+  // 팁
+  const save=res.annuity.totI-res.principal.totI;
+  let t=[];
+  if(save>0) t.push(`원금균등으로 갚으면 원리금균등보다 총 이자가 <b>${won(save)}</b> 적어요. 대신 처음 몇 년은 매달 내는 돈이 더 많아요.`);
+  if(a.method==="bullet") t.push(`만기일시는 원금이 줄지 않아 총 이자가 가장 많아요. 마지막 달에 원금 ${won(a.P)}를 한 번에 갚아야 해요.`);
+  if(a.r>0){const lower=schedule(a.P,Math.max(a.r-0.5,0),a.n,a.g,a.method).totI; t.push(`금리가 0.5%p만 낮아도 총 이자가 <b>${won(s.totI-lower)}</b> 줄어요. 금리인하요구권이나 대환대출을 알아볼 만해요.`);}
+  $("tip").innerHTML=t.join("<br><br>");
+  // 상환표
+  $("schTitle").textContent=`월별 상환표 (${LBL[a.method]}, 총 ${a.n}회)`;
+  let r=`<tr><th>회차</th><th style="text-align:right">상환액</th><th style="text-align:right">원금</th><th style="text-align:right">이자</th><th style="text-align:right">잔액</th></tr>`;
+  const list = showAll||s.rows.length<=24 ? s.rows : s.rows.slice(0,12).concat([null],s.rows.slice(-3));
+  for(const x of list){ if(!x){r+=`<tr><td colspan="5" style="text-align:center;color:var(--muted)">⋯ 중간 ${s.rows.length-15}회 생략 ⋯</td></tr>`;continue;}
+    r+=`<tr><td>${x.k}</td><td class="v" style="text-align:right">${won(x.pay)}</td><td class="v" style="text-align:right;color:var(--muted)">${won(x.pr)}</td><td class="v" style="text-align:right;color:var(--muted)">${won(x.it)}</td><td class="v" style="text-align:right">${won(x.bal)}</td></tr>`;}
+  $("sched").innerHTML=r;
+  $("more").hidden=s.rows.length<=24; $("more").textContent=showAll?"접기":"전체 보기 ("+s.rows.length+"회)";}
+$("more").onclick=()=>{showAll=!showAll;render();};
+$("form").addEventListener("input",()=>{$("exampleChip").hidden=true;render();});
+$("form").addEventListener("change",render);
+render();
+</script>
+<div class="sitefoot">
+  <span>© 2026 숨차의 일상 정보함</span>
+  <a class="minor" href="about.html">소개</a><a class="minor" href="contact.html">문의</a><a href="privacy.html">개인정보처리방침</a>
+  <a href="https://blog.naver.com/ijjeong86" target="_blank" rel="noopener">네이버 블로그</a>
+</div>
+</body>
+</html>

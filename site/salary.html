@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="AyxEZnU_y9K-pHDFXkksgQXj9Bq7QUcYZUnuaR0Hlgc" />
+<meta name="naver-site-verification" content="7ae891ecb90476d9316299663bb02e29645ef1b4" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>2026 연봉 실수령액 계산기</title>
+<meta name="description" content="연봉만 넣으면 2026년 4대보험과 소득세를 뺀 월 실수령액을 바로 계산하고, 연봉별 실수령액 표도 볼 수 있는 무료 계산기">
+<meta property="og:title" content="2026 연봉 실수령액 계산기">
+<meta property="og:description" content="연봉만 넣으면 2026년 4대보험과 소득세를 뺀 월 실수령액을 바로 계산하고, 연봉별 실수령액 표도 볼 수 있는 무료 계산기">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://calc-sumcha.com/og-salary.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://calc-sumcha.com/salary.html">
+<meta property="og:site_name" content="숨차의 계산기">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://calc-sumcha.com/salary.html">
+<!-- [광고 승인 코드 자리] 애드센스·애드핏에서 "head 안에 넣으세요"라고 주는 코드가 있으면 이 줄 바로 아래에 붙여 넣으세요 -->
+</head>
+<body>
+<aside class="rail rail-l" aria-label="광고"><span class="rail-tag">광고</span><a href="https://link.coupang.com/a/h0qGxHPiuG" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/0be906d043593cc7da85ae628e67625d@2x.jpg" alt="LG전자 그램 17인치 i5 8GB 16GB 256GB 512GB 노트북 WIN11, WIN11 Pro" width="120" height="240"></a><a href="https://link.coupang.com/a/h0quo1j0qi" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image5.coupangcdn.com/image/affiliate/banner/4a448182838f266f4f207ae215f8763e@2x.jpg" alt="몸애비책 침향환 30% 선물세트(+보자기) 공진단경옥고상자 별매 30환, 112.5g, 1박스" width="120" height="240"></a><p class="rail-note">쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다.</p></aside>
+<aside class="rail rail-r" aria-label="광고"><span class="rail-tag">광고</span><a href="https://link.coupang.com/a/h0qwi0sQ6C" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image6.coupangcdn.com/image/affiliate/banner/f06feb1d6f8219a25e514665d037ff3b@2x.jpg" alt="무브핏 핏큐브 바이크 가정용 실내 자전거 접이식 미니, 크림 아이보리" width="120" height="240"></a><a href="https://link.coupang.com/a/h0qxBFWYZo" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/5a969659f84b7f338f6a91ea52635b7c@2x.jpg" alt="LG전자 코드제로 R5 로봇청소기 R585WKA, R585WKA1, 카밍베이지" width="120" height="240"></a><p class="rail-note">쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다.</p></aside>
+
+<div class="wrap">
+<div class="topnav"><a class="brand" href="index.html"><span class="mark" aria-hidden="true">₩</span>숨차의 계산기</a><nav><a href="index.html">연말정산</a><a href="salary.html" aria-current="page">연봉 실수령액</a><a href="savings.html">예적금 이자</a><a href="loan.html">대출 이자</a><a href="guide.html">공제 항목 정리</a><a class="minor" href="about.html">소개</a><a class="minor" href="contact.html">문의</a></nav></div>
+  <header>
+    <h1>2026 연봉 실수령액 계산기</h1>
+    <p>연봉을 <strong>만원</strong> 단위로 넣으면 국민연금·건강보험·장기요양·고용보험과 소득세를 뺀 매달 통장에 들어오는 금액을 계산해요. 2026년 요율과 근로소득 간이세액표 산식을 적용했어요.</p>
+    <div class="note" style="margin-top:10px"><span class="chip" id="exampleChip">예시: 연봉 4,000만원</span></div>
+  </header>
+
+  <div class="grid">
+    <form class="inputs" id="form" autocomplete="off">
+      <details open><summary>연봉</summary>
+        <div class="fields">
+          <div class="f"><label for="pay">연봉 (세전)</label><div class="in"><input id="pay" type="number" min="0" step="10" value="4000"><span>만원</span></div><small>계약서에 적힌 연봉</small></div>
+          <div class="f"><label for="nontax">비과세액 (월)</label><div class="in"><input id="nontax" type="number" min="0" step="1" value="20"><span>만원</span></div><small>아래에서 받는 항목을 체크하면 자동으로 채워져요. 직접 입력해도 돼요</small></div>
+          <fieldset class="ntx" id="ntx">
+            <legend>받는 비과세 항목 <span>(체크하면 최대 한도로 계산)</span></legend>
+            <label class="nt"><input type="checkbox" data-m="20" id="nt_meal" checked><span class="nt-t"><b>식대</b> <span class="nt-c">(회사에서 밥을 따로 안 줄 때)</span></span><em>월 20만</em></label>
+            <label class="nt"><input type="checkbox" data-m="20" id="nt_car"><span class="nt-t"><b>자가운전보조금</b> <span class="nt-c">(내 차로 업무 이동, 출장비는 따로 안 받을 때)</span></span><em>월 20만</em></label>
+            <label class="nt"><input type="checkbox" data-m="20" data-per="nt_kidn" id="nt_kid"><span class="nt-t"><b>출산·보육수당</b> <span class="nt-c">(6세 이하 자녀가 있을 때)</span> <select id="nt_kidn" aria-label="6세 이하 자녀 수"><option value="1">1명</option><option value="2">2명</option><option value="3">3명</option></select></span><em>1명당 월 20만</em></label>
+            <label class="nt"><input type="checkbox" data-m="20" id="nt_rnd"><span class="nt-t"><b>연구보조비</b> <span class="nt-c">(기업부설연구소·연구전담부서 연구원)</span></span><em>월 20만</em></label>
+            <label class="nt"><input type="checkbox" data-m="20" id="nt_night"><span class="nt-t"><b>생산직 야간·연장수당</b> <span class="nt-c">(생산직이고 월급 210만원 이하)</span></span><em>연 240만</em></label>
+            <label class="nt"><input type="checkbox" data-m="20" id="nt_remote"><span class="nt-t"><b>벽지수당</b> <span class="nt-c">(섬·산간 같은 외딴 지역에서 근무)</span></span><em>월 20만</em></label>
+            <label class="nt"><input type="checkbox" data-m="20" id="nt_press"><span class="nt-t"><b>취재수당</b> <span class="nt-c">(기자·방송 취재 업무)</span></span><em>월 20만</em></label>
+            <label class="nt"><input type="checkbox" data-m="100" id="nt_ab1" data-grp="abroad"><span class="nt-t"><b>국외근로수당</b> <span class="nt-c">(해외에서 근무)</span></span><em>월 100만</em></label>
+            <label class="nt"><input type="checkbox" data-m="300" id="nt_ab3" data-grp="abroad"><span class="nt-t"><b>국외근로수당</b> <span class="nt-c">(해외 건설·플랜트 현장, 원양어선)</span></span><em>월 300만</em></label>
+            <label class="nt"><input type="checkbox" data-m="58.3" id="nt_inv"><span class="nt-t"><b>직무발명보상금</b> <span class="nt-c">(회사에서 발명 보상금을 받을 때)</span></span><em>연 700만</em></label>
+            <p class="ntx-note">잘 모르겠으면 식대만 체크해 두세요. 대부분의 직장인은 식대 하나만 해당돼요. 출산지원금과 업무 관련 학자금은 한 번에 받는 돈이라 월급 계산에서 뺐어요.</p>
+          </fieldset>
+          <div class="f"><label for="sev">퇴직금</label><div class="in"><select id="sev"><option value="0">연봉에 별도 (12로 나눔)</option><option value="1">연봉에 포함 (13으로 나눔)</option></select></div><small>대부분은 별도예요</small></div>
+        </div>
+      </details>
+      <details open><summary>가족</summary>
+        <div class="fields">
+          <div class="f"><label for="fam">부양가족 수 (본인 포함)</label><div class="in"><input id="fam" type="number" min="1" step="1" value="1"><span>명</span></div><small>혼자면 1, 배우자 있으면 2</small></div>
+          <div class="f"><label for="kids">그중 8세 이상 20세 이하 자녀</label><div class="in"><input id="kids" type="number" min="0" step="1" value="0"><span>명</span></div><small>자녀세액공제가 반영돼요</small></div>
+          <div class="f"><label for="ratio">소득세 원천징수 비율</label><div class="in"><select id="ratio"><option value="1">100% (기본)</option><option value="0.8">80% (월급 더 받고 연말에 덜 환급)</option><option value="1.2">120% (월급 덜 받고 연말에 더 환급)</option></select></div><small>회사에 신청해 바꿀 수 있어요</small></div>
+        </div>
+      </details>
+
+      <div class="slip" style="padding-bottom:10px">
+        <h2>연봉별 실수령액 표 (1인 가구 · 비과세 월 20만원 · 퇴직금 별도)</h2>
+        <div class="tablewrap" style="padding:0 18px"><table class="paytable" id="table"></table></div>
+      </div>
+    </form>
+
+    <aside class="result" aria-live="polite">
+      <div class="hero refund">
+        <div class="lab">월 예상 실수령액</div>
+        <div class="big" id="net">0원</div>
+        <div class="split"><span>연 실수령 (12개월) <b id="netY">0</b></span><span>월 공제 합계 <b id="ded">0</b></span></div>
+      </div>
+      <div class="slip" id="slip"></div>
+      <div class="tip" id="tip"></div>
+    </aside>
+  </div>
+
+  <!-- [광고 자리 1] 애드핏·애드센스 광고 코드를 아래 두 줄 사이에 붙여 넣으세요 -->
+  <div class="ad-slot" id="adMain"></div>
+
+  <footer>
+    2026년 7월 이후 기준입니다. 국민연금 4.75%(기준소득월액 상한 659만원·하한 41만원), 건강보험 3.595%, 장기요양 건강보험료의 13.14%, 고용보험 0.9%를 근로자 몫으로 적용했어요. 소득세는 간이세액표 산식으로 계산해 실제 급여명세서와 몇천 원 차이 날 수 있고, 건강보험은 전년도 보수 기준으로 매기기 때문에 연봉이 오른 첫해에는 다를 수 있어요. 1년 동안 미리 뗀 세금은 <a href="index.html">연말정산 계산기</a>에서 정산해 볼 수 있어요.
+  </footer>
+
+  <!-- [쿠팡파트너스 상품 자리] 상품을 넣으려면 아래 id="adCoupang" 칸 안에 블로그용 태그(<a>…</a>) 코드를 붙여 넣으세요 -->
+  <p class="ad-note" id="coupangHead" style="font-weight:500;color:var(--ink);font-size:.85rem">함께 보면 좋은 상품</p>
+  <div class="ad-slot" id="adCoupang"><a href="https://link.coupang.com/a/h0qGxHPiuG" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/0be906d043593cc7da85ae628e67625d@2x.jpg" alt="LG전자 그램 17인치 i5 8GB 16GB 256GB 512GB 노트북 WIN11, WIN11 Pro" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0quo1j0qi" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image5.coupangcdn.com/image/affiliate/banner/4a448182838f266f4f207ae215f8763e@2x.jpg" alt="몸애비책 침향환 30% 선물세트(+보자기) 공진단경옥고상자 별매 30환, 112.5g, 1박스" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0qwi0sQ6C" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image6.coupangcdn.com/image/affiliate/banner/f06feb1d6f8219a25e514665d037ff3b@2x.jpg" alt="무브핏 핏큐브 바이크 가정용 실내 자전거 접이식 미니, 크림 아이보리" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0qxBFWYZo" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/5a969659f84b7f338f6a91ea52635b7c@2x.jpg" alt="LG전자 코드제로 R5 로봇청소기 R585WKA, R585WKA1, 카밍베이지" width="120" height="240"></a></div>
+  <p class="ad-note" id="coupangNote" hidden>이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString("ko-KR")+"원";
+const f10=n=>Math.floor(n/10)*10;
+function earnedDed(S){let d;
+  if(S<=5e6)d=S*.7;else if(S<=15e6)d=3.5e6+(S-5e6)*.4;else if(S<=45e6)d=7.5e6+(S-15e6)*.15;
+  else if(S<=1e8)d=12e6+(S-45e6)*.05;else d=14.75e6+(S-1e8)*.02;return Math.min(d,2e7);}
+const BR=[[14e6,.06,0],[5e7,.15,1.26e6],[8.8e7,.24,5.76e6],[1.5e8,.35,15.44e6],[3e8,.38,19.94e6],[5e8,.40,25.94e6],[1e9,.42,35.94e6],[Infinity,.45,65.94e6]];
+function baseTax(b){for(const[t,r,k]of BR)if(b<=t)return Math.max(0,b*r-k);}
+function earnedCredit(tax,S){const c=tax<=1.3e6?tax*.55:715000+(tax-1.3e6)*.3;let lim;
+  if(S<=33e6)lim=740000;else if(S<=7e7)lim=Math.max(740000-(S-33e6)*.008,660000);
+  else if(S<=1.2e8)lim=Math.max(660000-(S-7e7)*.5,500000);else lim=Math.max(500000-(S-1.2e8)*.5,200000);
+  return Math.min(c,lim);}
+// 간이세액표 산식의 특별소득공제·특별세액공제 추정치 (공제대상가족 수별)
+function specialDed(S,fam){
+  if(S>1.2e8)S=1.2e8;
+  if(fam<=2){const b=fam==1?3.1e6:3.6e6;
+    if(S<=3e7)return b+S*.04; if(S<=4.5e7)return b+S*.04-(S-3e7)*.05; if(S<=7e7)return b+S*.015; return b+S*.005;}
+  let d; if(S<=3e7)d=5e6+S*.07; else if(S<=4.5e7)d=5e6+S*.07-(S-3e7)*.05; else if(S<=7e7)d=5e6+S*.05; else d=5e6+S*.03;
+  if(S>4e7)d+=(S-4e7)*.04; return d;}
+function childCredit(k){return k<=0?0:k==1?25e4:k==2?55e4:55e4+(k-2)*40e4;}
+function calc(annual,nontaxM,sev,fam,kids,ratio){
+  const month=annual/(sev?13:12), taxable=Math.max(month-nontaxM,0);
+  const npBase=Math.min(Math.max(taxable,41e4),659e4);
+  const np=f10(npBase*.0475), hi=f10(taxable*.03595), ltc=f10(hi*.1314), ei=f10(taxable*.009);
+  const S=taxable*12, inc=S-earnedDed(S);
+  const base=Math.max(inc-fam*1.5e6-np*12-specialDed(S,fam),0);
+  const t=baseTax(base); let y=t-earnedCredit(t,S)-childCredit(kids); y=Math.max(y,0);
+  let it=f10(y/12*ratio); if(it<1000)it=0; const lt=f10(it*.1);
+  const ded=np+hi+ltc+ei+it+lt;
+  return{month,taxable,np,hi,ltc,ei,it,lt,ded,net:month-ded};}
+function read(){return[(+$("pay").value||0)*1e4,(+$("nontax").value||0)*1e4,$("sev").value=="1",Math.max(1,+$("fam").value||1),Math.max(0,+$("kids").value||0),+$("ratio").value];}
+function render(){const a=read(),r=calc(...a);
+  $("net").textContent=won(r.net);$("netY").textContent=won(r.net*12);$("ded").textContent=won(r.ded);
+  const row=(l,x,c="")=>`<div class="row ${c}"><span>${l}</span><span class="v">${x}</span></div>`;
+  $("slip").innerHTML=`<h2>매달 빠지는 금액</h2>`+row("월 급여 (세전)",won(r.month))+row("국민연금 4.75%","− "+won(r.np),"sub")+row("건강보험 3.595%","− "+won(r.hi),"sub")
+   +row("장기요양 13.14%","− "+won(r.ltc),"sub")+row("고용보험 0.9%","− "+won(r.ei),"sub")+row("소득세","− "+won(r.it),"sub")+row("지방소득세","− "+won(r.lt),"sub")+row("실수령액",won(r.net),"tot")+(a[2]?row("퇴직금 (1년 근무 시 쌓이는 금액, 퇴사 때 받음)",won(r.month),"sub"):"");
+  const pct=r.month?(r.ded/r.month*100).toFixed(1):0;
+  let tip=`월급의 <b>${pct}%</b>가 세금과 4대보험으로 빠져요.`;
+  if(a[5]==1&&r.it>0)tip+=`<br><br>원천징수를 80%로 바꾸면 매달 <b>${won(r.it-f10(r.it/1*.8)+(r.lt-f10(f10(r.it*.8)*.1)))}</b>를 더 받지만, 그만큼 연말정산 환급이 줄거나 더 낼 수 있어요.`;
+  tip+=`<br><br>미리 뗀 소득세는 연말정산에서 정산돼요. <a href="index.html">내 연말정산 환급액 계산하기</a>`;
+  $("tip").innerHTML=tip;}
+function table(){let h=`<tr><th>연봉</th><th style="text-align:right">월 실수령액</th><th style="text-align:right">월 공제액</th></tr>`;
+  for(let p=2000;p<=10000;p+=(p<6000?250:500)){const r=calc(p*1e4,2e5,false,1,0,1);
+    h+=`<tr data-p="${p}" tabindex="0"><td>${p.toLocaleString("ko-KR")}만원</td><td class="v" style="text-align:right">${won(r.net)}</td><td class="v" style="text-align:right;color:var(--muted)">${won(r.ded)}</td></tr>`;}
+  $("table").innerHTML=h;
+  $("table").querySelectorAll("tr[data-p]").forEach(tr=>{const go=()=>{$("pay").value=tr.dataset.p;$("exampleChip").hidden=true;render();window.scrollTo({top:0,behavior:"smooth"});};tr.onclick=go;tr.onkeydown=e=>{if(e.key=="Enter")go();};});}
+$("form").addEventListener("input",()=>{$("exampleChip").hidden=true;render();});
+$("form").addEventListener("change",render);
+
+// 비과세 체크박스 → 비과세액 자동 합산
+const NT=[...document.querySelectorAll("#ntx input[type=checkbox]")];
+function ntSum(){let t=0;NT.forEach(c=>{if(c.checked){let m=+c.dataset.m;if(c.dataset.per)m*=+$(c.dataset.per).value;t+=m;}});
+  $("nontax").value=Math.round(t*10)/10;}
+NT.forEach(c=>c.addEventListener("change",()=>{if(c.dataset.grp&&c.checked)NT.forEach(o=>{if(o!==c&&o.dataset.grp===c.dataset.grp)o.checked=false;});ntSum();render();}));
+$("nt_kidn").addEventListener("change",()=>{$("nt_kid").checked=true;ntSum();render();});
+ntSum();table();render();
+(function(){var s=$("adCoupang");if(s&&s.children.length)$("coupangNote").hidden=false;})();
+</script>
+
+<div class="sitefoot">
+  <span>© 2026 숨차의 일상 정보함</span>
+  <a class="minor" href="about.html">소개</a><a class="minor" href="contact.html">문의</a><a href="privacy.html">개인정보처리방침</a>
+  <a href="https://blog.naver.com/ijjeong86" target="_blank" rel="noopener">네이버 블로그</a>
+</div>
+</body>
+</html>

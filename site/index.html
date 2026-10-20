@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="AyxEZnU_y9K-pHDFXkksgQXj9Bq7QUcYZUnuaR0Hlgc" />
+<meta name="naver-site-verification" content="7ae891ecb90476d9316299663bb02e29645ef1b4" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>2026 연말정산 계산기</title>
+<meta name="description" content="총급여와 공제 항목만 넣으면 2026년 귀속 연말정산 환급액·추가납부액을 바로 계산하는 무료 계산기">
+<meta property="og:title" content="2026 연말정산 계산기">
+<meta property="og:description" content="총급여와 공제 항목만 넣으면 2026년 귀속 연말정산 환급액·추가납부액을 바로 계산하는 무료 계산기">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://calc-sumcha.com/og-yearend.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://calc-sumcha.com/">
+<meta property="og:site_name" content="숨차의 계산기">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://calc-sumcha.com/">
+<!-- [광고 승인 코드 자리] 애드센스·애드핏에서 "head 안에 넣으세요"라고 주는 코드가 있으면 이 줄 바로 아래에 붙여 넣으세요 -->
+</head>
+<body>
+<aside class="rail rail-l" aria-label="광고"><span class="rail-tag">광고</span><a href="https://link.coupang.com/a/h0qGxHPiuG" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/0be906d043593cc7da85ae628e67625d@2x.jpg" alt="LG전자 그램 17인치 i5 8GB 16GB 256GB 512GB 노트북 WIN11, WIN11 Pro" width="120" height="240"></a><a href="https://link.coupang.com/a/h0quo1j0qi" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image5.coupangcdn.com/image/affiliate/banner/4a448182838f266f4f207ae215f8763e@2x.jpg" alt="몸애비책 침향환 30% 선물세트(+보자기) 공진단경옥고상자 별매 30환, 112.5g, 1박스" width="120" height="240"></a><p class="rail-note">쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다.</p></aside>
+<aside class="rail rail-r" aria-label="광고"><span class="rail-tag">광고</span><a href="https://link.coupang.com/a/h0qwi0sQ6C" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image6.coupangcdn.com/image/affiliate/banner/f06feb1d6f8219a25e514665d037ff3b@2x.jpg" alt="무브핏 핏큐브 바이크 가정용 실내 자전거 접이식 미니, 크림 아이보리" width="120" height="240"></a><a href="https://link.coupang.com/a/h0qxBFWYZo" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/5a969659f84b7f338f6a91ea52635b7c@2x.jpg" alt="LG전자 코드제로 R5 로봇청소기 R585WKA, R585WKA1, 카밍베이지" width="120" height="240"></a><p class="rail-note">쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다.</p></aside>
+<div class="wrap">
+<div class="topnav"><a class="brand" href="index.html"><span class="mark" aria-hidden="true">₩</span>숨차의 계산기</a><nav><a href="index.html" aria-current="page">연말정산</a><a href="salary.html">연봉 실수령액</a><a href="savings.html">예적금 이자</a><a href="loan.html">대출 이자</a><a href="guide.html">공제 항목 정리</a><a class="minor" href="about.html">소개</a><a class="minor" href="contact.html">문의</a></nav></div>
+  <header>
+    <h1>2026 귀속 연말정산 계산기</h1>
+    <p>2027년 1월에 정산할 2026년 소득 기준입니다. 금액은 모두 연간 <strong>만원</strong> 단위로 넣으면 결정세액과 환급·추가납부액(지방소득세 포함)을 바로 계산합니다.</p>
+    <div class="note" style="margin-top:10px">
+      <span class="chip" id="exampleChip">예시 값이 채워져 있어요</span>
+      <button type="button" id="clearBtn">모두 비우기</button>
+      <button type="button" id="sampleBtn">예시 값 다시 넣기</button>
+    </div>
+  </header>
+
+  <div class="grid">
+    <form class="inputs" id="form" autocomplete="off">
+      <details open><summary>급여와 기납부세액 <span class="sum" id="s_pay"></span></summary>
+        <div class="fields">
+          <div class="f"><label for="S">총급여</label><div class="in"><input id="S" type="number" min="0" step="1"><span>만원</span></div><small>비과세(식대 월 20만원 등) 뺀 금액. 원천징수영수증 ⑯번</small></div>
+          <div class="f"><label for="paid">기납부 소득세</label><div class="in"><input id="paid" type="number" min="0" step="1"><span>만원</span></div><small>매달 떼인 소득세 합계(지방소득세 제외)</small></div>
+        </div>
+      </details>
+
+      <details open><summary>인적공제 <span class="sum" id="s_person"></span></summary>
+        <div class="fields">
+          <div class="f chk"><input id="spouse" type="checkbox"><label for="spouse">배우자 기본공제 (연 소득 100만원 이하)</label></div>
+          <div class="f"><label for="deps">부양가족 수</label><div class="in"><input id="deps" type="number" min="0" step="1"><span>명</span></div><small>본인·배우자 제외. 자녀, 부모님 등 1인당 150만원</small></div>
+          <div class="f"><label for="elder">그중 70세 이상</label><div class="in"><input id="elder" type="number" min="0" step="1"><span>명</span></div><small>경로우대 1인당 100만원 추가</small></div>
+          <div class="f"><label for="disab">장애인 (본인 포함)</label><div class="in"><input id="disab" type="number" min="0" step="1"><span>명</span></div><small>1인당 200만원 추가</small></div>
+          <div class="f chk"><input id="bunyeo" type="checkbox"><label for="bunyeo">부녀자 공제 (근로소득금액 3천만원 이하)</label></div>
+          <div class="f chk"><input id="hanbumo" type="checkbox"><label for="hanbumo">한부모 공제</label></div>
+        </div>
+      </details>
+
+      <details open><summary>보험료 (급여에서 떼인 것) <span class="sum" id="s_ins"></span></summary>
+        <div class="fields">
+          <div class="f"><label for="np">국민연금</label><div class="in"><input id="np" type="number" min="0" step="1"><span>만원</span></div></div>
+          <div class="f"><label for="hi">건강보험 + 장기요양</label><div class="in"><input id="hi" type="number" min="0" step="1"><span>만원</span></div></div>
+          <div class="f"><label for="ei">고용보험</label><div class="in"><input id="ei" type="number" min="0" step="1"><span>만원</span></div></div>
+        </div>
+      </details>
+
+      <details open><summary>신용카드 등 사용액 <span class="sum" id="s_card"></span></summary>
+        <div class="fields">
+          <div class="f"><label for="cc">신용카드</label><div class="in"><input id="cc" type="number" min="0" step="1"><span>만원</span></div><small>공제율 15%</small></div>
+          <div class="f"><label for="dc">체크카드 · 현금영수증</label><div class="in"><input id="dc" type="number" min="0" step="1"><span>만원</span></div><small>공제율 30%</small></div>
+          <div class="f"><label for="cul">도서·공연·박물관·수영장·헬스장</label><div class="in"><input id="cul" type="number" min="0" step="1"><span>만원</span></div><small>총급여 7천만원 이하만 30% 별도</small></div>
+          <div class="f"><label for="mkt">전통시장</label><div class="in"><input id="mkt" type="number" min="0" step="1"><span>만원</span></div><small>공제율 40%</small></div>
+          <div class="f"><label for="bus">대중교통</label><div class="in"><input id="bus" type="number" min="0" step="1"><span>만원</span></div><small>공제율 40%</small></div>
+          <div class="f"><label for="kidsAll">기본공제 받는 자녀 수</label><div class="in"><input id="kidsAll" type="number" min="0" step="1"><span>명</span></div><small>카드 공제 한도 확대용(나이 무관)</small></div>
+        </div>
+      </details>
+
+      <details><summary>주택청약 · 연금저축 · IRP <span class="sum" id="s_save"></span></summary>
+        <div class="fields">
+          <div class="f"><label for="sub">주택청약종합저축 납입액</label><div class="in"><input id="sub" type="number" min="0" step="1"><span>만원</span></div><small>무주택 세대주, 총급여 7천만원 이하. 연 300만원 한도 40%</small></div>
+          <div class="f chk"><input id="subOk" type="checkbox"><label for="subOk">무주택 세대주예요</label></div>
+          <div class="f"><label for="ps">연금저축</label><div class="in"><input id="ps" type="number" min="0" step="1"><span>만원</span></div><small>600만원 한도</small></div>
+          <div class="f"><label for="irp">IRP</label><div class="in"><input id="irp" type="number" min="0" step="1"><span>만원</span></div><small>연금저축과 합쳐 900만원 한도</small></div>
+        </div>
+      </details>
+
+      <details><summary>자녀 · 결혼 <span class="sum" id="s_kid"></span></summary>
+        <div class="fields">
+          <div class="f"><label for="kids8">8세 이상 자녀 수</label><div class="in"><input id="kids8" type="number" min="0" step="1"><span>명</span></div><small>1명 25만 · 2명 55만 · 셋째부터 1명당 40만원</small></div>
+          <div class="f"><label for="birth">2026년 출산·입양</label><div class="in"><select id="birth"><option value="0">없음</option><option value="30">첫째 (30만원)</option><option value="50">둘째 (50만원)</option><option value="70">셋째 이상 (70만원)</option></select></div></div>
+          <div class="f chk"><input id="marry" type="checkbox"><label for="marry">2026년 혼인신고 (생애 1회 50만원)</label></div>
+        </div>
+      </details>
+
+      <details><summary>보험 · 의료비 · 교육비 <span class="sum" id="s_spc"></span></summary>
+        <div class="fields">
+          <div class="f"><label for="ins">보장성 보험료</label><div class="in"><input id="ins" type="number" min="0" step="1"><span>만원</span></div><small>100만원 한도 12%</small></div>
+          <div class="f"><label for="medS">의료비: 본인·65세 이상·장애인·6세 이하</label><div class="in"><input id="medS" type="number" min="0" step="1"><span>만원</span></div><small>한도 없음</small></div>
+          <div class="f"><label for="medO">의료비: 그 밖의 가족</label><div class="in"><input id="medO" type="number" min="0" step="1"><span>만원</span></div><small>700만원 한도. 총급여 3% 넘는 부분만 15%</small></div>
+          <div class="f"><label for="edu">교육비</label><div class="in"><input id="edu" type="number" min="0" step="1"><span>만원</span></div><small>본인 전액, 자녀 1인당 대학 900·초중고 300만원까지 넣기</small></div>
+        </div>
+      </details>
+
+      <details><summary>기부금 · 월세 <span class="sum" id="s_etc"></span></summary>
+        <div class="fields">
+          <div class="f"><label for="pol">정치자금 기부금</label><div class="in"><input id="pol" type="number" min="0" step="1"><span>만원</span></div><small>10만원까지 100/110 공제</small></div>
+          <div class="f"><label for="home">고향사랑기부금</label><div class="in"><input id="home" type="number" min="0" step="1"><span>만원</span></div><small>10만원까지 100/110, 초과분 15%</small></div>
+          <div class="f"><label for="don">일반 기부금 (종교단체 포함)</label><div class="in"><input id="don" type="number" min="0" step="1"><span>만원</span></div><small>1천만원까지 15%, 초과 30%</small></div>
+          <div class="f"><label for="rent">월세 (연간)</label><div class="in"><input id="rent" type="number" min="0" step="1"><span>만원</span></div><small>무주택 세대주, 총급여 8천만원 이하. 1천만원 한도</small></div>
+        </div>
+      </details>
+    </form>
+
+    <aside class="result" aria-live="polite">
+      <div class="hero" id="hero">
+        <div class="lab" id="heroLab">예상 환급액</div>
+        <div class="big" id="heroBig">0원</div>
+        <div class="split"><span>소득세 <b id="hTax">0</b></span><span>지방소득세 <b id="hLocal">0</b></span></div>
+      </div>
+      <div class="slip" id="slip"></div>
+      <div class="tip" id="tip"></div>
+    </aside>
+  </div>
+
+
+  <!-- [광고 자리 1] 애드핏·애드센스 광고 코드를 아래 두 줄 사이에 붙여 넣으세요. 계산 결과와 떨어진 위치라 정책상 안전해요 -->
+  <div class="ad-slot" id="adMain"></div>
+
+  <footer>
+    2025년 귀속 세법에 2026년 귀속부터 적용되는 개정(8세 이상 자녀세액공제 인상분 유지, 자녀 수에 따른 신용카드 공제 한도 확대)을 반영한 추정치입니다. 주택자금 차입금·소득공제 장기펀드·난임 의료비·중소기업 취업자 감면 등은 빠져 있고, 세법은 국회 심의로 바뀔 수 있습니다. 실제 신고 전에는 홈택스 연말정산 미리보기로 한 번 더 확인하세요.
+  </footer>
+
+  <!-- [쿠팡파트너스 상품 자리] 상품을 더 넣으려면 아래 id="adCoupang" 칸 안에 블로그용 태그(<a>…</a>) 코드를 이어서 붙여 넣으세요 (가로로 나란히 놓여요) -->
+  <p class="ad-note" id="coupangHead" style="font-weight:500;color:var(--ink);font-size:.85rem">함께 보면 좋은 상품</p>
+  <div class="ad-slot" id="adCoupang"><a href="https://link.coupang.com/a/h0qGxHPiuG" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/0be906d043593cc7da85ae628e67625d@2x.jpg" alt="LG전자 그램 17인치 i5 8GB 16GB 256GB 512GB 노트북 WIN11, WIN11 Pro" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0quo1j0qi" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image5.coupangcdn.com/image/affiliate/banner/4a448182838f266f4f207ae215f8763e@2x.jpg" alt="몸애비책 침향환 30% 선물세트(+보자기) 공진단경옥고상자 별매 30환, 112.5g, 1박스" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0qwi0sQ6C" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image6.coupangcdn.com/image/affiliate/banner/f06feb1d6f8219a25e514665d037ff3b@2x.jpg" alt="무브핏 핏큐브 바이크 가정용 실내 자전거 접이식 미니, 크림 아이보리" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0qxBFWYZo" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/5a969659f84b7f338f6a91ea52635b7c@2x.jpg" alt="LG전자 코드제로 R5 로봇청소기 R585WKA, R585WKA1, 카밍베이지" width="120" height="240"></a></div>
+  <p class="ad-note" id="coupangNote" hidden>이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+</div>
+<script>
+const M=10000, IDS=["S","paid","deps","elder","disab","np","hi","ei","cc","dc","cul","mkt","bus","kidsAll","sub","ps","irp","kids8","ins","medS","medO","edu","pol","home","don","rent"];
+const CHK=["spouse","bunyeo","hanbumo","subOk","marry"];
+const SAMPLE={S:5200,paid:210,deps:0,elder:0,disab:0,np:247,hi:211,ei:47,cc:1500,dc:600,cul:50,mkt:30,bus:80,kidsAll:0,sub:240,ps:300,irp:0,kids8:0,ins:80,medS:40,medO:0,edu:0,pol:0,home:10,don:0,rent:0,birth:"0",subOk:true};
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString("ko-KR")+"원";
+const man=n=>(n/M).toLocaleString("ko-KR",{maximumFractionDigits:1})+"만";
+
+function earnedDed(S){let d;
+  if(S<=5e6)d=S*.7;else if(S<=15e6)d=3.5e6+(S-5e6)*.4;else if(S<=45e6)d=7.5e6+(S-15e6)*.15;
+  else if(S<=1e8)d=12e6+(S-45e6)*.05;else d=14.75e6+(S-1e8)*.02;return Math.min(d,2e7);}
+const BR=[[14e6,.06,0],[5e7,.15,1.26e6],[8.8e7,.24,5.76e6],[1.5e8,.35,15.44e6],[3e8,.38,19.94e6],[5e8,.40,25.94e6],[1e9,.42,35.94e6],[Infinity,.45,65.94e6]];
+function calcTax(b){for(const[t,r,k]of BR)if(b<=t)return{tax:Math.max(0,b*r-k),rate:r};}
+function earnedCredit(tax,S){const c=tax<=1.3e6?tax*.55:715000+(tax-1.3e6)*.3;let lim;
+  if(S<=33e6)lim=740000;else if(S<=7e7)lim=Math.max(740000-(S-33e6)*.008,660000);
+  else if(S<=1.2e8)lim=Math.max(660000-(S-7e7)*.5,500000);else lim=Math.max(500000-(S-1.2e8)*.5,200000);
+  return Math.min(c,lim);}
+function card(v,S){const low=S<=7e7;const items=[["cc",.15],["dc",.30],["cul",low?.30:.30],["mkt",.40],["bus",.40]];
+  let th=S*.25,ded={},spend=0;
+  for(const[k,r]of items){const a=v[k];spend+=a;const used=Math.min(a,th);th-=used;ded[k]=(a-used)*r;}
+  const total=Object.values(ded).reduce((a,b)=>a+b,0);
+  const kids=Math.min(v.kidsAll,2);const L=low?3e6+kids*5e5:2.5e6+kids*2.5e5;
+  const basic=Math.min(total,L);const extraPool=low?ded.cul+ded.mkt+ded.bus:ded.mkt+ded.bus;
+  const extra=Math.min(Math.max(total-L,0),extraPool,low?3e6:2e6);
+  return{ded:basic+extra,threshold:S*.25,spend,limit:L,over:Math.max(total-L-extra,0)};}
+
+function read(){const v={};IDS.forEach(k=>v[k]=Math.max(0,parseFloat($(k).value)||0));
+  ["S","paid","np","hi","ei","cc","dc","cul","mkt","bus","sub","ps","irp","ins","medS","medO","edu","pol","home","don","rent"].forEach(k=>v[k]*=M);
+  CHK.forEach(k=>v[k]=$(k).checked);v.birth=+$("birth").value*M;return v;}
+
+function compute(v){const S=v.S;const ed=earnedDed(S);const inc=Math.max(S-ed,0);
+  const nBase=1+(v.spouse?1:0)+v.deps;
+  let person=nBase*1.5e6+v.elder*1e6+v.disab*2e6;
+  const han=v.hanbumo,bun=!han&&v.bunyeo&&inc<=3e7;person+=han?1e6:bun?5e5:0;
+  const c=card(v,S);const subD=(v.subOk&&S<=7e7)?Math.min(v.sub,3e6)*.4:0;
+  const otherD=Math.min(c.ded+subD,2.5e7);
+  const special=v.hi+v.ei;
+  const k=v.kids8;const child=k<=0?0:k==1?25e4:k==2?55e4:55e4+(k-2)*40e4;
+  const pens=Math.min(Math.min(v.ps,6e6)+v.irp,9e6)*(S<=5.5e7?.15:.12);
+  const giftSmall=x=>Math.min(x,1e5)*100/110+Math.max(x-1e5,0)*.15;
+  const polC=giftSmall(Math.min(v.pol,3e7)),homeC=giftSmall(Math.min(v.home,2e7));
+  const insC=Math.min(v.ins,1e6)*.12;
+  const th=S*.03;const oE=Math.min(Math.max(v.medO-th,0),7e6);const sE=Math.max(v.medS-Math.max(th-v.medO,0),0);const medC=(oE+sE)*.15;
+  const eduC=v.edu*.15;const donC=Math.min(v.don,1e7)*.15+Math.max(v.don-1e7,0)*.3;
+  const rentC=S<=8e7?Math.min(v.rent,1e7)*(S<=5.5e7?.17:.15):0;
+  const marry=v.marry?5e5:0;
+  function run(itemized){const base=Math.max(inc-person-v.np-(itemized?special:0)-otherD,0);
+    const{tax,rate}=calcTax(base);const ec=earnedCredit(tax,S);
+    const credits=[["근로소득세액공제",ec],["자녀세액공제",child],["출산·입양",v.birth],["혼인세액공제",marry],["연금계좌",pens],["정치자금·고향사랑",polC+homeC]];
+    if(itemized)credits.push(["보장성 보험료",insC],["의료비",medC],["교육비",eduC],["기부금",donC],["월세",rentC]);
+    else credits.push(["표준세액공제",13e4]);
+    const sumC=credits.reduce((a,[,x])=>a+x,0);const det=Math.floor(Math.max(tax-sumC,0)/10)*10;
+    return{base,tax,rate,credits:credits.filter(([,x])=>x>0),sumC,det,itemized};}
+  const A=run(true),B=run(false);const R=A.det<=B.det?A:B;
+  const local=Math.floor(R.det*.1/10)*10,paidLocal=Math.floor(v.paid*.1/10)*10;
+  return{S,ed,inc,person,np:v.np,special:R.itemized?special:0,card:c,subD,otherD,R,local,paidLocal,diff:(R.det-v.paid)+(local-paidLocal),alt:R===A?B:A,v};}
+
+function render(){const v=read();try{localStorage.setItem("yt26",JSON.stringify(snapshot()))}catch(e){}
+  const r=compute(v),R=r.R;
+  const hero=$("hero"),refund=r.diff<=0;hero.className="hero "+(refund?"refund":"owe");
+  $("heroLab").textContent=refund?"예상 환급액":"예상 추가 납부액";$("heroBig").textContent=won(Math.abs(r.diff));
+  $("hTax").textContent=won(R.det-v.paid);$("hLocal").textContent=won(r.local-r.paidLocal);
+  const row=(l,x,cls="")=>`<div class="row ${cls}"><span>${l}</span><span class="v">${x}</span></div>`;
+  let h=`<h2>소득공제</h2>`+row("총급여",won(r.S))+row("근로소득공제","− "+won(r.ed),"sub")+row("근로소득금액",won(r.inc))
+   +row("인적공제","− "+won(r.person),"sub")+row("국민연금","− "+won(r.np),"sub");
+  if(r.special)h+=row("건강·고용보험","− "+won(r.special),"sub");
+  if(r.otherD)h+=row("신용카드·청약","− "+won(r.otherD),"sub");
+  h+=row("과세표준",won(R.base),"tot")+`<h2>세액</h2>`+row(`산출세액 (세율 ${R.rate*100}%)`,won(R.tax));
+  R.credits.forEach(([l,x])=>h+=row(l,"− "+won(Math.min(x,R.tax)),"sub"));
+  h+=row("결정세액",won(R.det),"tot")+row("기납부세액","− "+won(v.paid),"sub")+row("지방소득세 (결정세액의 10%)",won(r.local),"sub");
+  $("slip").innerHTML=h;
+  // tip
+  const c=r.card;let t=[];
+  if(c.spend<c.threshold)t.push(`카드 사용액이 총급여의 25%인 <b>${man(c.threshold)}원</b>을 넘어야 카드 공제가 시작돼요. 지금 <b>${man(c.threshold-c.spend)}원</b> 남았어요.`);
+  else if(c.over>0)t.push(`카드 공제가 한도에 걸려 <b>${man(c.over)}원</b>만큼 공제를 못 받고 있어요. 남은 기간엔 신용카드를 더 써도 세금은 줄지 않아요.`);
+  else if(v.cc>c.threshold)t.push(`문턱(${man(c.threshold)}원)은 신용카드로 이미 넘겼어요. 남은 기간엔 체크카드·현금영수증(30%)이 신용카드(15%)보다 공제율이 두 배예요.`);
+  const pensRoom=9e6-Math.min(Math.min(v.ps,6e6)+v.irp,9e6);
+  if(pensRoom>0&&R.det>0)t.push(`연금저축·IRP 한도가 <b>${man(pensRoom)}원</b> 남았어요. 12월까지 채우면 최대 <b>${won(Math.min(pensRoom*(r.S<=5.5e7?.15:.12),R.det))}</b> 더 줄어요(지방세 별도).`);
+  t.push(R.itemized?`항목별 공제가 표준세액공제(13만원)보다 ${won(r.alt.det-R.det)} 유리해서 항목별로 계산했어요.`:`공제 항목이 적어 표준세액공제(13만원)가 ${won(r.alt.det-R.det)} 더 유리해서 그쪽으로 계산했어요.`);
+  $("tip").innerHTML=t.join("<br><br>");
+  // summaries
+  $("s_pay").textContent=man(r.S)+"원";$("s_person").textContent="− "+man(r.person);
+  $("s_ins").textContent=man(v.np+v.hi+v.ei);$("s_card").textContent="공제 "+man(c.ded);
+  $("s_save").textContent=man(v.sub+v.ps+v.irp);$("s_kid").textContent=v.kids8||v.birth||v.marry?"적용":"";
+  $("s_spc").textContent=man(v.ins+v.medS+v.medO+v.edu);$("s_etc").textContent=man(v.pol+v.home+v.don+v.rent);}
+
+function snapshot(){const o={};IDS.forEach(k=>o[k]=$(k).value);CHK.forEach(k=>o[k]=$(k).checked);o.birth=$("birth").value;return o;}
+function fill(o){IDS.forEach(k=>$(k).value=o[k]??"");CHK.forEach(k=>$(k).checked=!!o[k]);$("birth").value=o.birth||"0";}
+$("form").addEventListener("input",()=>{$("exampleChip").hidden=true;render();});
+$("form").addEventListener("change",render);
+$("clearBtn").onclick=()=>{fill({});$("exampleChip").hidden=true;render();};
+$("sampleBtn").onclick=()=>{fill(SAMPLE);$("exampleChip").hidden=false;render();};
+let saved=null;try{saved=JSON.parse(localStorage.getItem("yt26"))}catch(e){}
+if(saved){fill(saved);$("exampleChip").hidden=true;}else fill(SAMPLE);
+render();
+
+// 쿠팡 배너가 들어 있으면 대가성 문구 표시
+(function(){var s=document.getElementById("adCoupang");if(s&&s.children.length)document.getElementById("coupangNote").hidden=false;})();
+</script>
+<div class="sitefoot">
+  <span>© 2026 숨차의 일상 정보함</span>
+  <a class="minor" href="about.html">소개</a><a class="minor" href="contact.html">문의</a><a href="privacy.html">개인정보처리방침</a>
+  <a href="https://blog.naver.com/ijjeong86" target="_blank" rel="noopener">네이버 블로그</a>
+</div>
+</body>
+</html>

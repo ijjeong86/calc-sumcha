@@ -1,0 +1,9 @@
+# Netlify 설정: 빌드 없이 site 폴더를 그대로 사이트로 올려요
+[build]
+  publish = "site"
+  command = ""
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
