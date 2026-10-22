@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="AyxEZnU_y9K-pHDFXkksgQXj9Bq7QUcYZUnuaR0Hlgc" />
+<meta name="naver-site-verification" content="7ae891ecb90476d9316299663bb02e29645ef1b4" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>판매 마진 계산기</title>
+<meta name="description" content="판매가·원가·플랫폼 수수료·배송비·광고비를 넣으면 1개당 순이익과 마진율, 목표 마진에 맞는 판매가까지 바로 계산하는 무료 판매 마진 계산기">
+<meta property="og:title" content="판매 마진 계산기">
+<meta property="og:description" content="판매가·원가·플랫폼 수수료·배송비·광고비를 넣으면 1개당 순이익과 마진율, 목표 마진에 맞는 판매가까지 바로 계산하는 무료 판매 마진 계산기">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://calc-sumcha.com/og-margin.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://calc-sumcha.com/margin.html">
+<meta property="og:site_name" content="숨차의 계산기">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://calc-sumcha.com/margin.html">
+<!-- [광고 승인 코드 자리] 애드센스·애드핏에서 "head 안에 넣으세요"라고 주는 코드가 있으면 이 줄 바로 아래에 붙여 넣으세요 -->
+</head>
+<body>
+<aside class="rail rail-l" aria-label="광고"><span class="rail-tag">광고</span><a href="https://link.coupang.com/a/h0qGxHPiuG" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/0be906d043593cc7da85ae628e67625d@2x.jpg" alt="LG전자 그램 17인치 i5 8GB 16GB 256GB 512GB 노트북 WIN11, WIN11 Pro" width="120" height="240"></a><a href="https://link.coupang.com/a/h0quo1j0qi" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image5.coupangcdn.com/image/affiliate/banner/4a448182838f266f4f207ae215f8763e@2x.jpg" alt="몸애비책 침향환 30% 선물세트(+보자기) 공진단경옥고상자 별매 30환, 112.5g, 1박스" width="120" height="240"></a><p class="rail-note">쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다.</p></aside>
+<aside class="rail rail-r" aria-label="광고"><span class="rail-tag">광고</span><a href="https://link.coupang.com/a/h0qwi0sQ6C" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image6.coupangcdn.com/image/affiliate/banner/f06feb1d6f8219a25e514665d037ff3b@2x.jpg" alt="무브핏 핏큐브 바이크 가정용 실내 자전거 접이식 미니, 크림 아이보리" width="120" height="240"></a><a href="https://link.coupang.com/a/h0qxBFWYZo" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/5a969659f84b7f338f6a91ea52635b7c@2x.jpg" alt="LG전자 코드제로 R5 로봇청소기 R585WKA, R585WKA1, 카밍베이지" width="120" height="240"></a><p class="rail-note">쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다.</p></aside>
+
+
+
+<div class="wrap">
+<div class="topnav"><a class="brand" href="index.html"><span class="mark" aria-hidden="true">₩</span>숨차의 계산기</a><nav><a href="index.html">연말정산</a><a href="salary.html">연봉 실수령액</a><a href="savings.html">예적금 이자</a><a href="loan.html">대출 이자</a><a href="margin.html" aria-current="page">판매 마진</a><a href="guide.html">공제 항목 정리</a><a class="minor" href="about.html">소개</a><a class="minor" href="contact.html">문의</a></nav></div>
+  <header>
+    <h1>판매 마진 계산기</h1>
+    <p>판매가, 원가, 플랫폼 수수료, 배송비, 광고비를 넣으면 <strong>1개 팔 때 실제로 남는 돈</strong>과 마진율을 계산해요. 원하는 마진율을 맞추려면 판매가를 얼마로 해야 하는지도 알려 줘요.</p>
+    <div class="note" style="margin-top:10px"><span class="chip" id="exampleChip">예시: 판매가 29,900원 · 원가 12,000원</span></div>
+  </header>
+
+  <div class="grid">
+    <form class="inputs" id="form" autocomplete="off">
+      <details open><summary>상품 1개 기준</summary>
+        <div class="fields">
+          <div class="f"><label for="price">판매가</label><div class="in"><input id="price" type="number" min="0" step="100" value="29900"><span>원</span></div><small>고객이 결제하는 상품 가격</small></div>
+          <div class="f"><label for="cost">원가</label><div class="in"><input id="cost" type="number" min="0" step="100" value="12000"><span>원</span></div><small>매입가 또는 제조 원가</small></div>
+          <div class="f"><label for="fee">플랫폼 수수료</label><div class="in"><input id="fee" type="number" min="0" max="100" step="0.1" value="10.8"><span>%</span></div><small>결제 수수료 포함. 플랫폼·카테고리마다 달라요</small></div>
+          <div class="f"><label for="ship">배송비 (판매자 부담)</label><div class="in"><input id="ship" type="number" min="0" step="100" value="3000"><span>원</span></div><small>택배사에 내는 1건당 배송비</small></div>
+          <div class="f"><label for="ad">광고비</label><div class="in"><input id="ad" type="number" min="0" step="100" value="2000"><select id="adMode" aria-label="광고비 단위" style="flex:0 0 auto;width:auto;text-align:left"><option value="won">원 / 1개</option><option value="pct">% / 매출</option></select></div><small>1개 팔 때 드는 광고비, 또는 매출 대비 비율</small></div>
+          <div class="f"><label for="qty">월 판매 수량</label><div class="in"><input id="qty" type="number" min="0" step="1" value="100"><span>개</span></div><small>한 달 순이익 계산용</small></div>
+        </div>
+      </details>
+
+      <details><summary>추가 비용 · 부가세</summary>
+        <div class="fields">
+          <div class="f"><label for="shipIn">고객이 낸 배송비</label><div class="in"><input id="shipIn" type="number" min="0" step="100" value="0"><span>원</span></div><small>무료배송이면 0</small></div>
+          <div class="f"><label for="pack">포장·기타 비용</label><div class="in"><input id="pack" type="number" min="0" step="10" value="500"><span>원</span></div><small>박스, 뽁뽁이, 사은품 등</small></div>
+          <div class="f"><label for="target">목표 마진율</label><div class="in"><input id="target" type="number" min="0" max="90" step="1" value="20"><span>%</span></div><small>이 마진을 맞추는 판매가를 계산해요</small></div>
+          <div class="f chk"><input id="vat" type="checkbox"><label for="vat">부가세 반영 (일반과세자)</label></div>
+          <p class="ntx-note" style="grid-column:1/-1;margin:0">부가세를 반영하면 매출의 10%에서 원가·배송비·수수료·광고비·포장비에 포함된 부가세를 뺀 금액을 내야 할 세금으로 계산해요. 모든 비용에 세금계산서나 카드 영수증을 받았다고 가정해요. 간이과세자는 체크하지 마세요.</p>
+        </div>
+      </details>
+
+      <div class="slip" style="padding-bottom:10px">
+        <h2>판매가를 바꾸면</h2>
+        <div class="tablewrap" style="padding:0 18px"><table class="paytable" id="table"></table></div>
+      </div>
+    </form>
+
+    <aside class="result" aria-live="polite">
+      <div class="hero refund" id="hero">
+        <div class="lab" id="heroLab">1개당 순이익</div>
+        <div class="big" id="profit">0원</div>
+        <div class="split"><span>마진율 <b id="margin">0</b></span><span>월 순이익 <b id="monthly">0</b></span></div>
+      </div>
+      <div class="slip" id="slip"></div>
+      <div class="tip" id="tip"></div>
+    </aside>
+  </div>
+
+  <!-- [광고 자리 1] 애드핏·애드센스 광고 코드를 아래 두 줄 사이에 붙여 넣으세요 -->
+  <div class="ad-slot" id="adMain"></div>
+
+  <footer>
+    마진율은 순이익 ÷ 판매가(고객이 낸 배송비 포함 매출)로 계산해요. 플랫폼 수수료는 고객이 결제한 금액 전체(상품 + 고객 배송비)에 붙는다고 보고 계산했어요. 실제 수수료율과 정산 방식은 플랫폼과 카테고리마다 다르니 판매자센터에서 확인하세요. 소득세·반품·재고 손실은 포함하지 않았어요.
+  </footer>
+
+  <!-- [쿠팡파트너스 상품 자리] 상품을 넣으려면 아래 id="adCoupang" 칸 안에 블로그용 태그(<a>…</a>) 코드를 붙여 넣으세요 -->
+  <p class="ad-note" id="coupangHead" style="font-weight:500;color:var(--ink);font-size:.85rem">함께 보면 좋은 상품</p>
+  <div class="ad-slot" id="adCoupang"><a href="https://link.coupang.com/a/h0qGxHPiuG" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/0be906d043593cc7da85ae628e67625d@2x.jpg" alt="LG전자 그램 17인치 i5 8GB 16GB 256GB 512GB 노트북 WIN11, WIN11 Pro" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0quo1j0qi" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image5.coupangcdn.com/image/affiliate/banner/4a448182838f266f4f207ae215f8763e@2x.jpg" alt="몸애비책 침향환 30% 선물세트(+보자기) 공진단경옥고상자 별매 30환, 112.5g, 1박스" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0qwi0sQ6C" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image6.coupangcdn.com/image/affiliate/banner/f06feb1d6f8219a25e514665d037ff3b@2x.jpg" alt="무브핏 핏큐브 바이크 가정용 실내 자전거 접이식 미니, 크림 아이보리" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0qxBFWYZo" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/5a969659f84b7f338f6a91ea52635b7c@2x.jpg" alt="LG전자 코드제로 R5 로봇청소기 R585WKA, R585WKA1, 카밍베이지" width="120" height="240"></a></div>
+  <p class="ad-note" id="coupangNote" hidden>이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>(n<0?"−":"")+Math.round(Math.abs(n)).toLocaleString("ko-KR")+"원";
+const row=(l,x,c="")=>`<div class="row ${c}"><span>${l}</span><span class="v">${x}</span></div>`;
+(function(){var s=$("adCoupang");if(s&&s.children.length)$("coupangNote").hidden=false;})();
+function read(){const v=id=>Math.max(0,+$(id).value||0);
+  return{price:v("price"),cost:v("cost"),fee:v("fee")/100,ship:v("ship"),ad:v("ad"),adMode:$("adMode").value,qty:v("qty"),shipIn:v("shipIn"),pack:v("pack"),target:v("target")/100,vat:$("vat").checked};}
+function calc(a,price){
+  const sales=price+a.shipIn;
+  const fee=sales*a.fee;
+  const ad=a.adMode==="pct"?sales*a.ad/100:a.ad;
+  const costs=a.cost+a.ship+a.pack;
+  const vat=a.vat?Math.max(0,(sales-(costs+fee+ad))/11):0;
+  const profit=sales-costs-fee-ad-vat;
+  return{sales,fee,ad,vat,profit,margin:sales>0?profit/sales:0,costs};}
+function priceFor(a,t){ // 목표 마진율 t를 맞추는 판매가 (이분법)
+  let lo=0,hi=Math.max(1e6,a.cost*20+1e5);
+  const f=p=>{const c=calc(a,p);return c.profit-t*c.sales;};
+  if(f(hi)<0) return null;
+  for(let i=0;i<80;i++){const m=(lo+hi)/2;if(f(m)>=0)hi=m;else lo=m;}
+  return Math.ceil(hi/10)*10;}
+function render(){const a=read();const c=calc(a,a.price);
+  const neg=c.profit<0;
+  $("hero").className="hero "+(neg?"owe":"refund");
+  $("heroLab").textContent=neg?"1개당 손실":"1개당 순이익";
+  $("profit").textContent=won(c.profit);
+  $("margin").textContent=(c.margin*100).toFixed(1)+"%";
+  $("monthly").textContent=won(c.profit*a.qty);
+  let h=`<h2>1개 팔았을 때</h2>`+row("매출 (판매가"+(a.shipIn?" + 고객 배송비":"")+")",won(c.sales))
+    +row("원가","− "+won(a.cost),"sub")+row(`플랫폼 수수료 ${(a.fee*100).toFixed(1)}%`,"− "+won(c.fee),"sub")
+    +row("배송비","− "+won(a.ship),"sub")+row("광고비"+(a.adMode==="pct"?` ${a.ad}%`:""),"− "+won(c.ad),"sub");
+  if(a.pack) h+=row("포장·기타","− "+won(a.pack),"sub");
+  if(a.vat) h+=row("부가세 (납부 예상)","− "+won(c.vat),"sub");
+  h+=row(neg?"순손실":"순이익",won(c.profit),"tot");
+  const markup=a.cost>0?c.profit/a.cost*100:0;
+  h+=row("원가 대비 수익률",markup.toFixed(1)+"%","sub");
+  $("slip").innerHTML=h;
+  // 팁
+  const t=[];
+  const noAd=calc({...a,ad:0},a.price).profit;
+  if(noAd>0) t.push(`광고비는 1개당 <b>${won(noAd)}</b>까지가 본전이에요. 그보다 많이 쓰면 팔수록 손해예요. 광고 수익률(ROAS)로 따지면 <b>${Math.ceil(c.sales/noAd*100).toLocaleString("ko-KR")}%</b> 아래로 떨어지면 손해예요.`);
+  else t.push(`광고비를 빼도 1개당 <b>${won(noAd)}</b>로 손해예요. 판매가를 올리거나 원가·배송비를 줄여야 해요.`);
+  const p=priceFor(a,a.target);
+  if(p!==null){const diff=p-a.price, tg=(a.target*100).toFixed(0);
+    if(diff>0) t.push(`마진율 <b>${tg}%</b>를 맞추려면 판매가를 <b>${won(p)}</b>로, 지금보다 ${won(diff)} 올려야 해요.`);
+    else t.push(`지금 판매가로 마진율 ${tg}%를 넘겼어요. <b>${won(p)}</b>까지 낮춰도 마진율 ${tg}%가 유지돼요.`);}
+  else t.push(`지금 수수료·광고비 구조로는 마진율 ${(a.target*100).toFixed(0)}%를 만들 수 없어요. 수수료율이나 매출 대비 광고비 비율을 낮춰야 해요.`);
+  if(c.ad>0) t.push(`지금 입력한 광고비는 ROAS <b>${Math.round(c.sales/c.ad*100).toLocaleString("ko-KR")}%</b>에 해당해요. 광고 관리 화면의 ROAS가 이보다 낮으면 실제 광고비가 입력값보다 많이 드는 거예요.`);
+  $("tip").innerHTML=t.join("<br><br>");
+  // 판매가별 표
+  let tb=`<tr><th>판매가</th><th style="text-align:right">순이익</th><th style="text-align:right">마진율</th></tr>`;
+  const base=a.price||10000, step=Math.max(100,Math.round(base*0.05/100)*100);
+  for(let k=-4;k<=4;k++){const pp=Math.max(0,base+k*step);const x=calc(a,pp);
+    const on=k===0?' style="background:var(--accent-soft)"':'';
+    tb+=`<tr data-p="${pp}" tabindex="0"${on}><td>${pp.toLocaleString("ko-KR")}원</td><td class="v" style="text-align:right;${x.profit<0?"color:var(--owe)":""}">${won(x.profit)}</td><td class="v" style="text-align:right;color:var(--muted)">${(x.margin*100).toFixed(1)}%</td></tr>`;}
+  $("table").innerHTML=tb;
+  $("table").querySelectorAll("tr[data-p]").forEach(tr=>{const go=()=>{$("price").value=tr.dataset.p;$("exampleChip").hidden=true;render();};tr.onclick=go;tr.onkeydown=e=>{if(e.key=="Enter")go();};});}
+$("form").addEventListener("input",()=>{$("exampleChip").hidden=true;render();});
+$("form").addEventListener("change",render);
+render();
+</script>
+<div class="sitefoot">
+  <span>© 2026 숨차의 일상 정보함</span>
+  <a class="minor" href="about.html">소개</a><a class="minor" href="contact.html">문의</a><a href="privacy.html">개인정보처리방침</a>
+  <a href="https://blog.naver.com/ijjeong86" target="_blank" rel="noopener">네이버 블로그</a>
+</div>
+</body>
+</html>
