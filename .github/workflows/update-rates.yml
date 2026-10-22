@@ -1,29 +1,40 @@
-name: 예적금 금리 매일 갱신
+name: 사이트 배포 + 금리 갱신
 
 on:
+  push:
+    branches: [main]        # 파일을 올리면 바로 사이트에 반영
   schedule:
-    - cron: "17 21 * * *"   # 매일 한국시간 오전 6시 17분
-  workflow_dispatch:         # Actions 화면에서 직접 실행할 수도 있어요
+    - cron: "17 21 * * *"   # 매일 한국시간 오전 6시 17분 금리 갱신
+  workflow_dispatch:         # Actions 화면에서 직접 실행
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  update:
+  deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
       - name: 금리 받아오기
+        continue-on-error: true   # 금감원 서버가 잠깐 안 돼도 사이트 배포는 계속
         env:
           FSS_API_KEY: ${{ secrets.FSS_API_KEY }}
         run: node scripts/fetch-rates.mjs
-      - name: 바뀐 내용 저장
-        run: |
-          git config user.name "rates-bot"
-          git config user.email "rates-bot@users.noreply.github.com"
-          git add site/data/rates.json
-          git diff --cached --quiet || git commit -m "금리 갱신 $(date -u +%F)"
-          git push
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4
