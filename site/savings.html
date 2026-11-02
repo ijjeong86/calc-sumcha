@@ -182,6 +182,11 @@ $("months").addEventListener("change",()=>{const m=+$("months").value;if([6,12,2
 fetch("data/rates.json",{cache:"no-cache"}).then(r=>{if(!r.ok)throw 0;return r.json();}).then(d=>{RATES=d;$("rkDate").textContent=d.updated+" 기준";rkRender();})
   .catch(()=>{$("rkTable").innerHTML=`<tr><td style="color:var(--muted)">지금은 금리 순위를 불러오지 못했어요. <a href="https://finlife.fss.or.kr" target="_blank" rel="noopener">금융상품 한눈에</a>에서 확인한 금리를 위에 직접 넣어 주세요.</td></tr>`;});
 </script>
+<div class="visit" id="visit" hidden>
+  <div class="visit-head"><span>방문자</span><b class="visit-today"></b></div>
+  <div class="visit-chart"></div>
+</div>
+<script src="visitors.js" defer></script>
 <div class="sitefoot">
   <span>© 2026 숨차의 일상 정보함</span>
   <a class="minor" href="about.html">소개</a><a class="minor" href="contact.html">문의</a><a href="privacy.html">개인정보처리방침</a>

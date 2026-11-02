@@ -159,3 +159,21 @@ a{color:var(--accent)}
 @media (min-width:1460px) and (min-height:640px){
   #coupangHead,#adCoupang,#coupangNote{display:none!important}
 }
+
+/* 최근 5일 방문자 위젯 */
+.visit{max-width:1120px;margin:28px auto 0;display:flex;justify-content:flex-end}
+.visit>*{min-width:0}
+.visit{flex-direction:column;align-items:flex-end;gap:2px}
+.visit-head,.visit-chart{width:250px;max-width:100%}
+.visit-head{display:flex;justify-content:space-between;align-items:baseline;font-size:.78rem;color:var(--muted);padding:0 4px}
+.visit-head b{font-family:var(--font-num);font-weight:600;color:var(--accent)}
+.visit-chart{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:4px 6px}
+.visit-chart svg{display:block;width:100%;height:auto}
+.v-line{stroke:var(--accent);stroke-width:1.6;opacity:.45;fill:none}
+.v-line-now{stroke-dasharray:3 3}
+.v-dot{fill:var(--accent)}
+.v-dot-now{fill:var(--surface);stroke:var(--accent);stroke-width:2.5}
+.v-num{font-family:var(--font-num);font-size:11px;font-weight:600;fill:var(--accent);text-anchor:middle}
+.v-day{font-family:var(--font-num);font-size:10.5px;fill:var(--muted);text-anchor:middle}
+.v-day-now{fill:var(--ink);font-weight:600}
+@media (max-width:640px){.visit{align-items:center}}
