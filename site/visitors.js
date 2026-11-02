@@ -27,16 +27,16 @@
     var span = Math.max(max - min, max * 0.25, 1);
     var xs = vals.map(function (_, i) { return L + i * (W - L - R) / 4; });
     var ys = vals.map(function (v) { return T + (H - T - B) * (1 - (v - (max - span)) / span); });
-    var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="최근 5일 방문자 수">';
+    var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" style="display:block;max-width:100%;height:auto" role="img" aria-label="최근 5일 방문자 수">';
     for (var i = 0; i < 4; i++) {
-      s += '<line x1="' + xs[i] + '" y1="' + ys[i] + '" x2="' + xs[i + 1] + '" y2="' + ys[i + 1] + '" class="v-line' + (i === 3 ? ' v-line-now' : '') + '"/>';
+      s += '<line x1="' + xs[i] + '" y1="' + ys[i] + '" x2="' + xs[i + 1] + '" y2="' + ys[i + 1] + '" class="v-line' + (i === 3 ? ' v-line-now' : '') + '" stroke="#1d6a56" stroke-opacity=".45" stroke-width="1.6"' + (i === 3 ? ' stroke-dasharray="3 3"' : '') + '/>';
     }
     vals.forEach(function (v, i) {
       var now = i === 4;
-      s += '<text x="' + xs[i] + '" y="' + (ys[i] - 10) + '" class="v-num">' + v.toLocaleString("ko-KR") + '</text>';
-      s += now ? '<circle cx="' + xs[i] + '" cy="' + ys[i] + '" r="5" class="v-dot-now"/>'
-               : '<circle cx="' + xs[i] + '" cy="' + ys[i] + '" r="3.5" class="v-dot"/>';
-      s += '<text x="' + xs[i] + '" y="' + (H - 8) + '" class="v-day' + (now ? ' v-day-now' : '') + '">' + Number(days[i].slice(8)) + '</text>';
+      s += '<text x="' + xs[i] + '" y="' + (ys[i] - 10) + '" class="v-num" font-size="11" font-weight="600" text-anchor="middle" fill="#1d6a56">' + v.toLocaleString("ko-KR") + '</text>';
+      s += now ? '<circle cx="' + xs[i] + '" cy="' + ys[i] + '" r="5" class="v-dot-now" fill="#fff" stroke="#1d6a56" stroke-width="2.5"/>'
+               : '<circle cx="' + xs[i] + '" cy="' + ys[i] + '" r="3.5" class="v-dot" fill="#1d6a56"/>';
+      s += '<text x="' + xs[i] + '" y="' + (H - 8) + '" class="v-day' + (now ? ' v-day-now' : '') + '" font-size="10.5" text-anchor="middle" fill="#5d6b66">' + Number(days[i].slice(8)) + '</text>';
     });
     s += '</svg>';
     box.querySelector(".visit-chart").innerHTML = s;
