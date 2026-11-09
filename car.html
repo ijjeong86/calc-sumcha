@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="AyxEZnU_y9K-pHDFXkksgQXj9Bq7QUcYZUnuaR0Hlgc" />
+<meta name="naver-site-verification" content="7ae891ecb90476d9316299663bb02e29645ef1b4" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>신차 구매 비용 계산기</title>
+<meta name="description" content="차값만 넣으면 취득세·공채·번호판·탁송료·보험료까지 신차 살 때 실제로 드는 총비용과 매년 자동차세를 바로 계산하는 무료 계산기 (2026년 기준)">
+<meta property="og:title" content="신차 구매 비용 계산기">
+<meta property="og:description" content="차값만 넣으면 취득세·공채·번호판·탁송료·보험료까지 신차 살 때 실제로 드는 총비용과 매년 자동차세를 바로 계산하는 무료 계산기 (2026년 기준)">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://calc-sumcha.com/og-car.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://calc-sumcha.com/car.html">
+<meta property="og:site_name" content="숨차의 계산기">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://calc-sumcha.com/car.html">
+<!-- [광고 승인 코드 자리] 애드센스·애드핏에서 "head 안에 넣으세요"라고 주는 코드가 있으면 이 줄 바로 아래에 붙여 넣으세요 -->
+</head>
+<body>
+<aside class="rail rail-l" aria-label="광고"><span class="rail-tag">광고</span><a href="https://link.coupang.com/a/h0qGxHPiuG" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/0be906d043593cc7da85ae628e67625d@2x.jpg" alt="LG전자 그램 17인치 i5 8GB 16GB 256GB 512GB 노트북 WIN11, WIN11 Pro" width="120" height="240"></a><a href="https://link.coupang.com/a/h0quo1j0qi" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image5.coupangcdn.com/image/affiliate/banner/4a448182838f266f4f207ae215f8763e@2x.jpg" alt="몸애비책 침향환 30% 선물세트(+보자기) 공진단경옥고상자 별매 30환, 112.5g, 1박스" width="120" height="240"></a><p class="rail-note">쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다.</p></aside>
+<aside class="rail rail-r" aria-label="광고"><span class="rail-tag">광고</span><a href="https://link.coupang.com/a/h0qwi0sQ6C" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image6.coupangcdn.com/image/affiliate/banner/f06feb1d6f8219a25e514665d037ff3b@2x.jpg" alt="무브핏 핏큐브 바이크 가정용 실내 자전거 접이식 미니, 크림 아이보리" width="120" height="240"></a><a href="https://link.coupang.com/a/h0qxBFWYZo" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/5a969659f84b7f338f6a91ea52635b7c@2x.jpg" alt="LG전자 코드제로 R5 로봇청소기 R585WKA, R585WKA1, 카밍베이지" width="120" height="240"></a><p class="rail-note">쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다.</p></aside>
+
+
+
+
+<div class="wrap">
+<div class="topnav"><a class="brand" href="index.html"><span class="mark" aria-hidden="true">₩</span>숨차의 계산기</a><nav><a href="index.html">연말정산</a><a href="salary.html">연봉 실수령액</a><a href="savings.html">예적금 이자</a><a href="loan.html">대출 이자</a><a href="car.html" aria-current="page">신차 비용</a><a href="margin.html">판매 마진</a><a href="guide.html">공제 항목 정리</a><a class="minor" href="about.html">소개</a><a class="minor" href="contact.html">문의</a></nav></div>
+  <header>
+    <h1>신차 구매 비용 계산기</h1>
+    <p>견적서의 차량 가격만 넣으면 <strong>취득세, 공채, 번호판, 탁송료, 보험료</strong>까지 차를 받기까지 실제로 드는 돈을 모두 더해 드려요. 매년 내는 자동차세도 함께 알려 줘요. 2026년 기준이에요.</p>
+    <div class="note" style="margin-top:10px"><span class="chip" id="exampleChip">예시: 3,500만원 · 가솔린 1,998cc · 서울</span></div>
+  </header>
+
+  <div class="grid">
+    <form class="inputs" id="form" autocomplete="off">
+      <details open><summary>차량 정보</summary>
+        <div class="fields">
+          <div class="f"><label for="price">차량 가격</label><div class="in"><input id="price" type="number" min="0" step="10" value="3500"><span>만원</span></div><small>옵션 포함, 할인 뒤 최종 가격 (부가세 포함)</small></div>
+          <div class="f"><label for="fuel">연료</label><div class="in"><select id="fuel"><option value="gas">가솔린 · 디젤 · LPG</option><option value="hev">하이브리드</option><option value="ev">전기 · 수소</option></select></div><small>하이브리드 취득세 감면은 끝났어요</small></div>
+          <div class="f" id="ccBox"><label for="cc">배기량</label><div class="in"><input id="cc" type="number" min="0" step="1" value="1998"><span>cc</span></div><small>1,000cc 미만이면 경차로 계산해요</small></div>
+          <div class="f" id="sizeBox" hidden><label for="size">차 크기</label><div class="in"><select id="size"><option value="mini">경형 (레이 EV 등)</option><option value="small">소형</option><option value="mid" selected>중형</option><option value="large">대형</option></select></div><small>공채 매입 기준에 쓰여요</small></div>
+          <div class="f"><label for="year">출고(인도) 시기</label><div class="in"><select id="year"><option value="2026">2026년 안</option><option value="2027">2027년 이후</option></select></div><small>전기차 취득세 감면이 바뀔 수 있어요</small></div>
+          <div class="f"><label for="region">등록 지역</label><div class="in"><select id="region"><option value="seoul">서울</option><option value="gyeonggi">경기</option><option value="busan">부산</option><option value="daegu">대구</option><option value="etc">그 밖의 지역 (직접 입력)</option></select></div><small>지역마다 공채 기준이 달라요</small></div>
+        </div>
+      </details>
+
+      <details open><summary>그 밖의 비용 (견적서 보고 고치세요)</summary>
+        <div class="fields">
+          <div class="f"><label for="bondRate">공채 매입률</label><div class="in"><input id="bondRate" type="number" min="0" max="30" step="0.1" value="20"><span>%</span></div><small id="bondHint">지역과 배기량에 맞춰 자동으로 채워져요</small></div>
+          <div class="f"><label for="disc">공채 즉시 매도 할인율</label><div class="in"><input id="disc" type="number" min="0" max="30" step="0.1" value="6"><span>%</span></div><small>매일 바뀌어요. 6%는 예시값</small></div>
+          <div class="f"><label for="plate">번호판 · 인지 · 증지대</label><div class="in"><input id="plate" type="number" min="0" step="1000" value="30000"><span>원</span></div><small>지역·번호판 종류에 따라 몇만원</small></div>
+          <div class="f"><label for="agent">등록 대행 수수료</label><div class="in"><input id="agent" type="number" min="0" step="1000" value="0"><span>원</span></div><small>직접 등록하면 0</small></div>
+          <div class="f"><label for="ship">탁송료</label><div class="in"><input id="ship" type="number" min="0" step="1000" value="250000"><span>원</span></div><small>견적서에 적힌 금액</small></div>
+          <div class="f"><label for="ins">첫해 자동차보험료</label><div class="in"><input id="ins" type="number" min="0" step="10000" value="0"><span>원</span></div><small>다이렉트 보험 견적 금액</small></div>
+          <div class="f"><label for="acc">용품 (썬팅 · 블랙박스 등)</label><div class="in"><input id="acc" type="number" min="0" step="10000" value="0"><span>원</span></div><small>선택 사항</small></div>
+        </div>
+      </details>
+    </form>
+
+    <aside class="result" aria-live="polite">
+      <div class="hero refund">
+        <div class="lab">차를 받기까지 총비용</div>
+        <div class="big" id="total">0원</div>
+        <div class="split"><span>차값 외 추가 <b id="extra">0</b></span><span>매년 자동차세 <b id="ytax">0</b></span></div>
+      </div>
+      <div class="slip" id="slip"></div>
+      <div class="tip" id="tip"></div>
+    </aside>
+  </div>
+
+  <!-- [광고 자리 1] 애드핏·애드센스 광고 코드를 아래 두 줄 사이에 붙여 넣으세요 -->
+  <div class="ad-slot" id="adMain"></div>
+
+  <footer>
+    비영업용 승용차를 새로 사서 개인이 등록하는 경우를 기준으로 계산했어요. 취득세 과세표준은 차량 가격에서 부가세를 뺀 금액이에요. 공채 매입률은 2026년 10월 확인한 각 지역 조례·안내를 기준으로 채웠지만 지역 조례가 자주 바뀌니 등록할 차량등록사업소나 딜러에게 꼭 확인하세요. 전기차 2027년 감면액은 정부 개정안(한도 70만원) 기준 예상치이고 국회 심사에서 바뀔 수 있어요. 다자녀·장애인 감면, 법인·영업용, 중고차 이전등록은 반영하지 않았어요.
+  </footer>
+
+  <!-- [쿠팡파트너스 상품 자리] 상품을 넣으려면 아래 id="adCoupang" 칸 안에 블로그용 태그(<a>…</a>) 코드를 붙여 넣으세요 -->
+  <p class="ad-note" id="coupangHead" style="font-weight:500;color:var(--ink);font-size:.85rem">함께 보면 좋은 상품</p>
+  <div class="ad-slot" id="adCoupang"><a href="https://link.coupang.com/a/h0qGxHPiuG" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/0be906d043593cc7da85ae628e67625d@2x.jpg" alt="LG전자 그램 17인치 i5 8GB 16GB 256GB 512GB 노트북 WIN11, WIN11 Pro" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0quo1j0qi" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image5.coupangcdn.com/image/affiliate/banner/4a448182838f266f4f207ae215f8763e@2x.jpg" alt="몸애비책 침향환 30% 선물세트(+보자기) 공진단경옥고상자 별매 30환, 112.5g, 1박스" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0qwi0sQ6C" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image6.coupangcdn.com/image/affiliate/banner/f06feb1d6f8219a25e514665d037ff3b@2x.jpg" alt="무브핏 핏큐브 바이크 가정용 실내 자전거 접이식 미니, 크림 아이보리" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0qxBFWYZo" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/5a969659f84b7f338f6a91ea52635b7c@2x.jpg" alt="LG전자 코드제로 R5 로봇청소기 R585WKA, R585WKA1, 카밍베이지" width="120" height="240"></a></div>
+  <p class="ad-note" id="coupangNote" hidden>이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString("ko-KR")+"원";
+const man=n=>(n/1e4).toLocaleString("ko-KR",{maximumFractionDigits:0})+"만원";
+const row=(l,x,c="")=>`<div class="row ${c}"><span>${l}</span><span class="v">${x}</span></div>`;
+(function(){var s=$("adCoupang");if(s&&s.children.length)$("coupangNote").hidden=false;})();
+const f10=n=>Math.floor(n/10)*10;
+function sizeOf(a){ if(a.fuel==="ev") return a.size; if(a.cc<1000) return "mini"; if(a.cc<1600) return "small"; if(a.cc<2000) return "mid"; return "large"; }
+// 비영업용 승용 신규등록 공채 매입률 (2026년 10월 확인 기준)
+const BOND={
+  seoul:{mini:0,small:0,mid:12,large:20, note:"서울 도시철도공채: 경형·소형 면제, 중형 12%, 대형 20%. 전기·수소차는 매입액 중 250만원 면제"},
+  gyeonggi:{mini:0,small:0,mid:8,large:12, note:"경기 지역개발채권: 1,600cc 이하 면제, 1,600cc 초과 8%, 2,000cc 초과 12%"},
+  busan:{mini:0,small:0,mid:0,large:0, note:"부산 도시철도채권: 비영업용 신규 승용 대부분 2026년 말까지 면제"},
+  daegu:{mini:0,small:0,mid:0,large:5, note:"대구 도시철도채권: 경형·소형·중형 면제, 대형 5%"},
+  etc:null};
+let lastAuto=null;
+function autoBond(){const a=read(false);const r=BOND[a.region];
+  if(!r){$("bondHint").textContent="그 밖의 지역은 차량등록사업소 안내를 보고 직접 넣어 주세요";return;}
+  const v=r[sizeOf(a)];$("bondRate").value=v;lastAuto=v;$("bondHint").textContent=r.note;}
+function read(){const n=id=>Math.max(0,+$(id).value||0);
+  return{price:n("price")*1e4,fuel:$("fuel").value,cc:n("cc"),size:$("size").value,year:$("year").value,region:$("region").value,
+    bondRate:n("bondRate")/100,disc:n("disc")/100,plate:n("plate"),agent:n("agent"),ship:n("ship"),ins:n("ins"),acc:n("acc")};}
+function calc(a){
+  const base=Math.floor(a.price/1.1);                 // 과세표준: 부가세 제외
+  const sz=sizeOf(a), mini=sz==="mini";
+  const rate=mini?0.04:0.07;
+  let tax=f10(base*rate), cut=0, cutNote="";
+  if(mini){cut=Math.min(tax,750000);cutNote="경차 감면 (최대 75만원, 2027년 말까지)";}
+  else if(a.fuel==="ev"){const lim=a.year==="2026"?1400000:700000;cut=Math.min(tax,lim);cutNote=a.year==="2026"?"전기차 감면 (최대 140만원, 2026년 말까지)":"전기차 감면 (개정안 기준 최대 70만원, 예상)";}
+  const acq=tax-cut;
+  let bondBuy=base*a.bondRate;
+  if(a.region==="seoul"&&a.fuel==="ev") bondBuy=Math.max(0,bondBuy-2500000);
+  bondBuy=Math.round(bondBuy/5000)*5000;
+  const bondCost=f10(bondBuy*a.disc);
+  const reg=acq+bondCost+a.plate+a.agent;
+  const other=a.ship+a.ins+a.acc;
+  // 매년 자동차세 (비영업용 승용, 지방교육세 30% 포함)
+  let ytax;
+  if(a.fuel==="ev") ytax=130000;
+  else {const per=a.cc<=1000?80:a.cc<=1600?140:200; ytax=f10(a.cc*per*1.3);}
+  return{base,rate,tax,cut,cutNote,acq,bondBuy,bondCost,reg,other,total:a.price+reg+other,ytax,sz};}
+function render(){const a=read();const c=calc(a);
+  $("ccBox").hidden=a.fuel==="ev";$("sizeBox").hidden=a.fuel!=="ev";
+  $("total").textContent=won(c.total);
+  $("extra").textContent=won(c.total-a.price);
+  $("ytax").textContent=won(c.ytax);
+  let h=`<h2>등록할 때 내는 돈</h2>`+row("차량 가격",won(a.price))
+    +row(`취득세 ${(c.rate*100).toFixed(0)}% (과세표준 ${man(c.base)})`,won(c.tax),"sub");
+  if(c.cut) h+=row(c.cutNote,"− "+won(c.cut),"sub");
+  h+=row(`공채 ${(a.bondRate*100).toFixed(1).replace(/\.0$/,"")}% 매입 후 즉시 매도`,c.bondBuy?won(c.bondCost):"면제","sub")
+    +row("번호판 · 인지 · 증지대",won(a.plate),"sub");
+  if(a.agent) h+=row("등록 대행 수수료",won(a.agent),"sub");
+  h+=row("등록비 합계",won(c.reg),"tot");
+  h+=`<h2>차를 받기 전에 드는 돈</h2>`+row("탁송료",won(a.ship),"sub")+row("첫해 보험료",a.ins?won(a.ins):"입력 안 함","sub")+row("용품",won(a.acc),"sub")
+    +row("총비용",won(c.total),"tot");
+  $("slip").innerHTML=h;
+  const t=[];
+  t.push(`차값 말고 <b>${won(c.total-a.price)}</b>이 더 들어요. 차값의 <b>${((c.total-a.price)/Math.max(a.price,1)*100).toFixed(1)}%</b>예요.`);
+  if(c.bondBuy) t.push(`공채는 등록할 때 <b>${won(c.bondBuy)}</b>어치를 사야 해요. 대부분 바로 되팔고 할인된 차액 ${won(c.bondCost)}만 부담해요. 만기(서울 7년, 경기 5년)까지 들고 있으면 이 손해는 없지만 그동안 돈이 묶여요.`);
+  if(a.fuel==="ev"&&a.year==="2027") t.push(`2027년에 받으면 정부 개정안대로라면 2026년보다 취득세를 최대 <b>70만원</b> 더 내요. 연말 출고라면 인도일과 잔금일을 미리 확인하세요.`);
+  if(a.fuel==="hev") t.push(`하이브리드 취득세 감면은 2024년 말로 끝나서 일반 차와 같은 7%예요.`);
+  if(!a.ins) t.push(`첫해 보험료는 차값만큼 차이가 커요. 다이렉트 보험 견적을 받아서 넣으면 총비용이 정확해져요.`);
+  t.push(`자동차세는 매년 6월·12월에 나눠 내요. <b>1월에 1년 치를 미리 내면(연납) 할인</b>받을 수 있어요. 할부로 산다면 <a href="loan.html">대출 이자 계산기</a>로 이자도 확인해 보세요.`);
+  $("tip").innerHTML=t.join("<br><br>");}
+["fuel","cc","size","region"].forEach(id=>$(id).addEventListener("change",()=>{autoBond();render();}));
+$("cc").addEventListener("input",()=>{autoBond();});
+$("form").addEventListener("input",()=>{$("exampleChip").hidden=true;render();});
+$("form").addEventListener("change",render);
+autoBond();render();
+</script>
+<div class="visit" id="visit" hidden>
+  <div class="visit-head"><span>방문자</span><b class="visit-today"></b></div>
+  <div class="visit-chart"></div>
+</div>
+<script src="visitors.js" defer></script>
+<div class="sitefoot">
+  <span>© 2026 숨차의 일상 정보함</span>
+  <a class="minor" href="about.html">소개</a><a class="minor" href="contact.html">문의</a><a href="privacy.html">개인정보처리방침</a>
+  <a href="https://blog.naver.com/ijjeong86" target="_blank" rel="noopener">네이버 블로그</a>
+</div>
+</body>
+</html>
