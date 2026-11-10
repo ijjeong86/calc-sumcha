@@ -201,7 +201,7 @@ function pageIndex(all) {
 // ---------- 사이트맵 ----------
 async function sitemap(all) {
   const pages = (await readdir("site")).filter(n => n.endsWith(".html") && !n.startsWith("google"));
-  const pri = { "index.html": "1.0", "salary.html": "0.9", "savings.html": "0.9", "loan.html": "0.9", "car.html": "0.9", "margin.html": "0.9" };
+  const pri = { "index.html": "1.0", "yearend.html": "0.9", "salary.html": "0.9", "savings.html": "0.9", "loan.html": "0.9", "car.html": "0.9", "margin.html": "0.9" };
   const today = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
   const urls = pages.map(n => `  <url><loc>${SITE}/${n === "index.html" ? "" : n}</loc><lastmod>${today}</lastmod><priority>${pri[n] || "0.5"}</priority></url>`);
   urls.push(`  <url><loc>${SITE}/posts/</loc><lastmod>${today}</lastmod><priority>0.8</priority></url>`);
@@ -224,4 +224,14 @@ await mkdir("site/posts", { recursive: true });
 for (const p of unique) await writeFile(`site/posts/${p.slug}.html`, pagePost(p, unique));
 await writeFile("site/posts/index.html", pageIndex(unique));
 await sitemap(unique);
+// 첫 화면에 최신 글 5편 넣기
+try {
+  let home = await readFile("site/index.html", "utf8");
+  const a = "<!--LATEST_POSTS_START-->", b = "<!--LATEST_POSTS_END-->";
+  if (home.includes(a) && unique.length) {
+    const li = unique.slice(0, 5).map(p => `<li><a href="posts/${p.slug}.html"><b>${esc(p.title)}</b><small>${esc(p.category)} · ${fmtDate(p.updated || p.date)}</small></a></li>`).join("");
+    home = home.slice(0, home.indexOf(a) + a.length) + `<ul class="latest">${li}</ul>` + home.slice(home.indexOf(b));
+    await writeFile("site/index.html", home);
+  }
+} catch (e) { console.error("첫 화면 최신 글 넣기 실패:", e.message); }
 console.log(`글 ${unique.length}편 생성 (대기 ${posts.length - live.length}편)`);
