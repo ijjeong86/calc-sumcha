@@ -377,8 +377,8 @@ summary{padding:16px 18px}
 /* 금전운: 오른쪽 칸 크기로 */
 .ft-box{padding:14px 16px 12px}
 .ft-box .tti{grid-template-columns:repeat(6,minmax(0,1fr));gap:5px}
-.ft-box .tti button{padding:6px 0;font-size:.82rem;border-radius:8px}
-.ft-box .tti button small{display:none}
+.ft-box .tti button{padding:6px 0 5px;font-size:.82rem;border-radius:8px;gap:1px}
+.ft-box .tti button small{display:block;font-size:.6rem;letter-spacing:-.02em;line-height:1.2}
 .ft-box .ft-out{margin-top:10px;border:0;padding:4px 2px 0;background:transparent}
 .ft-box .ft-head{font-size:.92rem}
 .ft-box .ft-out p{margin:6px 0 8px;font-size:.9rem}
