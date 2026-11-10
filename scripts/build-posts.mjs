@@ -178,7 +178,6 @@ function pagePost(p, all) {
   s += `<div class="wrap">\n${nav(catSlug)}\n<main class="post">\n`;
   s += `<nav class="crumb" aria-label="위치"><a href="/posts/">정보 글</a> › <a href="/posts/${catSlug}/">${esc(p.category)}</a></nav>\n`;
   s += `<h1>${esc(p.title)}</h1>\n<p class="post-meta">${fmtDate(p.date)} 작성${p.updated ? ` · ${fmtDate(p.updated)} 수정` : ""} · ${mins}분 읽기</p>\n`;
-  if (p.image) s += `<img class="post-hero" src="${esc(p.image)}" alt="${esc(p.title)}" width="1200" height="675">\n`;
   if (p.lead) s += `<p class="post-lead">${esc(p.lead)}</p>\n`;
   if (Array.isArray(p.summary) && p.summary.length) s += `<section class="post-sum"><h2 class="sum-h">3줄 요약</h2><ul>${p.summary.map(x => `<li>${marked.parseInline(String(x))}</li>`).join("")}</ul></section>\n`;
   if (p.calc && p.calc.url) s += `<a class="post-cta" href="${esc(p.calc.url)}"><span>${esc(p.calc.label || "계산기로 바로 계산하기")}</span><b>→</b></a>\n`;
