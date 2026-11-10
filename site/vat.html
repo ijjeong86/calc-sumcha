@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="AyxEZnU_y9K-pHDFXkksgQXj9Bq7QUcYZUnuaR0Hlgc" />
+<meta name="naver-site-verification" content="7ae891ecb90476d9316299663bb02e29645ef1b4" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>부가세 계산기 (공급가액·합계 변환, 납부세액)</title>
+<meta name="description" content="공급가액과 부가세 포함 금액을 바로 바꾸고, 일반과세자·간이과세자가 부가세 신고 때 낼 세금까지 미리 계산하는 무료 부가세 계산기">
+<meta property="og:title" content="부가세 계산기 (공급가액·합계 변환, 납부세액)">
+<meta property="og:description" content="공급가액과 부가세 포함 금액을 바로 바꾸고, 일반과세자·간이과세자가 부가세 신고 때 낼 세금까지 미리 계산하는 무료 부가세 계산기">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://calc-sumcha.com/og-vat.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://calc-sumcha.com/vat.html">
+<meta property="og:site_name" content="숨차의 계산기">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://calc-sumcha.com/vat.html">
+<!-- [광고 승인 코드 자리] 애드센스·애드핏에서 "head 안에 넣으세요"라고 주는 코드가 있으면 이 줄 바로 아래에 붙여 넣으세요 -->
+</head>
+<body>
+<aside class="rail rail-l" aria-label="광고"><span class="rail-tag">광고</span><a href="https://link.coupang.com/a/h0qGxHPiuG" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/0be906d043593cc7da85ae628e67625d@2x.jpg" alt="LG전자 그램 17인치 i5 8GB 16GB 256GB 512GB 노트북 WIN11, WIN11 Pro" width="120" height="240"></a><a href="https://link.coupang.com/a/h0quo1j0qi" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image5.coupangcdn.com/image/affiliate/banner/4a448182838f266f4f207ae215f8763e@2x.jpg" alt="몸애비책 침향환 30% 선물세트(+보자기) 공진단경옥고상자 별매 30환, 112.5g, 1박스" width="120" height="240"></a><p class="rail-note">쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다.</p></aside>
+<aside class="rail rail-r" aria-label="광고"><span class="rail-tag">광고</span><a href="https://link.coupang.com/a/h0qwi0sQ6C" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image6.coupangcdn.com/image/affiliate/banner/f06feb1d6f8219a25e514665d037ff3b@2x.jpg" alt="무브핏 핏큐브 바이크 가정용 실내 자전거 접이식 미니, 크림 아이보리" width="120" height="240"></a><a href="https://link.coupang.com/a/h0qxBFWYZo" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/5a969659f84b7f338f6a91ea52635b7c@2x.jpg" alt="LG전자 코드제로 R5 로봇청소기 R585WKA, R585WKA1, 카밍베이지" width="120" height="240"></a><p class="rail-note">쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다.</p></aside>
+
+
+
+<div class="wrap">
+<div class="topnav"><a class="brand" href="/"><span class="mark" aria-hidden="true">₩</span>숨차의 계산기</a><button type="button" class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button><nav class="menu" aria-label="주 메뉴"><a class="m-season" href="/yearend.html">연말정산</a><details class="dd" data-k="calc"><summary class="is-current">계산기</summary><div class="dd-panel dd-wide"><div class="dd-col"><b>월급 · 세금</b><a href="/yearend.html">연말정산 계산기</a><a href="/salary.html">연봉 실수령액 계산기</a><a href="/severance.html">퇴직금 계산기</a><a href="/unemployment.html">실업급여 계산기</a><a href="/hourly.html">시급·주휴수당 계산기</a></div><div class="dd-col"><b>예적금 · 대출</b><a href="/savings.html">예금·적금 이자 계산기</a><a href="/compound.html">복리 계산기</a><a href="/loan.html">대출 이자 계산기</a></div><div class="dd-col"><b>생활 · 사업</b><a href="/car.html">신차 구매 비용 계산기</a><a href="/margin.html">판매 마진 계산기</a><a href="/vat.html" aria-current="page">부가세 계산기</a></div><a class="dd-all" href="/">전체 계산기 한눈에 보기 →</a></div></details><details class="dd" data-k="posts"><summary>정보 글</summary><div class="dd-panel"><a href="/posts/">전체 글</a><a href="/posts/#tax">연말정산·세금</a><a href="/posts/#work">월급·직장</a><a href="/posts/#money">예적금·대출</a><a href="/posts/#car">자동차</a><a href="/posts/#life">생활·지원금</a></div></details></nav></div>
+  <header>
+    <h1>부가세 계산기</h1>
+    <p>금액을 넣으면 <strong>공급가액·부가세·합계</strong>를 바로 나눠 줘요. 아래에 매출과 매입을 넣으면 <strong>부가세 신고 때 낼 세금</strong>도 미리 볼 수 있어요.</p>
+    <div class="note" style="margin-top:10px"><span class="chip" id="exampleChip">예시: 합계 110,000원</span></div>
+  </header>
+
+  <div class="grid">
+    <form class="inputs" id="form" autocomplete="off" onsubmit="return false">
+      <details open><summary>금액 나누기</summary>
+        <div class="fields">
+          <div class="f"><label for="mode">넣는 금액</label><div class="in"><select id="mode"><option value="total">부가세 포함 금액 (합계)</option><option value="supply">부가세 뺀 금액 (공급가액)</option><option value="tax">부가세만</option></select></div><small>가지고 있는 금액이 어떤 건지 골라요</small></div>
+          <div class="f"><label for="amt">금액</label><div class="in"><input id="amt" type="number" min="0" step="100" value="110000"><span>원</span></div><small>세금계산서·견적서에 적힌 금액</small></div>
+        </div>
+      </details>
+      <details open><summary>신고 때 낼 부가세 미리 보기</summary>
+        <div class="fields">
+          <div class="f"><label for="type">과세 유형</label><div class="in"><select id="type"><option value="gen">일반과세자</option><option value="simple">간이과세자</option></select></div><small>사업자등록증에 적혀 있어요</small></div>
+          <div class="f" id="indF"><label for="ind">업종 (간이과세자)</label><div class="in"><select id="ind"><option value="0.15">소매업 · 음식점업 (15%)</option><option value="0.20">제조업 · 농림어업 · 소화물 운송 (20%)</option><option value="0.25">숙박업 (25%)</option><option value="0.30">건설 · 운수 · 정보통신 · 그 밖의 서비스 (30%)</option><option value="0.40">금융 · 전문서비스 · 부동산임대 등 (40%)</option></select></div><small>괄호 안은 업종별 부가가치율</small></div>
+          <div class="f"><label for="sales">매출 (부가세 포함)</label><div class="in"><input id="sales" type="number" min="0" step="10" value="3000"><span>만원</span></div><small id="salesHint">일반과세자는 6개월, 간이과세자는 1년 매출</small></div>
+          <div class="f"><label for="buy">매입 (부가세 포함)</label><div class="in"><input id="buy" type="number" min="0" step="10" value="1500"><span>만원</span></div><small>세금계산서·카드 영수증을 받은 사업 경비</small></div>
+        </div>
+      </details>
+    </form>
+
+    <aside class="result" aria-live="polite">
+      <div class="hero refund" id="hero">
+        <div class="lab" id="heroLab">부가세</div>
+        <div class="big" id="big">0원</div>
+        <div class="split"><span>공급가액 <b id="s1">0</b></span><span>합계 <b id="s2">0</b></span></div>
+      </div>
+      <div class="slip" id="slip"></div>
+      <div class="tip" id="tip"></div>
+    </aside>
+  </div>
+
+  <!-- [광고 자리 1] 애드핏·애드센스 광고 코드를 아래 두 줄 사이에 붙여 넣으세요 -->
+  <div class="ad-slot" id="adMain"></div>
+
+  <footer>
+    부가세는 공급가액의 10%예요. 합계에서 나눌 때는 공급가액을 합계 ÷ 1.1로 구해 원 단위로 반올림하고, 남는 금액을 부가세로 봤어요. 일반과세자 납부세액은 매출세액 − 매입세액이고, 간이과세자는 매출 × 업종별 부가가치율 × 10% − 매입 × 0.5%로 계산했어요. 신용카드 매출세액공제(발행금액의 1.3%), 의제매입세액공제, 전자신고세액공제, 가산세는 넣지 않았어요. 일반과세자는 1~6월분을 7월 25일까지, 7~12월분을 다음 해 1월 25일까지, 간이과세자는 1년분을 다음 해 1월 25일까지 신고해요.
+  </footer>
+
+  <!-- [쿠팡파트너스 상품 자리] 상품을 넣으려면 아래 id="adCoupang" 칸 안에 블로그용 태그(<a>…</a>) 코드를 붙여 넣으세요 -->
+  <p class="ad-note" id="coupangHead" style="font-weight:500;color:var(--ink);font-size:.85rem">함께 보면 좋은 상품</p>
+  <div class="ad-slot" id="adCoupang"><a href="https://link.coupang.com/a/h0qGxHPiuG" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/0be906d043593cc7da85ae628e67625d@2x.jpg" alt="LG전자 그램 17인치 i5 8GB 16GB 256GB 512GB 노트북 WIN11, WIN11 Pro" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0quo1j0qi" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image5.coupangcdn.com/image/affiliate/banner/4a448182838f266f4f207ae215f8763e@2x.jpg" alt="몸애비책 침향환 30% 선물세트(+보자기) 공진단경옥고상자 별매 30환, 112.5g, 1박스" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0qwi0sQ6C" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image6.coupangcdn.com/image/affiliate/banner/f06feb1d6f8219a25e514665d037ff3b@2x.jpg" alt="무브핏 핏큐브 바이크 가정용 실내 자전거 접이식 미니, 크림 아이보리" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0qxBFWYZo" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/5a969659f84b7f338f6a91ea52635b7c@2x.jpg" alt="LG전자 코드제로 R5 로봇청소기 R585WKA, R585WKA1, 카밍베이지" width="120" height="240"></a></div>
+  <p class="ad-note" id="coupangNote" hidden>이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>(n<0?"−":"")+Math.round(Math.abs(n)).toLocaleString("ko-KR")+"원";
+const num=n=>Math.round(n).toLocaleString("ko-KR");
+const man=n=>{n=Math.round(n);const a=Math.abs(n),e=Math.floor(a/1e8),m=Math.floor(a%1e8/1e4);let s=(e?e+"억 ":"")+(m?m.toLocaleString("ko-KR")+"만":"");if(!s)return num(n)+"원";return (n<0?"−":"")+s.trim()+"원";};
+const row=(l,x,c="")=>`<div class="row ${c}"><span>${l}</span><span class="v">${x}</span></div>`;
+(function(){var s=$("adCoupang");if(s&&s.children.length)$("coupangNote").hidden=false;})();
+const hideChip=()=>{const c=$("exampleChip");if(c)c.hidden=true;};
+
+function split(mode,a){let sup,tax,tot;
+  if(mode==="total"){tot=a;sup=Math.round(a/1.1);tax=tot-sup;}
+  else if(mode==="supply"){sup=a;tax=Math.round(a*.1);tot=sup+tax;}
+  else{tax=a;sup=a*10;tot=sup+tax;}
+  return{sup,tax,tot};}
+function render(){const v=id=>Math.max(0,+$(id).value||0);
+  const m=$("mode").value, x=split(m,v("amt"));
+  $("big").textContent=won(x.tax);$("s1").textContent=won(x.sup);$("s2").textContent=won(x.tot);
+  const simple=$("type").value==="simple";
+  $("indF").hidden=!simple;
+  $("salesHint").textContent=simple?"1년(1~12월) 동안 받은 매출, 부가세 포함":"6개월(1~6월 또는 7~12월) 동안 받은 매출, 부가세 포함";
+  const S=v("sales")*1e4, B=v("buy")*1e4, r=+$("ind").value;
+  let h=`<h2>신고 때 낼 부가세</h2>`, pay, t=[];
+  if(!simple){const st=Math.round(S/11), bt=Math.round(B/11); pay=st-bt;
+    h+=row("매출세액 (매출 ÷ 11)",won(st))+row("매입세액 (매입 ÷ 11)","− "+won(bt),"sub")
+     +row(pay<0?"돌려받을 세금 (환급)":"낼 세금",won(Math.abs(pay)),"tot");
+    if(pay<0)t.push(`매입세액이 더 많아서 <b>${won(-pay)}</b>를 돌려받아요.`);
+    t.push(`매출의 약 <b>${S?((Math.max(0,pay))/S*100).toFixed(1):0}%</b>를 부가세로 내는 셈이에요. 경비를 쓸 때 세금계산서나 사업용 카드로 결제해야 매입세액으로 빼 줘요.`);
+    if(S*2>=1.04e8)t.push(`이 매출이 1년 내내 이어지면 연 매출이 1억 400만원을 넘어서 간이과세를 받을 수 없어요.`);
+    else t.push(`1년 매출이 1억 400만원 아래라면 간이과세자일 때 세금이 얼마인지도 비교해 보세요.`);}
+  else{const st=Math.round(S*r*.1), cr=Math.min(st,Math.round(B*.005)); pay=st-cr;
+    const exempt=S<4.8e7;
+    h+=row(`매출 × ${Math.round(r*100)}% × 10%`,won(st))+row("매입 × 0.5% 공제","− "+won(cr),"sub")
+     +row("계산된 세금",won(pay),"sub")
+     +row(exempt?"낼 세금 (납부 면제)":"낼 세금",exempt?"0원":won(pay),"tot");
+    if(exempt)t.push(`1년 매출이 <b>4,800만원 미만</b>이라 신고는 하되 부가세는 <b>내지 않아요.</b>`);
+    else t.push(`간이과세자는 매출의 약 <b>${S?(pay/S*100).toFixed(1):0}%</b>만 부가세로 내요. 매입이 많아도 환급은 없어요.`);
+    if(S>=1.04e8)t.push(`1년 매출이 <b>1억 400만원 이상</b>이면 다음 해 7월부터 일반과세자로 바뀌어요.`);
+    const gen=Math.round(S/11)-Math.round(B/11);
+    t.push(`같은 매출·매입이면 일반과세자는 <b>${gen<0?"환급 "+won(-gen):won(gen)}</b>을 내요.`);}
+  $("slip").innerHTML=h;$("tip").innerHTML=t.join("<br><br>");
+  $("hero").className="hero refund";}
+$("form").addEventListener("input",()=>{hideChip();render();});
+$("form").addEventListener("change",render);
+render();
+</script>
+<div class="visit" id="visit" hidden>
+  <div class="visit-head"><span>방문자</span><b class="visit-today"></b></div>
+  <div class="visit-chart"></div>
+</div>
+<script src="visitors.js" defer></script>
+<div class="sitefoot">
+  <span>© 2026 숨차의 일상 정보함</span>
+  <a class="minor" href="about.html">소개</a><a class="minor" href="contact.html">문의</a><a href="privacy.html">개인정보처리방침</a>
+  <a href="https://blog.naver.com/ijjeong86" target="_blank" rel="noopener">네이버 블로그</a>
+</div>
+<script src="/nav.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="AyxEZnU_y9K-pHDFXkksgQXj9Bq7QUcYZUnuaR0Hlgc" />
+<meta name="naver-site-verification" content="7ae891ecb90476d9316299663bb02e29645ef1b4" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>퇴직금 계산기 (퇴직소득세·실수령액까지)</title>
+<meta name="description" content="입사일, 퇴사일, 최근 3개월 월급만 넣으면 법정 퇴직금과 퇴직소득세, 실제로 받는 돈까지 바로 계산하는 무료 퇴직금 계산기">
+<meta property="og:title" content="퇴직금 계산기 (퇴직소득세·실수령액까지)">
+<meta property="og:description" content="입사일, 퇴사일, 최근 3개월 월급만 넣으면 법정 퇴직금과 퇴직소득세, 실제로 받는 돈까지 바로 계산하는 무료 퇴직금 계산기">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://calc-sumcha.com/og-severance.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://calc-sumcha.com/severance.html">
+<meta property="og:site_name" content="숨차의 계산기">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://calc-sumcha.com/severance.html">
+<!-- [광고 승인 코드 자리] 애드센스·애드핏에서 "head 안에 넣으세요"라고 주는 코드가 있으면 이 줄 바로 아래에 붙여 넣으세요 -->
+</head>
+<body>
+<aside class="rail rail-l" aria-label="광고"><span class="rail-tag">광고</span><a href="https://link.coupang.com/a/h0qGxHPiuG" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/0be906d043593cc7da85ae628e67625d@2x.jpg" alt="LG전자 그램 17인치 i5 8GB 16GB 256GB 512GB 노트북 WIN11, WIN11 Pro" width="120" height="240"></a><a href="https://link.coupang.com/a/h0quo1j0qi" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image5.coupangcdn.com/image/affiliate/banner/4a448182838f266f4f207ae215f8763e@2x.jpg" alt="몸애비책 침향환 30% 선물세트(+보자기) 공진단경옥고상자 별매 30환, 112.5g, 1박스" width="120" height="240"></a><p class="rail-note">쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다.</p></aside>
+<aside class="rail rail-r" aria-label="광고"><span class="rail-tag">광고</span><a href="https://link.coupang.com/a/h0qwi0sQ6C" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image6.coupangcdn.com/image/affiliate/banner/f06feb1d6f8219a25e514665d037ff3b@2x.jpg" alt="무브핏 핏큐브 바이크 가정용 실내 자전거 접이식 미니, 크림 아이보리" width="120" height="240"></a><a href="https://link.coupang.com/a/h0qxBFWYZo" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/5a969659f84b7f338f6a91ea52635b7c@2x.jpg" alt="LG전자 코드제로 R5 로봇청소기 R585WKA, R585WKA1, 카밍베이지" width="120" height="240"></a><p class="rail-note">쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다.</p></aside>
+
+
+
+<div class="wrap">
+<div class="topnav"><a class="brand" href="/"><span class="mark" aria-hidden="true">₩</span>숨차의 계산기</a><button type="button" class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button><nav class="menu" aria-label="주 메뉴"><a class="m-season" href="/yearend.html">연말정산</a><details class="dd" data-k="calc"><summary class="is-current">계산기</summary><div class="dd-panel dd-wide"><div class="dd-col"><b>월급 · 세금</b><a href="/yearend.html">연말정산 계산기</a><a href="/salary.html">연봉 실수령액 계산기</a><a href="/severance.html" aria-current="page">퇴직금 계산기</a><a href="/unemployment.html">실업급여 계산기</a><a href="/hourly.html">시급·주휴수당 계산기</a></div><div class="dd-col"><b>예적금 · 대출</b><a href="/savings.html">예금·적금 이자 계산기</a><a href="/compound.html">복리 계산기</a><a href="/loan.html">대출 이자 계산기</a></div><div class="dd-col"><b>생활 · 사업</b><a href="/car.html">신차 구매 비용 계산기</a><a href="/margin.html">판매 마진 계산기</a><a href="/vat.html">부가세 계산기</a></div><a class="dd-all" href="/">전체 계산기 한눈에 보기 →</a></div></details><details class="dd" data-k="posts"><summary>정보 글</summary><div class="dd-panel"><a href="/posts/">전체 글</a><a href="/posts/#tax">연말정산·세금</a><a href="/posts/#work">월급·직장</a><a href="/posts/#money">예적금·대출</a><a href="/posts/#car">자동차</a><a href="/posts/#life">생활·지원금</a></div></details></nav></div>
+  <header>
+    <h1>퇴직금 계산기</h1>
+    <p>입사일, 마지막 근무일, 최근 월급만 넣으면 <strong>법정 퇴직금</strong>과 떼는 <strong>퇴직소득세</strong>, 실제로 통장에 들어오는 돈까지 계산해요.</p>
+    <div class="note" style="margin-top:10px"><span class="chip" id="exampleChip">예시: 2021년 3월 입사 · 월급 350만원</span></div>
+  </header>
+
+  <div class="grid">
+    <form class="inputs" id="form" autocomplete="off" onsubmit="return false">
+      <details open><summary>근무 기간</summary>
+        <div class="fields">
+          <div class="f"><label for="start">입사일</label><div class="in"><input id="start" type="date" value="2021-03-02"></div><small>근로계약을 시작한 날</small></div>
+          <div class="f"><label for="end">마지막 근무일</label><div class="in"><input id="end" type="date" value="2026-12-31"></div><small>퇴직일은 이 다음 날이에요</small></div>
+        </div>
+      </details>
+      <details open><summary>퇴사 전 받은 돈 (세전)</summary>
+        <div class="fields">
+          <div class="f"><label for="pay">최근 3개월 월급 (월평균)</label><div class="in"><input id="pay" type="number" min="0" step="10" value="350"><span>만원</span></div><small>기본급 + 매달 받는 수당, 세금 떼기 전</small></div>
+          <div class="f"><label for="bonus">1년 동안 받은 상여금</label><div class="in"><input id="bonus" type="number" min="0" step="10" value="0"><span>만원</span></div><small>퇴사 전 12개월 상여 합계. 3/12만 반영돼요</small></div>
+          <div class="f"><label for="leave">1년 동안 받은 연차수당</label><div class="in"><input id="leave" type="number" min="0" step="1" value="0"><span>만원</span></div><small>안 쓴 연차로 받은 돈. 3/12만 반영돼요</small></div>
+          <div class="f chk"><input id="tax" type="checkbox" checked><label for="tax">퇴직소득세 빼고 보기</label></div>
+        </div>
+      </details>
+      <div class="slip" style="padding-bottom:10px">
+        <h2>퇴사일을 미루면</h2>
+        <div class="tablewrap" style="padding:0 18px"><table class="paytable" id="table"></table></div>
+      </div>
+    </form>
+
+    <aside class="result" aria-live="polite">
+      <div class="hero refund" id="hero">
+        <div class="lab" id="heroLab">받을 퇴직금 (세후)</div>
+        <div class="big" id="big">0원</div>
+        <div class="split"><span>세전 퇴직금 <b id="s1">0</b></span><span>퇴직소득세 <b id="s2">0</b></span></div>
+      </div>
+      <div class="slip" id="slip"></div>
+      <div class="tip" id="tip"></div>
+    </aside>
+  </div>
+
+  <!-- [광고 자리 1] 애드핏·애드센스 광고 코드를 아래 두 줄 사이에 붙여 넣으세요 -->
+  <div class="ad-slot" id="adMain"></div>
+
+  <footer>
+    퇴직금은 근로자퇴직급여 보장법에 따라 1일 평균임금 × 30일 × (재직일수 ÷ 365)로 계산해요. 평균임금은 퇴직일 전 3개월 동안 받은 임금 총액을 그 기간의 날짜 수로 나눈 금액이고, 상여금과 연차수당은 1년 치의 3/12만 넣어요. 평균임금이 통상임금보다 적으면 통상임금으로 계산해요. 퇴직소득세는 2026년 소득세법 기준(근속연수공제·환산급여공제·기본세율)이고 지방소득세 10%를 더했어요. 회사가 퇴직연금(DC형)에 가입했다면 실제 금액은 운용 결과에 따라 달라요.
+  </footer>
+
+  <!-- [쿠팡파트너스 상품 자리] 상품을 넣으려면 아래 id="adCoupang" 칸 안에 블로그용 태그(<a>…</a>) 코드를 붙여 넣으세요 -->
+  <p class="ad-note" id="coupangHead" style="font-weight:500;color:var(--ink);font-size:.85rem">함께 보면 좋은 상품</p>
+  <div class="ad-slot" id="adCoupang"><a href="https://link.coupang.com/a/h0qGxHPiuG" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/0be906d043593cc7da85ae628e67625d@2x.jpg" alt="LG전자 그램 17인치 i5 8GB 16GB 256GB 512GB 노트북 WIN11, WIN11 Pro" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0quo1j0qi" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image5.coupangcdn.com/image/affiliate/banner/4a448182838f266f4f207ae215f8763e@2x.jpg" alt="몸애비책 침향환 30% 선물세트(+보자기) 공진단경옥고상자 별매 30환, 112.5g, 1박스" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0qwi0sQ6C" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image6.coupangcdn.com/image/affiliate/banner/f06feb1d6f8219a25e514665d037ff3b@2x.jpg" alt="무브핏 핏큐브 바이크 가정용 실내 자전거 접이식 미니, 크림 아이보리" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0qxBFWYZo" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/5a969659f84b7f338f6a91ea52635b7c@2x.jpg" alt="LG전자 코드제로 R5 로봇청소기 R585WKA, R585WKA1, 카밍베이지" width="120" height="240"></a></div>
+  <p class="ad-note" id="coupangNote" hidden>이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>(n<0?"−":"")+Math.round(Math.abs(n)).toLocaleString("ko-KR")+"원";
+const num=n=>Math.round(n).toLocaleString("ko-KR");
+const man=n=>{n=Math.round(n);const a=Math.abs(n),e=Math.floor(a/1e8),m=Math.floor(a%1e8/1e4);let s=(e?e+"억 ":"")+(m?m.toLocaleString("ko-KR")+"만":"");if(!s)return num(n)+"원";return (n<0?"−":"")+s.trim()+"원";};
+const row=(l,x,c="")=>`<div class="row ${c}"><span>${l}</span><span class="v">${x}</span></div>`;
+(function(){var s=$("adCoupang");if(s&&s.children.length)$("coupangNote").hidden=false;})();
+const hideChip=()=>{const c=$("exampleChip");if(c)c.hidden=true;};
+
+const D=s=>{const [y,m,d]=s.split("-").map(Number);return new Date(Date.UTC(y,m-1,d));};
+const DAY=864e5, addD=(d,n)=>new Date(d.getTime()+n*DAY);
+const addM=(d,n)=>{const r=new Date(d);const day=r.getUTCDate();r.setUTCDate(1);r.setUTCMonth(r.getUTCMonth()+n);const last=new Date(Date.UTC(r.getUTCFullYear(),r.getUTCMonth()+1,0)).getUTCDate();r.setUTCDate(Math.min(day,last));return r;};
+const fmtD=d=>`${d.getUTCFullYear()}.${d.getUTCMonth()+1}.${d.getUTCDate()}`;
+function rateTax(x){const T=[[14e6,.06,0],[5e7,.15,126e4],[8.8e7,.24,576e4],[1.5e8,.35,1544e4],[3e8,.38,1994e4],[5e8,.40,2594e4],[1e9,.42,3594e4],[Infinity,.45,6594e4]];for(const [lim,r,c] of T)if(x<=lim)return Math.max(0,x*r-c);}
+function yearsDed(n){if(n<=5)return n*1e6;if(n<=10)return 5e6+(n-5)*2e6;if(n<=20)return 1.5e7+(n-10)*2.5e6;return 4e7+(n-20)*3e6;}
+function convDed(x){if(x<=8e6)return x;if(x<=7e7)return 8e6+(x-8e6)*.6;if(x<=1e8)return 4.52e7+(x-7e7)*.55;if(x<=3e8)return 6.17e7+(x-1e8)*.45;return 1.517e8+(x-3e8)*.35;}
+function calc(start,lastDay,a){
+  const retire=addD(lastDay,1);
+  const days=Math.round((retire-start)/DAY);
+  const from=addM(retire,-3), pdays=Math.round((retire-from)/DAY);
+  const wage3=a.pay*3+a.bonus*3/12+a.leave*3/12;
+  const avg=pdays>0?wage3/pdays:0;
+  const ok=days>=365;
+  const sev=ok?Math.floor(avg*30*days/365):0;
+  // 근속연수: 1년 미만 끝수는 1년
+  let n=0;while(addM(start,12*(n+1))<=retire)n++;
+  if(addM(start,12*n)<retire)n++;
+  n=Math.max(1,n);
+  const yd=Math.min(sev,yearsDed(n));
+  const conv=n?(sev-yd)*12/n:0;
+  const cd=convDed(conv), base=Math.max(0,conv-cd);
+  const it=Math.floor(rateTax(base)*n/12/10)*10, lt=Math.floor(it*.1/10)*10;
+  return{retire,days,from,pdays,wage3,avg,ok,sev,n,yd,conv,cd,base,it,lt,tax:it+lt};}
+function read(){const v=id=>Math.max(0,+$(id).value||0);return{pay:v("pay")*1e4,bonus:v("bonus")*1e4,leave:v("leave")*1e4,tax:$("tax").checked};}
+function render(){const a=read();
+  if(!$("start").value||!$("end").value)return;
+  const s=D($("start").value), e=D($("end").value);
+  const c=calc(s,e,a);
+  const net=c.sev-(a.tax?c.tax:0);
+  $("hero").className="hero "+(c.ok?"refund":"owe");
+  $("heroLab").textContent=c.ok?(a.tax?"받을 퇴직금 (세후)":"받을 퇴직금 (세전)"):"퇴직금 대상이 아니에요";
+  $("big").textContent=c.ok?won(net):"0원";
+  $("s1").textContent=won(c.sev);$("s2").textContent=won(c.tax);
+  let h=`<h2>어떻게 계산했나요</h2>`
+   +row("재직일수",`${num(c.days)}일 (${fmtD(s)} ~ ${fmtD(e)})`)
+   +row(`평균임금 계산 기간 (${fmtD(c.from)} ~ ${fmtD(addD(c.retire,-1))})`,`${c.pdays}일`,"sub")
+   +row("그 기간 임금 총액",won(c.wage3),"sub")
+   +row("1일 평균임금",won(c.avg))
+   +row("퇴직금 = 평균임금 × 30 × 재직일수 ÷ 365",won(c.sev),"tot");
+  if(c.ok){h+=row(`근속연수 ${c.n}년 공제`,"− "+won(c.yd),"sub")
+   +row("환산급여 (12년 기준으로 바꾼 금액)",won(c.conv),"sub")
+   +row("환산급여공제","− "+won(c.cd),"sub")
+   +row("과세표준",won(c.base),"sub")
+   +row("퇴직소득세",won(c.it),"sub")+row("지방소득세 (10%)",won(c.lt),"sub")
+   +row("세금 합계",won(c.tax)+(c.sev?` (${(c.tax/c.sev*100).toFixed(1)}%)`:""),"tot");}
+  $("slip").innerHTML=h;
+  const t=[];
+  if(!c.ok){const need=Math.max(0,365-c.days);t.push(`재직일수가 <b>1년(365일)이 안 돼서</b> 법정 퇴직금이 없어요. <b>${need}일</b> 더 다니면 퇴직금 대상이 돼요. 1주 근무가 15시간 이상이어야 하는 것도 조건이에요.`);}
+  else{t.push(`퇴직금은 재직일수에 비례해서 <b>하루 더 다닐 때마다 약 ${won(c.avg*30/365)}</b>씩 늘어나요.`);
+   t.push(`세금 떼기 전 퇴직금을 <b>IRP 계좌로 받으면</b> 퇴직소득세 ${won(c.tax)}를 지금 떼지 않아요. 55세 이후 연금으로 나눠 받으면 세금의 30~40%가 줄어요.`);
+   if(a.bonus===0)t.push(`상여금을 받았다면 꼭 넣어 보세요. 1년 치 상여의 3/12이 평균임금에 더해져요.`);}
+  $("tip").innerHTML=t.join("<br><br>");
+  let tb=`<tr><th>마지막 근무일</th><th style="text-align:right">세전 퇴직금</th><th style="text-align:right">차이</th></tr>`;
+  [0,1,3,6,12].forEach(m=>{const e2=addD(addM(addD(e,1),m),-1);const x=calc(s,e2,a);const on=m===0?' style="background:var(--accent-soft)"':'';
+    tb+=`<tr${on}><td>${fmtD(e2)}${m?` (+${m}개월)`:" (지금)"}</td><td class="v" style="text-align:right">${won(x.sev)}</td><td class="v" style="text-align:right;color:var(--muted)">${m?"+"+won(x.sev-c.sev):"-"}</td></tr>`;});
+  $("table").innerHTML=tb;}
+$("form").addEventListener("input",()=>{hideChip();render();});
+$("form").addEventListener("change",render);
+render();
+</script>
+<div class="visit" id="visit" hidden>
+  <div class="visit-head"><span>방문자</span><b class="visit-today"></b></div>
+  <div class="visit-chart"></div>
+</div>
+<script src="visitors.js" defer></script>
+<div class="sitefoot">
+  <span>© 2026 숨차의 일상 정보함</span>
+  <a class="minor" href="about.html">소개</a><a class="minor" href="contact.html">문의</a><a href="privacy.html">개인정보처리방침</a>
+  <a href="https://blog.naver.com/ijjeong86" target="_blank" rel="noopener">네이버 블로그</a>
+</div>
+<script src="/nav.js" defer></script>
+</body>
+</html>

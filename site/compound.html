@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="AyxEZnU_y9K-pHDFXkksgQXj9Bq7QUcYZUnuaR0Hlgc" />
+<meta name="naver-site-verification" content="7ae891ecb90476d9316299663bb02e29645ef1b4" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>복리 계산기 (적립식 투자 미래 금액)</title>
+<meta name="description" content="처음 넣는 돈과 매달 모으는 돈, 연 수익률, 기간을 넣으면 복리로 불어나는 미래 금액과 연도별 원금·수익을 그래프로 보여 주는 무료 복리 계산기">
+<meta property="og:title" content="복리 계산기 (적립식 투자 미래 금액)">
+<meta property="og:description" content="처음 넣는 돈과 매달 모으는 돈, 연 수익률, 기간을 넣으면 복리로 불어나는 미래 금액과 연도별 원금·수익을 그래프로 보여 주는 무료 복리 계산기">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://calc-sumcha.com/og-compound.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://calc-sumcha.com/compound.html">
+<meta property="og:site_name" content="숨차의 계산기">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://calc-sumcha.com/compound.html">
+<!-- [광고 승인 코드 자리] 애드센스·애드핏에서 "head 안에 넣으세요"라고 주는 코드가 있으면 이 줄 바로 아래에 붙여 넣으세요 -->
+</head>
+<body>
+<aside class="rail rail-l" aria-label="광고"><span class="rail-tag">광고</span><a href="https://link.coupang.com/a/h0qGxHPiuG" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/0be906d043593cc7da85ae628e67625d@2x.jpg" alt="LG전자 그램 17인치 i5 8GB 16GB 256GB 512GB 노트북 WIN11, WIN11 Pro" width="120" height="240"></a><a href="https://link.coupang.com/a/h0quo1j0qi" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image5.coupangcdn.com/image/affiliate/banner/4a448182838f266f4f207ae215f8763e@2x.jpg" alt="몸애비책 침향환 30% 선물세트(+보자기) 공진단경옥고상자 별매 30환, 112.5g, 1박스" width="120" height="240"></a><p class="rail-note">쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다.</p></aside>
+<aside class="rail rail-r" aria-label="광고"><span class="rail-tag">광고</span><a href="https://link.coupang.com/a/h0qwi0sQ6C" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image6.coupangcdn.com/image/affiliate/banner/f06feb1d6f8219a25e514665d037ff3b@2x.jpg" alt="무브핏 핏큐브 바이크 가정용 실내 자전거 접이식 미니, 크림 아이보리" width="120" height="240"></a><a href="https://link.coupang.com/a/h0qxBFWYZo" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/5a969659f84b7f338f6a91ea52635b7c@2x.jpg" alt="LG전자 코드제로 R5 로봇청소기 R585WKA, R585WKA1, 카밍베이지" width="120" height="240"></a><p class="rail-note">쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다.</p></aside>
+
+
+
+<div class="wrap">
+<div class="topnav"><a class="brand" href="/"><span class="mark" aria-hidden="true">₩</span>숨차의 계산기</a><button type="button" class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button><nav class="menu" aria-label="주 메뉴"><a class="m-season" href="/yearend.html">연말정산</a><details class="dd" data-k="calc"><summary class="is-current">계산기</summary><div class="dd-panel dd-wide"><div class="dd-col"><b>월급 · 세금</b><a href="/yearend.html">연말정산 계산기</a><a href="/salary.html">연봉 실수령액 계산기</a><a href="/severance.html">퇴직금 계산기</a><a href="/unemployment.html">실업급여 계산기</a><a href="/hourly.html">시급·주휴수당 계산기</a></div><div class="dd-col"><b>예적금 · 대출</b><a href="/savings.html">예금·적금 이자 계산기</a><a href="/compound.html" aria-current="page">복리 계산기</a><a href="/loan.html">대출 이자 계산기</a></div><div class="dd-col"><b>생활 · 사업</b><a href="/car.html">신차 구매 비용 계산기</a><a href="/margin.html">판매 마진 계산기</a><a href="/vat.html">부가세 계산기</a></div><a class="dd-all" href="/">전체 계산기 한눈에 보기 →</a></div></details><details class="dd" data-k="posts"><summary>정보 글</summary><div class="dd-panel"><a href="/posts/">전체 글</a><a href="/posts/#tax">연말정산·세금</a><a href="/posts/#work">월급·직장</a><a href="/posts/#money">예적금·대출</a><a href="/posts/#car">자동차</a><a href="/posts/#life">생활·지원금</a></div></details></nav></div>
+  <header>
+    <h1>복리 계산기</h1>
+    <p>처음 넣는 돈과 매달 모으는 돈, 연 수익률을 넣으면 <strong>복리로 몇 년 뒤 얼마가 되는지</strong> 계산해요. 연도별로 원금과 수익이 얼마나 쌓이는지 그래프로 보여 줘요.</p>
+    <div class="note" style="margin-top:10px"><span class="chip" id="exampleChip">예시: 처음 1,000만원 · 매달 50만원 · 연 5% · 10년</span></div>
+  </header>
+
+  <div class="grid">
+    <form class="inputs" id="form" autocomplete="off" onsubmit="return false">
+      <details open><summary>투자 조건</summary>
+        <div class="fields">
+          <div class="f"><label for="p0">처음 넣는 돈</label><div class="in"><input id="p0" type="number" min="0" step="10" value="1000"><span>만원</span></div><small>한 번에 넣는 목돈, 없으면 0</small></div>
+          <div class="f"><label for="pm">매달 모으는 돈</label><div class="in"><input id="pm" type="number" min="0" step="1" value="50"><span>만원</span></div><small>매달 초에 넣는다고 계산해요</small></div>
+          <div class="f"><label for="rate">연 수익률</label><div class="in"><input id="rate" type="number" min="0" max="50" step="0.1" value="5"><span>%</span></div><small>예금 3%, 채권 4%, 주식 7% 정도로 비교해 보세요</small></div>
+          <div class="f"><label for="yrs">기간</label><div class="in"><input id="yrs" type="number" min="1" max="50" step="1" value="10"><span>년</span></div><small>최대 50년</small></div>
+          <div class="f"><label for="cmp">복리 주기</label><div class="in"><select id="cmp"><option value="m">월복리 (매달 이자가 붙음)</option><option value="y">연복리 (1년마다 이자가 붙음)</option></select></div><small>펀드·ETF는 월복리와 비슷해요</small></div>
+          <div class="f"><label for="tx">세금</label><div class="in"><select id="tx"><option value="0">비과세 (ISA·연금계좌 등)</option><option value="0.154">이자·배당소득세 15.4%</option></select></div><small>수익 전체에 마지막에 한 번 뗀다고 계산해요</small></div>
+        </div>
+      </details>
+      <div class="slip" style="padding-bottom:10px">
+        <h2>연도별로 쌓이는 돈</h2>
+        <div id="chart" style="padding:4px 18px 8px"></div>
+        <div class="tablewrap" style="padding:0 18px"><table class="paytable" id="table"></table></div>
+      </div>
+    </form>
+
+    <aside class="result" aria-live="polite">
+      <div class="hero refund" id="hero">
+        <div class="lab" id="heroLab">10년 뒤 모이는 돈</div>
+        <div class="big" id="big">0원</div>
+        <div class="split"><span>넣은 원금 <b id="s1">0</b></span><span>수익 <b id="s2">0</b></span></div>
+      </div>
+      <div class="slip" id="slip"></div>
+      <div class="tip" id="tip"></div>
+    </aside>
+  </div>
+
+  <!-- [광고 자리 1] 애드핏·애드센스 광고 코드를 아래 두 줄 사이에 붙여 넣으세요 -->
+  <div class="ad-slot" id="adMain"></div>
+
+  <footer>
+    매달 초에 돈을 넣고, 월복리는 매달 말에 연 수익률 ÷ 12만큼, 연복리는 1년 동안 쌓인 이자를 해마다 원금에 더한다고 계산했어요. 수익률이 해마다 같다고 가정했기 때문에 실제 투자 결과와는 다를 수 있고, 주식·펀드는 원금 손실이 날 수 있어요. 세금은 수익 전체에 마지막에 한 번 15.4%를 떼는 단순 계산이에요.
+  </footer>
+
+  <!-- [쿠팡파트너스 상품 자리] 상품을 넣으려면 아래 id="adCoupang" 칸 안에 블로그용 태그(<a>…</a>) 코드를 붙여 넣으세요 -->
+  <p class="ad-note" id="coupangHead" style="font-weight:500;color:var(--ink);font-size:.85rem">함께 보면 좋은 상품</p>
+  <div class="ad-slot" id="adCoupang"><a href="https://link.coupang.com/a/h0qGxHPiuG" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/0be906d043593cc7da85ae628e67625d@2x.jpg" alt="LG전자 그램 17인치 i5 8GB 16GB 256GB 512GB 노트북 WIN11, WIN11 Pro" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0quo1j0qi" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image5.coupangcdn.com/image/affiliate/banner/4a448182838f266f4f207ae215f8763e@2x.jpg" alt="몸애비책 침향환 30% 선물세트(+보자기) 공진단경옥고상자 별매 30환, 112.5g, 1박스" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0qwi0sQ6C" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image6.coupangcdn.com/image/affiliate/banner/f06feb1d6f8219a25e514665d037ff3b@2x.jpg" alt="무브핏 핏큐브 바이크 가정용 실내 자전거 접이식 미니, 크림 아이보리" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0qxBFWYZo" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/5a969659f84b7f338f6a91ea52635b7c@2x.jpg" alt="LG전자 코드제로 R5 로봇청소기 R585WKA, R585WKA1, 카밍베이지" width="120" height="240"></a></div>
+  <p class="ad-note" id="coupangNote" hidden>이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>(n<0?"−":"")+Math.round(Math.abs(n)).toLocaleString("ko-KR")+"원";
+const num=n=>Math.round(n).toLocaleString("ko-KR");
+const man=n=>{n=Math.round(n);const a=Math.abs(n),e=Math.floor(a/1e8),m=Math.floor(a%1e8/1e4);let s=(e?e+"억 ":"")+(m?m.toLocaleString("ko-KR")+"만":"");if(!s)return num(n)+"원";return (n<0?"−":"")+s.trim()+"원";};
+const row=(l,x,c="")=>`<div class="row ${c}"><span>${l}</span><span class="v">${x}</span></div>`;
+(function(){var s=$("adCoupang");if(s&&s.children.length)$("coupangNote").hidden=false;})();
+const hideChip=()=>{const c=$("exampleChip");if(c)c.hidden=true;};
+
+function sim(a){const r=a.rate/100, out=[]; let bal=a.p0, prin=a.p0, pend=0;
+  for(let m=1;m<=a.yrs*12;m++){bal+=a.pm;prin+=a.pm;
+    if(a.cmp==="m")bal*=1+r/12; else{pend+=bal*r/12; if(m%12===0){bal+=pend;pend=0;}}
+    if(m%12===0)out.push({y:m/12,bal,prin});}
+  return out;}
+function chart(rows){const W=640,H=200,pad=58,bw=(W-pad-8)/rows.length;const mx=Math.max(1,...rows.map(r=>r.bal));
+  const step=rows.length>20?5:rows.length>10?2:1;
+  let g=`<svg viewBox="0 0 ${W} ${H+22}" width="100%" role="img" aria-label="연도별 원금과 수익" style="display:block;max-width:100%;height:auto">`;
+  for(let i=0;i<=4;i++){const yv=mx*i/4,yy=H-(H-10)*i/4;g+=`<line x1="${pad}" x2="${W}" y1="${yy}" y2="${yy}" stroke="var(--line)" stroke-width="1"/><text x="${pad-6}" y="${yy+4}" text-anchor="end" font-size="11" fill="var(--muted)">${yv>=1e8?(yv/1e8).toFixed(1)+"억":Math.round(yv/1e4).toLocaleString("ko-KR")+"만"}</text>`;}
+  rows.forEach((r,i)=>{const x=pad+4+i*bw,w=Math.max(2,bw*.7),hp=(H-10)*r.prin/mx,ht=(H-10)*r.bal/mx;
+    g+=`<rect x="${x}" y="${H-ht}" width="${w}" height="${Math.max(0,ht-hp)}" fill="var(--accent)" rx="2"><title>${r.y}년: 수익 ${man(r.bal-r.prin)}</title></rect><rect x="${x}" y="${H-hp}" width="${w}" height="${hp}" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width=".6"><title>${r.y}년: 원금 ${man(r.prin)}</title></rect>`;
+    if(r.y%step===0||i===rows.length-1)g+=`<text x="${x+w/2}" y="${H+15}" text-anchor="middle" font-size="11" fill="var(--muted)">${r.y}년</text>`;});
+  g+=`</svg><div style="display:flex;gap:14px;font-size:.78rem;color:var(--muted);padding:2px 0 8px"><span><i style="display:inline-block;width:10px;height:10px;background:var(--accent-soft);border:1px solid var(--accent);border-radius:2px;vertical-align:-1px"></i> 넣은 원금</span><span><i style="display:inline-block;width:10px;height:10px;background:var(--accent);border-radius:2px;vertical-align:-1px"></i> 쌓인 수익</span></div>`;
+  return g;}
+function render(){const v=id=>Math.max(0,+$(id).value||0);
+  const a={p0:v("p0")*1e4,pm:v("pm")*1e4,rate:Math.min(50,v("rate")),yrs:Math.min(50,Math.max(1,Math.round(v("yrs"))||1)),cmp:$("cmp").value,tx:+$("tx").value};
+  const rows=sim(a), last=rows[rows.length-1], gain=last.bal-last.prin, tax=Math.floor(gain*a.tx/10)*10, net=last.bal-tax;
+  $("heroLab").textContent=`${a.yrs}년 뒤 모이는 돈`+(a.tx?" (세후)":"");
+  $("big").textContent=man(net);$("s1").textContent=man(last.prin);$("s2").textContent=man(gain-tax);
+  let h=`<h2>계산 결과</h2>`+row("넣은 원금",won(last.prin))+row("복리 수익",won(gain),"sub");
+  if(tax)h+=row("세금 15.4%","− "+won(tax),"sub");
+  h+=row("최종 금액",won(net),"tot")+row("원금 대비 수익률",last.prin?((net/last.prin-1)*100).toFixed(1)+"%":"-","sub");
+  $("slip").innerHTML=h;
+  const t=[];
+  if(a.rate>0)t.push(`'72의 법칙'으로 보면 연 ${a.rate}%에서 돈이 두 배가 되는 데 약 <b>${(72/a.rate).toFixed(1)}년</b>이 걸려요.`);
+  const half=rows[Math.floor(rows.length/2)-1];
+  if(rows.length>=4&&half){const g1=half.bal-half.prin;t.push(`처음 ${half.y}년 동안 쌓인 수익은 ${man(g1)}이지만, 마지막 ${a.yrs-half.y}년 동안은 <b>${man(gain-g1)}</b>이 쌓여요. 복리는 오래 둘수록 커져요.`);}
+  $("tip").innerHTML=t.join("<br><br>");
+  $("chart").innerHTML=chart(rows);
+  let tb=`<tr><th>기간</th><th style="text-align:right">원금</th><th style="text-align:right">평가금액</th></tr>`;
+  const st=rows.length>20?5:rows.length>10?2:1;
+  rows.forEach((r,i)=>{if(r.y%st&&i!==rows.length-1)return;tb+=`<tr><td>${r.y}년</td><td class="v" style="text-align:right">${man(r.prin)}</td><td class="v" style="text-align:right">${man(r.bal)}</td></tr>`;});
+  $("table").innerHTML=tb;}
+$("form").addEventListener("input",()=>{hideChip();render();});
+$("form").addEventListener("change",render);
+render();
+</script>
+<div class="visit" id="visit" hidden>
+  <div class="visit-head"><span>방문자</span><b class="visit-today"></b></div>
+  <div class="visit-chart"></div>
+</div>
+<script src="visitors.js" defer></script>
+<div class="sitefoot">
+  <span>© 2026 숨차의 일상 정보함</span>
+  <a class="minor" href="about.html">소개</a><a class="minor" href="contact.html">문의</a><a href="privacy.html">개인정보처리방침</a>
+  <a href="https://blog.naver.com/ijjeong86" target="_blank" rel="noopener">네이버 블로그</a>
+</div>
+<script src="/nav.js" defer></script>
+</body>
+</html>
