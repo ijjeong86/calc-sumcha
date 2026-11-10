@@ -79,7 +79,16 @@ function mdToHtml(md, onH2) {
 }
 
 const SITE = "https://calc-sumcha.com";
-const CATS = { "연말정산·세금": "tax", "월급·직장": "work", "예적금·대출": "money", "자동차": "car", "생활·지원금": "life" };
+// 분류: 이름 → 주소(/posts/주소/), 소개, 관련 계산기
+const CAT_INFO = [
+  { name: "세금·연금", key: "tax", desc: "연말정산, 부가세, 자동차세, 퇴직연금처럼 해마다 바뀌는 세금과 연금 제도를 내 돈 기준으로 정리했어요.", calcs: [["/yearend.html", "연말정산 계산기"], ["/vat.html", "부가세 계산기"], ["/severance.html", "퇴직금 계산기"]] },
+  { name: "월급·직장", key: "work", desc: "최저임금, 주휴수당, 퇴직금, 실업급여처럼 직장인과 알바가 꼭 알아야 할 월급 이야기를 모았어요.", calcs: [["/salary.html", "연봉 실수령액 계산기"], ["/hourly.html", "시급·주휴수당 계산기"], ["/unemployment.html", "실업급여 계산기"]] },
+  { name: "대출·부동산", key: "home", desc: "대출 규제, 금리, 전월세, 중개수수료처럼 집과 대출에 관한 제도를 계산 예시와 함께 정리했어요.", calcs: [["/loan.html", "대출 이자 계산기"]] },
+  { name: "예적금·투자", key: "money", desc: "예금·적금 금리, 복리, 절세 계좌까지 돈을 모으고 불리는 방법을 숫자로 비교했어요.", calcs: [["/savings.html", "예금·적금 이자 계산기"], ["/compound.html", "복리 계산기"]] },
+  { name: "지원금·혜택", key: "support", desc: "근로장려금, 청년·출산 지원금처럼 신청해야 받는 정부 지원금의 조건과 금액을 정리했어요.", calcs: [] },
+  { name: "경제 이슈", key: "issue", desc: "기준금리, 환율, 새 경제 정책이 내 대출·예금·생활비에 어떤 영향을 주는지 풀어 썼어요.", calcs: [["/loan.html", "대출 이자 계산기"], ["/savings.html", "예금·적금 이자 계산기"]] },
+];
+const CATS = Object.fromEntries(CAT_INFO.map(c => [c.name, c.key]));
 
 // ---------- 공통 틀: car.html에서 머리말·광고·메뉴·바닥글을 가져와요 ----------
 const tpl = await readFile("site/car.html", "utf8");
@@ -107,7 +116,7 @@ function head({ title, desc, url, image, extra = "" }) {
 }
 function nav(current) {
   let n = abs(navRaw.replace(/ aria-current="page"/g, "").replace(/ class="is-current"/g, ""));
-  if (current === "posts") n = n.replace('<details class="dd" data-k="posts"><summary>', '<details class="dd" data-k="posts"><summary class="is-current">');
+  if (current) n = n.replace(`href="/posts/${current}/"`, `href="/posts/${current}/" aria-current="page"`);
   return n;
 }
 const coupangScript = `<script>(function(){var s=document.getElementById("adCoupang");if(s&&s.children.length)document.getElementById("coupangNote").hidden=false;})();</script>\n`;
@@ -164,10 +173,10 @@ function pagePost(p, all) {
     mainEntity: faq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) });
   const extra = `<script type="application/ld+json">${JSON.stringify(ld)}</script>`;
   const image = p.image ? `${SITE}/${String(p.image).replace(/^\//, "")}` : `${SITE}/og-site.png`;
-  const catSlug = CATS[p.category] || "life";
+  const catSlug = CATS[p.category] || "issue";
   let s = head({ title: p.title, desc: p.description || p.title, url, image, extra }) + rails;
-  s += `<div class="wrap">\n${nav("posts")}\n<main class="post">\n`;
-  s += `<nav class="crumb" aria-label="위치"><a href="/posts/">정보 글</a> › <a href="/posts/#${catSlug}">${esc(p.category)}</a></nav>\n`;
+  s += `<div class="wrap">\n${nav(catSlug)}\n<main class="post">\n`;
+  s += `<nav class="crumb" aria-label="위치"><a href="/posts/">정보 글</a> › <a href="/posts/${catSlug}/">${esc(p.category)}</a></nav>\n`;
   s += `<h1>${esc(p.title)}</h1>\n<p class="post-meta">${fmtDate(p.date)} 작성${p.updated ? ` · ${fmtDate(p.updated)} 수정` : ""} · ${mins}분 읽기</p>\n`;
   if (p.lead) s += `<p class="post-lead">${esc(p.lead)}</p>\n`;
   if (Array.isArray(p.summary) && p.summary.length) s += `<section class="post-sum"><h2 class="sum-h">3줄 요약</h2><ul>${p.summary.map(x => `<li>${marked.parseInline(String(x))}</li>`).join("")}</ul></section>\n`;
@@ -184,18 +193,32 @@ function pagePost(p, all) {
   return s;
 }
 
-// ---------- 글 목록 ----------
+// ---------- 글 목록 (전체 + 분류별) ----------
+const card = p => `<li><a href="/posts/${p.slug}.html"><span class="rel-cat">${esc(p.category)}</span><b>${esc(p.title)}</b>${p.description ? `<span class="card-desc">${esc(p.description)}</span>` : ""}<span class="card-date">${fmtDate(p.updated || p.date)}</span></a></li>`;
+function chips(all, cur) {
+  return `<nav class="cat-chips" aria-label="분류"><a href="/posts/"${cur ? "" : ' aria-current="page"'}>전체 ${all.length}</a>${CAT_INFO.map(c => `<a href="/posts/${c.key}/"${cur === c.key ? ' aria-current="page"' : ""}>${esc(c.name)} ${all.filter(p => p.category === c.name).length}</a>`).join("")}</nav>\n`;
+}
 function pageIndex(all) {
   const url = `${SITE}/posts/`;
-  const cats = Object.keys(CATS);
-  let s = head({ title: "정보 글 | 숨차의 계산기", desc: "연말정산, 월급, 예적금·대출, 자동차까지 계산기와 함께 보면 좋은 돈 관련 정보를 정리한 글 모음", url, image: `${SITE}/og-site.png` }) + rails;
-  s += `<div class="wrap">\n${nav("posts")}\n<main class="post-list">\n<h1>정보 글</h1>\n<p class="post-lead">계산기와 함께 보면 좋은 돈·세금 정보를 정리했어요. 글마다 관련 계산기로 바로 이어져요.</p>\n`;
-  s += `<div class="cat-chips" role="tablist"><button type="button" data-c="" aria-pressed="true">전체 ${all.length}</button>${cats.map(c => `<button type="button" data-c="${CATS[c]}" aria-pressed="false">${esc(c)} ${all.filter(p => p.category === c).length}</button>`).join("")}</div>\n`;
-  s += `<ul class="cards">${all.map(p => `<li data-c="${CATS[p.category] || "life"}"><a href="/posts/${p.slug}.html"><span class="rel-cat">${esc(p.category)}</span><b>${esc(p.title)}</b>${p.description ? `<span class="card-desc">${esc(p.description)}</span>` : ""}<span class="card-date">${fmtDate(p.updated || p.date)}</span></a></li>`).join("")}</ul>\n`;
-  s += `<p class="cards-empty" hidden>이 분류의 글은 곧 올라와요. 다른 분류를 눌러 보세요.</p>\n`;
+  let s = head({ title: "정보 글 | 숨차의 계산기", desc: "세금·연금, 월급·직장, 대출·부동산, 예적금·투자, 지원금, 경제 이슈까지 계산기와 함께 보면 좋은 돈 정보 모음", url, image: `${SITE}/og-site.png` }) + rails;
+  s += `<div class="wrap">\n${nav("")}\n<main class="post-list">\n<h1>정보 글</h1>\n<p class="post-lead">정부 제도가 바뀔 때마다 내 돈이 어떻게 달라지는지 정리했어요. 글마다 관련 계산기로 바로 이어져요.</p>\n`;
+  s += chips(all, "");
+  s += `<ul class="cards">${all.map(card).join("")}</ul>\n`;
   s += `</main>\n${bottom}\n</div>\n${coupangScript}`;
-  s += `<script>(function(){var bs=document.querySelectorAll(".cat-chips button"),ls=document.querySelectorAll(".cards li");function go(c){bs.forEach(function(b){b.setAttribute("aria-pressed",b.dataset.c===c)});var n=0;ls.forEach(function(l){l.hidden=!!(c&&l.dataset.c!==c);if(!l.hidden)n++});var em=document.querySelector(".cards-empty");if(em)em.hidden=n>0;}bs.forEach(function(b){b.onclick=function(){go(b.dataset.c);try{history.replaceState(null,"",b.dataset.c?"#"+b.dataset.c:location.pathname)}catch(e){}}});function fromHash(){go(location.hash.slice(1))}window.addEventListener("hashchange",fromHash);if(location.hash)fromHash();})();</script>\n`;
+  // 예전 주소(/posts/#분류)로 들어오면 분류 페이지로 보내요
+  s += `<script>(function(){var m={tax:"tax",work:"work",money:"money",car:"tax",life:"support",home:"home",support:"support",issue:"issue"},h=location.hash.slice(1);if(m[h])location.replace("/posts/"+m[h]+"/");})();</script>\n`;
   s += tail;
+  return s;
+}
+function pageCat(c, all) {
+  const url = `${SITE}/posts/${c.key}/`;
+  const list = all.filter(p => p.category === c.name);
+  let s = head({ title: `${c.name} 정보 | 숨차의 계산기`, desc: c.desc, url, image: `${SITE}/og-site.png` }) + rails;
+  s += `<div class="wrap">\n${nav(c.key)}\n<main class="post-list">\n<nav class="crumb" aria-label="위치"><a href="/posts/">정보 글</a> › ${esc(c.name)}</nav>\n<h1>${esc(c.name)}</h1>\n<p class="post-lead">${esc(c.desc)}</p>\n`;
+  if (c.calcs.length) s += `<div class="cat-calcs">${c.calcs.map(([h, t]) => `<a href="${h}">${esc(t)} <b>→</b></a>`).join("")}</div>\n`;
+  s += chips(all, c.key);
+  s += list.length ? `<ul class="cards">${list.map(card).join("")}</ul>\n` : `<p class="cards-empty">이 분류의 글은 곧 올라와요. 다른 분류 글을 먼저 둘러보세요.</p>\n`;
+  s += `</main>\n${bottom}\n</div>\n${coupangScript}${tail}`;
   return s;
 }
 
@@ -206,6 +229,7 @@ async function sitemap(all) {
   const today = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
   const urls = pages.map(n => `  <url><loc>${SITE}/${n === "index.html" ? "" : n}</loc><lastmod>${today}</lastmod><priority>${pri[n] || "0.5"}</priority></url>`);
   urls.push(`  <url><loc>${SITE}/posts/</loc><lastmod>${today}</lastmod><priority>0.8</priority></url>`);
+  for (const c of CAT_INFO) urls.push(`  <url><loc>${SITE}/posts/${c.key}/</loc><lastmod>${today}</lastmod><priority>0.8</priority></url>`);
   for (const p of all) urls.push(`  <url><loc>${SITE}/posts/${p.slug}.html</loc><lastmod>${p.updated || p.date}</lastmod><priority>0.7</priority></url>`);
   await writeFile("site/sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join("\n")}\n</urlset>\n`);
 }
@@ -224,6 +248,8 @@ const unique = live.filter(p => (seen.has(p.slug) ? (console.error("주소 중�
 await mkdir("site/posts", { recursive: true });
 for (const p of unique) await writeFile(`site/posts/${p.slug}.html`, pagePost(p, unique));
 await writeFile("site/posts/index.html", pageIndex(unique));
+for (const c of CAT_INFO) { await mkdir(`site/posts/${c.key}`, { recursive: true }); await writeFile(`site/posts/${c.key}/index.html`, pageCat(c, unique)); }
+for (const p of unique) if (!CATS[p.category]) console.error("분류 이름 확인 필요:", p.file, p.category);
 await sitemap(unique);
 // 첫 화면에 최신 글 5편 넣기
 try {

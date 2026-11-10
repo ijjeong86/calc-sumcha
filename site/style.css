@@ -303,7 +303,7 @@ summary{padding:16px 18px}
 .topnav.open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .topnav.open .nav-toggle span:nth-child(2){opacity:0}
 .topnav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media (max-width:760px){
+@media (max-width:1080px){
   .topnav{flex-wrap:wrap;padding:10px 0}
   .nav-toggle{display:flex}
   .menu{display:none;flex-basis:100%;flex-direction:column;align-items:stretch;gap:0;padding:6px 0 10px;max-height:calc(100vh - 80px);overflow-y:auto}
@@ -320,4 +320,15 @@ summary{padding:16px 18px}
 .dd,.dd[open]{border:0!important;background:transparent!important;box-shadow:none!important;margin:0!important;padding:0!important;border-radius:0!important}
 .dd[open]>summary::after{content:""}
 .dd>summary{justify-content:flex-start;gap:0}
-@media (max-width:760px){.dd>summary{justify-content:space-between}}
+@media (max-width:1080px){.dd>summary{justify-content:space-between}}
+
+/* 분류 칩(링크)·분류 페이지 계산기 바로가기 */
+.cat-chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+.cat-chips a{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.88rem;color:var(--ink);text-decoration:none;background:var(--surface)}
+.cat-chips a:hover{border-color:var(--accent);color:var(--accent)}
+.cat-chips a[aria-current]{background:var(--accent);border-color:var(--accent);color:#fff}
+.cat-calcs{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.cat-calcs a{display:inline-flex;gap:6px;align-items:center;padding:9px 14px;border-radius:10px;background:var(--accent-soft);color:var(--accent);font-weight:600;font-size:.9rem;text-decoration:none}
+.cat-calcs a:hover{filter:brightness(.97)}
+.menu>a{font-size:.95rem}
+@media (min-width:1081px){.menu>a,.dd>summary{padding:8px 10px}}
