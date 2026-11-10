@@ -2,8 +2,8 @@
 :root{
   --bg:#ffffff; --surface:#ffffff; --field:#f3f5f4; --ink:#16201c; --muted:#5f6b66; --line:#e2e7e4;
   --accent:#1d6a56; --accent-soft:#e3efea; --refund:#1d6a56; --owe:#b0412c; --owe-soft:#f8e7e2;
-  --font-body:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
-  --font-num:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --font-body:"SUIT Variable","Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --font-num:"SUIT Variable","Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#111614; --surface:#161d1a; --field:#1e2623; --ink:#e6ece9; --muted:#95a39d; --line:#29332f;

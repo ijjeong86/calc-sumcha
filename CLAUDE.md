@@ -28,4 +28,4 @@
 - 메뉴는 `site/*.html`의 topnav를 같이 고쳐야 해요 (글 페이지는 `site/car.html`의 메뉴를 복사해 만들어요).
 - 시즌 바로가기는 `scripts/season.mjs`의 SEASONS에서 바꿔요.
 - 금리 API 키(`FSS_API_KEY`), 환율 키(`KOREAEXIM_API_KEY`, 선택)는 GitHub Secrets에만 있어요. 파일에 쓰지 않아요.
-- 디자인을 바꾸면 `style.css?v=` 값을 올려 캐시를 갱신해요.
+- 디자인을 바꾸면 `style.css?v=` 값을 올려 캐시를 갱신해요. 글꼴은 SUIT(본문·제목·숫자 모두)예요.
