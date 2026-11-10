@@ -50,6 +50,20 @@ TPL = '''<html><head><style>body{{margin:0}}*{{font-family:'Noto Sans CJK KR',sa
  <svg style="position:absolute;right:70px;top:150px" width="380" height="380" viewBox="0 0 320 320">{svg}</svg>
 </div></body></html>'''
 
+
+SQ = '''<html><head><style>body{{margin:0}}*{{font-family:'Noto Sans CJK KR',sans-serif}}</style></head><body>
+<div id="c" style="width:720px;height:720px;background:linear-gradient(160deg,{bg} 0%,#ffffff 150%);position:relative;overflow:hidden">
+ <div style="position:absolute;right:-90px;top:-90px;width:420px;height:420px;border-radius:50%;background:{l};opacity:.5"></div>
+ <svg style="position:absolute;right:40px;top:44px" width="330" height="330" viewBox="0 0 320 320">{svg}</svg>
+ <span style="position:absolute;left:48px;top:52px;padding:10px 22px;border-radius:999px;background:{d};color:#fff;font-size:34px;font-weight:700">{cat}</span>
+ <div style="position:absolute;left:48px;right:44px;bottom:56px">
+  <div class="fit" style="font-size:92px;line-height:1.15;font-weight:900;color:#16201c;letter-spacing:-3px;white-space:nowrap">{l1}</div>
+  <div class="fit" style="font-size:80px;line-height:1.2;font-weight:900;color:{d};letter-spacing:-3px;white-space:nowrap;margin-top:6px">{l2}</div>
+ </div>
+</div>
+<script>document.querySelectorAll('.fit').forEach(function(e){{var w=628,s=parseFloat(e.style.fontSize);while(e.scrollWidth>w&&s>40){{s-=2;e.style.fontSize=s+'px';}}}});</script>
+</body></html>'''
+
 def meta(src):
   m = re.match(r"---\s*\n([\s\S]*?)\n---", src)
   y = m.group(1) if m else ""
@@ -74,7 +88,12 @@ def main():
       l1, _, l2 = thumb.partition("|")
       pg.set_content(TPL.format(bg=bg, d=d, l=l, cat=cat, l1=l1, l2=l2, svg=icon(ic, d, l)))
       pg.wait_for_timeout(150)
+      pg.set_viewport_size({"width": 1200, "height": 675})
       pg.screenshot(path=os.path.join(ROOT, "site", path.lstrip("/")), type="jpeg", quality=84)
+      pg.set_viewport_size({"width": 720, "height": 720})
+      pg.set_content(SQ.format(bg=bg, d=d, l=l, cat=cat, l1=l1, l2=l2, svg=icon(ic, d, l)))
+      pg.wait_for_timeout(150)
+      pg.screenshot(path=os.path.join(ROOT, "site", path.lstrip("/").replace(".jpg", "-sq.jpg")), type="jpeg", quality=86)
       if not image or image != path:  # 글 맨 위에 image 줄 추가·고치기
         src = re.sub(r'^image:.*\n', "", src, flags=re.M)
         src = re.sub(r"^(slug:.*)$", rf'\1\nimage: "{path}"', src, count=1, flags=re.M)

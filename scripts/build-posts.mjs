@@ -1,3 +1,4 @@
+import { existsSync } from "node:fs";
 // posts 폴더의 글(.md)을 사이트 글 페이지로 바꿔 site/posts/ 에 만들고,
 // 글 목록(site/posts/index.html)과 사이트맵(site/sitemap.xml)을 새로 만듭니다.
 // GitHub Actions가 사이트를 올릴 때마다 실행해요.
@@ -187,14 +188,16 @@ function pagePost(p, all) {
   if (p.calc && p.calc.url) s += `<a class="post-cta" href="${esc(p.calc.url)}"><span>${esc(p.calc.label || "계산기로 바로 계산하기")}</span><b>→</b></a>\n`;
   if (faq.length) s += `<section class="post-faq"><h2>자주 묻는 질문</h2>${faq.map(f => `<details><summary>${esc(f.q)}</summary><p>${marked.parseInline(String(f.a))}</p></details>`).join("")}</section>\n`;
   if (sources.length) s += `<section class="post-src"><h2>참고한 자료</h2><ol>${sources.map(x => `<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a></li>`).join("")}</ol></section>\n`;
-  if (related.length) s += `<section class="post-rel"><h2>함께 보면 좋은 글</h2><ul>${related.map(r => `<li><a href="/posts/${r.slug}.html">${r.image ? `<img class="card-img" src="${esc(r.image)}" alt="" loading="lazy" width="1200" height="675">` : ""}<span class="rel-cat">${esc(r.category)}</span>${esc(r.title)}</a></li>`).join("")}</ul></section>\n`;
+  if (related.length) s += `<section class="post-rel"><h2>함께 보면 좋은 글</h2><ul>${related.map(r => `<li><a href="/posts/${r.slug}.html">${r.image ? `<img class="card-img" src="${esc(sq(r.image))}" alt="" loading="lazy" width="300" height="300">` : ""}<span class="rel-cat">${esc(r.category)}</span>${esc(r.title)}</a></li>`).join("")}</ul></section>\n`;
   s += `<p class="post-note">이 글은 ${fmtDate(p.updated || p.date)} 기준 공개된 법령과 공식 안내를 바탕으로 정리했어요. 세법과 제도는 바뀔 수 있으니 실제 신고·신청 전에는 국세청 등 공식 기관에서 한 번 더 확인하세요.</p>\n`;
   s += `</main>\n${bottom}\n</div>\n${coupangScript}${tail}`;
   return s;
 }
 
+// 목록용 정사각 썸네일(-sq.jpg)이 있으면 그걸 써요
+function sq(img) { const s = String(img).replace(/\.(jpg|png|webp)$/, "-sq.$1"); return existsSync("site" + (s.startsWith("/") ? s : "/" + s)) ? s : img; }
 // ---------- 글 목록 (전체 + 분류별) ----------
-const card = p => `<li><a href="/posts/${p.slug}.html">${p.image ? `<img class="card-img" src="${esc(p.image)}" alt="" loading="lazy" width="1200" height="675">` : ""}<span class="rel-cat">${esc(p.category)}</span><b>${esc(p.title)}</b>${p.description ? `<span class="card-desc">${esc(p.description)}</span>` : ""}<span class="card-date">${fmtDate(p.updated || p.date)}</span></a></li>`;
+const card = p => `<li><a href="/posts/${p.slug}.html">${p.image ? `<img class="card-img" src="${esc(sq(p.image))}" alt="" loading="lazy" width="300" height="300">` : ""}<span class="rel-cat">${esc(p.category)}</span><b>${esc(p.title)}</b>${p.description ? `<span class="card-desc">${esc(p.description)}</span>` : ""}<span class="card-date">${fmtDate(p.updated || p.date)}</span></a></li>`;
 function chips(all, cur) {
   return `<nav class="cat-chips" aria-label="분류"><a href="/posts/"${cur ? "" : ' aria-current="page"'}>전체 ${all.length}</a>${CAT_INFO.map(c => `<a href="/posts/${c.key}/"${cur === c.key ? ' aria-current="page"' : ""}>${esc(c.name)} ${all.filter(p => p.category === c.name).length}</a>`).join("")}</nav>\n`;
 }
@@ -256,7 +259,7 @@ try {
   let home = await readFile("site/index.html", "utf8");
   const a = "<!--LATEST_POSTS_START-->", b = "<!--LATEST_POSTS_END-->";
   if (home.includes(a) && unique.length) {
-    const li = unique.slice(0, 5).map(p => `<li><a href="posts/${p.slug}.html">${p.image ? `<img src="${esc(p.image.replace(/^\//, ""))}" alt="" loading="lazy" width="1200" height="675">` : ""}<span><b>${esc(p.title)}</b><small>${esc(p.category)}</small></span></a></li>`).join("");
+    const li = unique.slice(0, 5).map(p => `<li><a href="posts/${p.slug}.html">${p.image ? `<img src="${esc(sq(p.image).replace(/^\//, ""))}" alt="" loading="lazy" width="300" height="300">` : ""}<span><b>${esc(p.title)}</b><small>${esc(p.category)}</small></span></a></li>`).join("");
     home = home.slice(0, home.indexOf(a) + a.length) + `<ul class="latest">${li}</ul>` + home.slice(home.indexOf(b));
     await writeFile("site/index.html", home);
   }
