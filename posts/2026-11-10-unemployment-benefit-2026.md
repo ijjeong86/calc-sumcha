@@ -4,6 +4,9 @@ description: "2026년 실업급여는 하루 최대 68,100원, 최소 66,048원�
 category: "월급·직장"
 date: 2026-11-10
 slug: unemployment-benefit-2026
+image: "/img/posts/unemployment-benefit-2026.jpg"
+thumb: "실업급여,|하루에 얼마 받을까?"
+icon: calendar
 lead: "실업급여는 퇴사 전 월급의 60%를 준다고 알려져 있지만, 실제로는 상한액과 하한액이 촘촘해서 대부분 비슷한 금액을 받아요. 금액보다 더 크게 달라지는 건 받는 기간이에요."
 summary:
   - "2026년 실업급여(구직급여)는 **하루 최대 68,100원, 최소 66,048원**이에요. 월급이 달라도 하루 금액 차이는 크지 않아요."

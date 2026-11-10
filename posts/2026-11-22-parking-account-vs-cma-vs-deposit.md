@@ -4,6 +4,9 @@ description: "언제든 꺼낼 수 있는 파킹통장, 증권사 CMA, 묶어 �
 category: "예적금·투자"
 date: 2026-11-22
 slug: parking-account-vs-cma-vs-deposit
+image: "/img/posts/parking-account-vs-cma-vs-deposit.jpg"
+thumb: "비상금 1,000만원,|어디에 둘까?"
+icon: coins
 lead: "비상금이나 곧 쓸 돈을 그냥 월급통장에 두면 이자가 거의 없어요. 하지만 어디로 옮길지는 '언제 쓸 돈인지'와 '얼마나 안전해야 하는지'에 따라 달라요."
 summary:
   - "**파킹통장**은 은행 수시입출금 통장이라 언제든 꺼낼 수 있고 **예금자보호**가 돼요. 금리는 보통 정기예금보다 낮아요."

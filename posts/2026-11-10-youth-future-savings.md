@@ -4,6 +4,9 @@ description: "청년미래적금은 만 19~34세 청년이 월 50만원까지 3�
 category: "지원금·혜택"
 date: 2026-11-10
 slug: youth-future-savings
+image: "/img/posts/youth-future-savings.jpg"
+thumb: "청년미래적금,|3년 뒤 얼마?"
+icon: piggy
 lead: "청년도약계좌의 뒤를 잇는 청년 자산형성 상품이 청년미래적금이에요. 기간이 3년으로 짧아졌고, 중소기업에 다니면 정부가 보태 주는 돈이 두 배예요."
 summary:
   - "만 19~34세, 총급여 **7,500만원 이하**(또는 연매출 3억원 이하 소상공인)이면서 가구 중위소득 **200% 이하**면 가입할 수 있어요."

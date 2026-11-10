@@ -4,6 +4,9 @@ description: "자동차세를 1월에 1년 치 한꺼번에 내면 세금을 깎
 category: "세금·연금"
 date: 2026-11-10
 slug: car-tax-annual-payment-2027
+image: "/img/posts/car-tax-annual-payment-2027.jpg"
+thumb: "자동차세 연납,|얼마나 아낄까?"
+icon: car
 lead: "자동차세는 6월과 12월에 나눠 내는 세금이지만, 미리 1년 치를 내면 그만큼 깎아 줘요. 같은 연납이라도 언제 내느냐에 따라 할인 금액이 달라요."
 summary:
   - "자동차세 연납은 **1월·3월·6월·9월**에 신청할 수 있고, **1월에 낼 때 할인이 가장 커요.**"

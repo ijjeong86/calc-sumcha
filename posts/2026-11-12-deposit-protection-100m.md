@@ -4,6 +4,9 @@ description: "2025년 9월부터 예금자보호 한도가 1억원으로 올랐�
 category: "예적금·투자"
 date: 2026-11-12
 slug: deposit-protection-100m
+image: "/img/posts/deposit-protection-100m.jpg"
+thumb: "예금자보호 1억,|어디까지 안전할까?"
+icon: shield
 lead: "저축은행 금리가 은행보다 높을 때 가장 먼저 드는 걱정은 '망하면 내 돈은?'이에요. 예금자보호 제도를 알면 어디에 얼마까지 넣어도 되는지 정할 수 있어요."
 summary:
   - "예금자보호 한도는 **1인당, 금융회사별로 원금과 이자를 합쳐 1억원**이에요. 2025년 9월 1일부터 5천만원에서 올랐어요."

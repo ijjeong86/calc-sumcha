@@ -4,6 +4,9 @@ description: "부동산 중개수수료(중개보수)는 거래금액 × 상한�
 category: "대출·부동산"
 date: 2026-11-10
 slug: real-estate-brokerage-fee
+image: "/img/posts/real-estate-brokerage-fee.jpg"
+thumb: "전세 3억,|복비는 얼마?"
+icon: key
 lead: "이사 비용 중에 의외로 큰 게 중개수수료예요. 요율은 법으로 상한이 정해져 있어서, 계산법만 알면 내가 낼 금액을 미리 알고 협의할 수 있어요."
 summary:
   - "중개수수료는 **거래금액 × 상한요율**이고, 상한 안에서 중개사와 **협의해서** 정해요."

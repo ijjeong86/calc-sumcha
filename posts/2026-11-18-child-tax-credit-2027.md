@@ -4,6 +4,9 @@ description: "자녀장려금은 18세 미만 자녀가 있는 홑벌이·맞벌
 category: "지원금·혜택"
 date: 2026-11-18
 slug: child-tax-credit-2027
+image: "/img/posts/child-tax-credit-2027.jpg"
+thumb: "자녀장려금,|1명당 얼마?"
+icon: gift
 lead: "자녀장려금은 소득 기준이 생각보다 높아서, 맞벌이 직장인 가구도 해당되는 경우가 많아요. 근로장려금과 따로 신청해야 하는 줄 알고 놓치는 일도 많고요."
 summary:
   - "18세 미만 자녀가 있고 부부 합산 총소득이 **7,000만원 미만**이면 받을 수 있어요."

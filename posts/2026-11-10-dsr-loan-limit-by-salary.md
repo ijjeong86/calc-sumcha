@@ -4,6 +4,9 @@ description: "DSR은 1년 동안 갚는 대출 원금과 이자가 연소득의 
 category: "대출·부동산"
 date: 2026-11-10
 slug: dsr-loan-limit-by-salary
+image: "/img/posts/dsr-loan-limit-by-salary.jpg"
+thumb: "연봉 5천만원,|대출 한도는?"
+icon: house
 lead: "집값이 같아도 대출이 얼마나 나오느냐는 연봉이 정해요. 그 계산의 중심에 있는 게 DSR이고, 정부가 대출을 조이거나 풀 때 가장 먼저 손대는 것도 DSR이에요."
 summary:
   - "DSR은 **1년 동안 갚는 모든 대출의 원금 + 이자 ÷ 연소득**이에요. 은행은 **40%**, 2금융권은 **50%**를 넘으면 더 빌릴 수 없어요."

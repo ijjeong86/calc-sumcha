@@ -4,6 +4,9 @@ description: "2026년 귀속 연말정산에서 환급을 늘리려면 12월 31�
 category: "세금·연금"
 date: 2026-11-10
 slug: year-end-tax-refund-tips-2026
+image: "/img/posts/year-end-tax-refund-tips-2026.jpg"
+thumb: "연말정산 환급,|12월에 할 일은?"
+icon: doc
 lead: "작년엔 토해냈는데 올해는 돌려받고 싶다면, 1월이 아니라 지금 움직여야 해요. 연말정산 공제는 대부분 12월 31일까지 쓴 돈과 넣은 돈으로 정해지기 때문이에요."
 summary:
   - "카드 공제는 **총급여의 25%를 넘게 쓴 금액부터** 시작해요. 문턱을 넘었다면 남은 기간은 체크카드·현금영수증이 두 배 유리해요."

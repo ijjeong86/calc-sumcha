@@ -4,6 +4,9 @@ description: "연금저축과 IRP는 합쳐서 연 900만원까지 세액공제�
 category: "세금·연금"
 date: 2026-11-14
 slug: pension-savings-irp-tax-credit
+image: "/img/posts/pension-savings-irp-tax-credit.jpg"
+thumb: "연금저축·IRP,|12월에 넣어도 될까?"
+icon: coins
 lead: "연말정산 환급을 확실하게 늘리는 방법 중 하나가 연금계좌예요. 1년 내내 나눠 넣지 않아도 12월 31일까지만 넣으면 올해 공제를 받을 수 있어요."
 summary:
   - "연금저축은 연 **600만원**, IRP를 합치면 연 **900만원**까지 세액공제를 받아요."

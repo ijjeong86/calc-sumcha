@@ -340,3 +340,15 @@ summary{padding:16px 18px}
 .ratebox .chg{display:block;font-size:.76rem;font-weight:600;color:var(--muted)}
 .ratebox .chg.up{color:#c0392b}
 .ratebox .chg.down{color:#2160c4}
+
+/* 썸네일 카드 */
+.cards a:has(.card-img),.post-rel a:has(.card-img){padding:0 0 16px;overflow:hidden}
+.cards a:has(.card-img)>*:not(.card-img),.post-rel a:has(.card-img)>*:not(.card-img){margin-left:16px;margin-right:16px}
+.card-img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:var(--field);border-bottom:1px solid var(--line);margin-bottom:6px}
+.cards{gap:16px}
+.post-hero{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:14px;margin:6px 0 18px;border:1px solid var(--line)}
+.post-list{max-width:1080px}
+.post-list .post-lead,.post-list .crumb{max-width:760px}
+.latest a:has(img){display:grid;grid-template-columns:112px minmax(0,1fr);gap:14px;align-items:center}
+.latest a img{width:112px;height:63px;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+.latest a span{display:flex;flex-direction:column;gap:4px;min-width:0}

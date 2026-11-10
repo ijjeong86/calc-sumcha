@@ -4,6 +4,9 @@ description: "퇴직금은 평균임금 × 30일 × 재직일수 ÷ 365로 계�
 category: "월급·직장"
 date: 2026-11-10
 slug: severance-pay-calculation-2026
+image: "/img/posts/severance-pay-calculation-2026.jpg"
+thumb: "퇴직금,|세금 떼면 얼마?"
+icon: doc
 lead: "퇴사를 앞두면 가장 먼저 궁금한 게 퇴직금이에요. 계산식은 한 줄이지만, 언제 그만두느냐와 마지막 3개월에 무엇을 받았느냐에 따라 금액이 꽤 달라져요."
 summary:
   - "퇴직금은 **1주 15시간 이상, 1년 이상** 일했을 때 받고, 하루라도 모자라면 법정 퇴직금은 없어요."

@@ -4,6 +4,9 @@ description: "의료비 세액공제는 총급여의 3%를 넘게 쓴 금액의 
 category: "세금·연금"
 date: 2026-11-26
 slug: medical-expense-tax-credit
+image: "/img/posts/medical-expense-tax-credit.jpg"
+thumb: "병원비 400만원,|얼마 돌려받나?"
+icon: medical
 lead: "올해 병원비가 많이 나왔다면 연말정산에서 일부를 돌려받을 수 있어요. 다만 일정 금액을 넘어야 공제가 시작돼서, 누구 이름으로 몰아야 유리한지가 중요해요."
 summary:
   - "의료비는 **총급여의 3%를 넘게 쓴 금액**부터 공제되고, 공제율은 **15%**(난임 30%, 미숙아·선천성이상아 20%)예요."

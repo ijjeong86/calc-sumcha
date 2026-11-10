@@ -4,6 +4,9 @@ description: "계약 중에 전세를 월세로 바꿀 때는 법정 전환율(�
 category: "대출·부동산"
 date: 2026-11-20
 slug: jeonse-to-monthly-rent-conversion
+image: "/img/posts/jeonse-to-monthly-rent-conversion.jpg"
+thumb: "전세를 월세로,|최대 얼마까지?"
+icon: key
 lead: "전세 재계약 때 집주인이 '보증금 일부를 월세로 돌리자'고 하면, 월세를 얼마까지 받을 수 있는지 법으로 정해진 기준이 있어요. 이 기준은 기준금리와 함께 움직여요."
 summary:
   - "계약 중이거나 갱신할 때 보증금을 월세로 바꾸면, 전환율은 **기준금리 + 2%p**와 **연 10%** 중 낮은 값을 넘을 수 없어요."

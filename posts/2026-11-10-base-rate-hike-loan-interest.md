@@ -4,6 +4,9 @@ description: "한국은행은 2026년 7·8월 기준금리를 올린 뒤 10월�
 category: "경제 이슈"
 date: 2026-11-10
 slug: base-rate-hike-loan-interest
+image: "/img/posts/base-rate-hike-loan-interest.jpg"
+thumb: "기준금리 0.25%p,|내 이자는 얼마나?"
+icon: chart
 lead: "기준금리 뉴스가 나올 때마다 내 대출 이자가 얼마나 바뀌는지가 가장 궁금하죠. 결론부터 말하면 대출 종류와 금리 방식에 따라 영향이 오는 시기와 크기가 꽤 달라요."
 summary:
   - "한국은행은 2026년 **7월과 8월에 0.25%p씩** 올려 기준금리를 **연 3.00%**로 만든 뒤, 10월 22일에 동결했어요. 올해 마지막 결정은 **11월 26일**이에요."

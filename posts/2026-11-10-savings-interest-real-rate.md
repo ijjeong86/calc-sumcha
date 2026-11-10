@@ -4,6 +4,9 @@ description: "월 50만원씩 연 4% 적금에 1년 넣으면 이자는 24만원
 category: "예적금·투자"
 date: 2026-11-10
 slug: savings-interest-real-rate
+image: "/img/posts/savings-interest-real-rate.jpg"
+thumb: "연 4% 적금,|이자는 왜 절반?"
+icon: piggy
 lead: "적금 만기 날 이자를 보고 생각보다 적다고 느낀 적이 있다면, 계산이 틀린 게 아니에요. 적금은 돈이 들어가 있는 기간이 매달 달라서, 같은 금리라도 예금과 이자가 크게 차이 나요."
 summary:
   - "월 50만원씩 **연 4% 적금 12개월**이면 이자는 세전 **13만원**, 세후 약 **11만원**이에요."
