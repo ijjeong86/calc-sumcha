@@ -106,8 +106,9 @@ function head({ title, desc, url, image, extra = "" }) {
   return abs(h) + extra + "\n</head>\n<body>\n";
 }
 function nav(current) {
-  return abs(navRaw.replace(/ aria-current="page"/g, ""))
-    .replace(`href="/posts/"`, `href="/posts/"${current === "posts" ? ' aria-current="page"' : ""}`);
+  let n = abs(navRaw.replace(/ aria-current="page"/g, "").replace(/ class="is-current"/g, ""));
+  if (current === "posts") n = n.replace('<details class="dd" data-k="posts"><summary>', '<details class="dd" data-k="posts"><summary class="is-current">');
+  return n;
 }
 const coupangScript = `<script>(function(){var s=document.getElementById("adCoupang");if(s&&s.children.length)document.getElementById("coupangNote").hidden=false;})();</script>\n`;
 
@@ -186,14 +187,14 @@ function pagePost(p, all) {
 // ---------- 글 목록 ----------
 function pageIndex(all) {
   const url = `${SITE}/posts/`;
-  const cats = Object.keys(CATS).filter(c => all.some(p => p.category === c));
+  const cats = Object.keys(CATS);
   let s = head({ title: "정보 글 | 숨차의 계산기", desc: "연말정산, 월급, 예적금·대출, 자동차까지 계산기와 함께 보면 좋은 돈 관련 정보를 정리한 글 모음", url, image: `${SITE}/og-site.png` }) + rails;
   s += `<div class="wrap">\n${nav("posts")}\n<main class="post-list">\n<h1>정보 글</h1>\n<p class="post-lead">계산기와 함께 보면 좋은 돈·세금 정보를 정리했어요. 글마다 관련 계산기로 바로 이어져요.</p>\n`;
   s += `<div class="cat-chips" role="tablist"><button type="button" data-c="" aria-pressed="true">전체 ${all.length}</button>${cats.map(c => `<button type="button" data-c="${CATS[c]}" aria-pressed="false">${esc(c)} ${all.filter(p => p.category === c).length}</button>`).join("")}</div>\n`;
   s += `<ul class="cards">${all.map(p => `<li data-c="${CATS[p.category] || "life"}"><a href="/posts/${p.slug}.html"><span class="rel-cat">${esc(p.category)}</span><b>${esc(p.title)}</b>${p.description ? `<span class="card-desc">${esc(p.description)}</span>` : ""}<span class="card-date">${fmtDate(p.updated || p.date)}</span></a></li>`).join("")}</ul>\n`;
-  if (!all.length) s += `<p>아직 글이 없어요.</p>\n`;
+  s += `<p class="cards-empty" hidden>이 분류의 글은 곧 올라와요. 다른 분류를 눌러 보세요.</p>\n`;
   s += `</main>\n${bottom}\n</div>\n${coupangScript}`;
-  s += `<script>(function(){var bs=document.querySelectorAll(".cat-chips button"),ls=document.querySelectorAll(".cards li");function go(c){bs.forEach(function(b){b.setAttribute("aria-pressed",b.dataset.c===c)});ls.forEach(function(l){l.hidden=c&&l.dataset.c!==c});}bs.forEach(function(b){b.onclick=function(){go(b.dataset.c);try{history.replaceState(null,"",b.dataset.c?"#"+b.dataset.c:location.pathname)}catch(e){}}});var h=location.hash.slice(1);if(h)go(h);})();</script>\n`;
+  s += `<script>(function(){var bs=document.querySelectorAll(".cat-chips button"),ls=document.querySelectorAll(".cards li");function go(c){bs.forEach(function(b){b.setAttribute("aria-pressed",b.dataset.c===c)});var n=0;ls.forEach(function(l){l.hidden=!!(c&&l.dataset.c!==c);if(!l.hidden)n++});var em=document.querySelector(".cards-empty");if(em)em.hidden=n>0;}bs.forEach(function(b){b.onclick=function(){go(b.dataset.c);try{history.replaceState(null,"",b.dataset.c?"#"+b.dataset.c:location.pathname)}catch(e){}}});function fromHash(){go(location.hash.slice(1))}window.addEventListener("hashchange",fromHash);if(location.hash)fromHash();})();</script>\n`;
   s += tail;
   return s;
 }
