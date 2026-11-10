@@ -5,6 +5,7 @@ category: "세금·연금"
 date: 2026-11-26
 slug: medical-expense-tax-credit
 image: "/img/posts/medical-expense-tax-credit.jpg"
+photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261110_080431_d1c2306d-b580-4bca-9199-603f52deb3c1.png"
 thumb: "병원비 400만원,|얼마 돌려받나?"
 icon: medical
 lead: "올해 병원비가 많이 나왔다면 연말정산에서 일부를 돌려받을 수 있어요. 다만 일정 금액을 넘어야 공제가 시작돼서, 누구 이름으로 몰아야 유리한지가 중요해요."

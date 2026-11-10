@@ -5,6 +5,7 @@ category: "월급·직장"
 date: 2026-11-16
 slug: annual-leave-pay
 image: "/img/posts/annual-leave-pay.jpg"
+photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261110_080346_954f50e5-3429-47c6-84f9-1fad7b5f116d.png"
 thumb: "못 쓴 연차,|돈으로 받을까?"
 icon: calendar
 lead: "연말이 다가오면 '남은 연차 다 쓰라'는 공지가 오죠. 못 쓴 연차는 돈으로 받을 수 있을 때도 있고 그냥 사라질 때도 있어서, 기준을 알아 두면 손해를 줄일 수 있어요."

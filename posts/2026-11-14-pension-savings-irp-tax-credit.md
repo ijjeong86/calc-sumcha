@@ -5,6 +5,7 @@ category: "세금·연금"
 date: 2026-11-14
 slug: pension-savings-irp-tax-credit
 image: "/img/posts/pension-savings-irp-tax-credit.jpg"
+photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261110_080345_4311912c-98fc-4b84-8a3e-0080d3171a18.png"
 thumb: "연금저축·IRP,|12월에 넣어도 될까?"
 icon: coins
 lead: "연말정산 환급을 확실하게 늘리는 방법 중 하나가 연금계좌예요. 1년 내내 나눠 넣지 않아도 12월 31일까지만 넣으면 올해 공제를 받을 수 있어요."

@@ -5,6 +5,7 @@ category: "지원금·혜택"
 date: 2026-11-10
 slug: youth-future-savings
 image: "/img/posts/youth-future-savings.jpg"
+photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261110_080337_451886c2-afe4-4534-b5cb-77d7bbc52119.png"
 thumb: "청년미래적금,|3년 뒤 얼마?"
 icon: piggy
 lead: "청년도약계좌의 뒤를 잇는 청년 자산형성 상품이 청년미래적금이에요. 기간이 3년으로 짧아졌고, 중소기업에 다니면 정부가 보태 주는 돈이 두 배예요."

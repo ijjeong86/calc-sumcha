@@ -5,6 +5,7 @@ category: "예적금·투자"
 date: 2026-11-10
 slug: savings-interest-real-rate
 image: "/img/posts/savings-interest-real-rate.jpg"
+photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261110_080242_72f1cac5-21ec-4823-8e12-3c0c2bd17745.png"
 thumb: "연 4% 적금,|이자는 왜 절반?"
 icon: piggy
 lead: "적금 만기 날 이자를 보고 생각보다 적다고 느낀 적이 있다면, 계산이 틀린 게 아니에요. 적금은 돈이 들어가 있는 기간이 매달 달라서, 같은 금리라도 예금과 이자가 크게 차이 나요."

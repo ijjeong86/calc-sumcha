@@ -5,6 +5,7 @@ category: "세금·연금"
 date: 2026-11-10
 slug: vat-filing-january-2027
 image: "/img/posts/vat-filing-january-2027.jpg"
+photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261110_080242_b99aa04d-ccc6-4fd9-b70d-818fc895d51b.png"
 thumb: "부가세 신고,|간이는 왜 적을까?"
 icon: receipt
 lead: "개인사업자라면 1월은 연말정산보다 부가세가 먼저예요. 같은 매출이어도 일반과세자인지 간이과세자인지에 따라 내는 세금이 크게 달라져요."

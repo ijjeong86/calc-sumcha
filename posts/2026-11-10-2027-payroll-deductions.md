@@ -5,6 +5,7 @@ category: "경제 이슈"
 date: 2026-11-10
 slug: 2027-payroll-deductions
 image: "/img/posts/2027-payroll-deductions.jpg"
+photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261110_080242_eddc68e9-1536-4e51-a4aa-98b72796c6f3.png"
 thumb: "2027년 월급,|얼마나 더 빠질까?"
 icon: payslip
 lead: "연봉이 그대로여도 1월 월급 명세서를 보면 실수령액이 조금 줄어 있을 수 있어요. 해마다 바뀌는 4대보험 요율 때문인데, 2027년에는 어떤 항목이 얼마나 바뀌는지 미리 볼게요."

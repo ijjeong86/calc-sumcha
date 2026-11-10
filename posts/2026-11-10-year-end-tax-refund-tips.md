@@ -5,6 +5,7 @@ category: "세금·연금"
 date: 2026-11-10
 slug: year-end-tax-refund-tips-2026
 image: "/img/posts/year-end-tax-refund-tips-2026.jpg"
+photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261110_075900_9246aff9-67b6-4206-aa06-66cff534f18b.png"
 thumb: "연말정산 환급,|12월에 할 일은?"
 icon: doc
 lead: "작년엔 토해냈는데 올해는 돌려받고 싶다면, 1월이 아니라 지금 움직여야 해요. 연말정산 공제는 대부분 12월 31일까지 쓴 돈과 넣은 돈으로 정해지기 때문이에요."

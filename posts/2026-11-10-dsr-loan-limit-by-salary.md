@@ -5,6 +5,7 @@ category: "대출·부동산"
 date: 2026-11-10
 slug: dsr-loan-limit-by-salary
 image: "/img/posts/dsr-loan-limit-by-salary.jpg"
+photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261110_080337_4c4ba5b8-91ad-42da-bda4-ee0b92b2366f.png"
 thumb: "연봉 5천만원,|대출 한도는?"
 icon: house
 lead: "집값이 같아도 대출이 얼마나 나오느냐는 연봉이 정해요. 그 계산의 중심에 있는 게 DSR이고, 정부가 대출을 조이거나 풀 때 가장 먼저 손대는 것도 DSR이에요."

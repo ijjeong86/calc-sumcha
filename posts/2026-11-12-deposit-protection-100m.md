@@ -5,6 +5,7 @@ category: "예적금·투자"
 date: 2026-11-12
 slug: deposit-protection-100m
 image: "/img/posts/deposit-protection-100m.jpg"
+photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261110_080345_24dd0165-0093-463d-b370-fa0af2112a98.png"
 thumb: "예금자보호 1억,|어디까지 안전할까?"
 icon: shield
 lead: "저축은행 금리가 은행보다 높을 때 가장 먼저 드는 걱정은 '망하면 내 돈은?'이에요. 예금자보호 제도를 알면 어디에 얼마까지 넣어도 되는지 정할 수 있어요."

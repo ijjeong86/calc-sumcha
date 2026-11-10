@@ -5,6 +5,7 @@ category: "대출·부동산"
 date: 2026-11-20
 slug: jeonse-to-monthly-rent-conversion
 image: "/img/posts/jeonse-to-monthly-rent-conversion.jpg"
+photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261110_075859_8d6e9bb5-2690-4e4c-97b4-acde8939272a.png"
 thumb: "전세를 월세로,|최대 얼마까지?"
 icon: key
 lead: "전세 재계약 때 집주인이 '보증금 일부를 월세로 돌리자'고 하면, 월세를 얼마까지 받을 수 있는지 법으로 정해진 기준이 있어요. 이 기준은 기준금리와 함께 움직여요."

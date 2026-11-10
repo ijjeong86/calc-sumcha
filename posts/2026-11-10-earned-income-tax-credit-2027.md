@@ -5,6 +5,7 @@ category: "지원금·혜택"
 date: 2026-11-10
 slug: earned-income-tax-credit-2027
 image: "/img/posts/earned-income-tax-credit-2027.jpg"
+photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261110_080337_e8db575e-b8b1-4d6e-95dd-f500659c95f8.png"
 thumb: "근로장려금,|우리 집도 받을까?"
 icon: gift
 lead: "근로장려금은 일은 하지만 소득이 적은 가구에 국가가 현금을 주는 제도예요. 신청해야만 받을 수 있어서, 조건이 되는데도 모르고 지나치는 경우가 많아요."

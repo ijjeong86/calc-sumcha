@@ -5,6 +5,7 @@ category: "세금·연금"
 date: 2026-11-10
 slug: car-tax-annual-payment-2027
 image: "/img/posts/car-tax-annual-payment-2027.jpg"
+photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261110_080242_7a382684-5d6a-4ea9-b8ac-c9708b6d3733.png"
 thumb: "자동차세 연납,|얼마나 아낄까?"
 icon: car
 lead: "자동차세는 6월과 12월에 나눠 내는 세금이지만, 미리 1년 치를 내면 그만큼 깎아 줘요. 같은 연납이라도 언제 내느냐에 따라 할인 금액이 달라요."

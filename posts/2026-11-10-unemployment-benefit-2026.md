@@ -5,6 +5,7 @@ category: "월급·직장"
 date: 2026-11-10
 slug: unemployment-benefit-2026
 image: "/img/posts/unemployment-benefit-2026.jpg"
+photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261110_080337_c42954b3-9929-4388-9b15-9427dcd1a842.png"
 thumb: "실업급여,|하루에 얼마 받을까?"
 icon: calendar
 lead: "실업급여는 퇴사 전 월급의 60%를 준다고 알려져 있지만, 실제로는 상한액과 하한액이 촘촘해서 대부분 비슷한 금액을 받아요. 금액보다 더 크게 달라지는 건 받는 기간이에요."

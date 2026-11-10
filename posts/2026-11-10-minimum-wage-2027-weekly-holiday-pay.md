@@ -5,6 +5,7 @@ category: "월급·직장"
 date: 2026-11-10
 slug: minimum-wage-2027-weekly-holiday-pay
 image: "/img/posts/minimum-wage-2027-weekly-holiday-pay.jpg"
+photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261110_080242_d7da5ab3-eece-4d69-a2f0-c5f4d78b93dc.png"
 thumb: "최저임금 10,700원,|주휴수당은?"
 icon: clock
 lead: "2027년 1월 1일부터 최저임금이 시급 10,700원으로 올라요. 알바 월급을 계산할 때 시급만 곱하면 실제보다 적게 나오는데, 빠진 돈이 바로 주휴수당이에요."

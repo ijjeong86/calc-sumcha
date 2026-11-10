@@ -5,6 +5,7 @@ category: "경제 이슈"
 date: 2026-11-24
 slug: spare-cash-repay-loan-or-deposit
 image: "/img/posts/spare-cash-repay-loan-or-deposit.jpg"
+photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261110_080431_7d7569e3-a0f3-4141-b3c9-cd51c21fe462.png"
 thumb: "대출 갚기 vs 예금,|뭐가 이득일까?"
 icon: scale
 lead: "기준금리가 오르면 대출 이자도 늘고 예금 이자도 늘어요. 이럴 때 보너스나 모아 둔 돈이 생기면 대출을 먼저 갚을지, 예금에 넣을지 고민되죠. 숫자로 비교하면 생각보다 쉽게 정해져요."

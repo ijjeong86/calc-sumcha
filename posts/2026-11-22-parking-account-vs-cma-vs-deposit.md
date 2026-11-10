@@ -5,6 +5,7 @@ category: "예적금·투자"
 date: 2026-11-22
 slug: parking-account-vs-cma-vs-deposit
 image: "/img/posts/parking-account-vs-cma-vs-deposit.jpg"
+photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261110_080424_d2690de7-a511-4e68-ad41-733224ad48ba.png"
 thumb: "비상금 1,000만원,|어디에 둘까?"
 icon: coins
 lead: "비상금이나 곧 쓸 돈을 그냥 월급통장에 두면 이자가 거의 없어요. 하지만 어디로 옮길지는 '언제 쓸 돈인지'와 '얼마나 안전해야 하는지'에 따라 달라요."

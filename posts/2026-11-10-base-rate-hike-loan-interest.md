@@ -5,6 +5,7 @@ category: "경제 이슈"
 date: 2026-11-10
 slug: base-rate-hike-loan-interest
 image: "/img/posts/base-rate-hike-loan-interest.jpg"
+photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261110_080241_1541c0e1-a896-4240-9c4e-078488beb5f9.png"
 thumb: "기준금리 0.25%p,|내 이자는 얼마나?"
 icon: chart
 lead: "기준금리 뉴스가 나올 때마다 내 대출 이자가 얼마나 바뀌는지가 가장 궁금하죠. 결론부터 말하면 대출 종류와 금리 방식에 따라 영향이 오는 시기와 크기가 꽤 달라요."

@@ -37,6 +37,17 @@ jobs:
         env:
           KOREAEXIM_API_KEY: ${{ secrets.KOREAEXIM_API_KEY }}
         run: node scripts/fetch-fx.mjs
+      - name: 사진 원본 캐시
+        uses: actions/cache@v4
+        with:
+          path: .photo-cache
+          key: photos-${{ hashFiles('posts/*.md') }}
+          restore-keys: photos-
+      - name: 글 사진 썸네일 만들기
+        continue-on-error: true   # 사진을 못 받으면 그림 썸네일을 그대로 써요
+        run: |
+          npm install --no-save --no-package-lock sharp@0.33.5
+          node scripts/fetch-photos.mjs
       - name: 시즌 바로가기 바꾸기
         run: node scripts/season.mjs
       - name: 정보 글 만들기
