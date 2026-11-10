@@ -37,6 +37,8 @@ jobs:
         env:
           KOREAEXIM_API_KEY: ${{ secrets.KOREAEXIM_API_KEY }}
         run: node scripts/fetch-fx.mjs
+      - name: 시즌 바로가기 바꾸기
+        run: node scripts/season.mjs
       - name: 정보 글 만들기
         run: node scripts/build-posts.mjs
       - uses: actions/configure-pages@v5
