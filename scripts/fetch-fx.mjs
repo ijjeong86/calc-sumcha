@@ -29,6 +29,7 @@ async function fromExim() {
     if (!usd || !jpy || usd.result !== 1) continue;
     const day = { date: ymd(d), usd: num(usd.deal_bas_r), jpy100: num(jpy.deal_bas_r) };
     for (const c of ["EUR", "GBP", "CAD"]) { const x = g(c); if (x) day[c.toLowerCase()] = num(x.deal_bas_r); }
+    const cny = g("CNH") || g("CNY"); if (cny) day.cny = num(cny.deal_bas_r);
     days.push(day);
   }
   if (!days.length) throw new Error("수출입은행 환율이 비어 있어요");
@@ -39,12 +40,12 @@ async function fromFrankfurter() {
   const end = ymd(new Date()), start = ymd(new Date(Date.now() - 14 * 864e5));
   let j;
   for (const base of ["https://api.frankfurter.dev/v1", "https://api.frankfurter.app"]) {
-    try { j = await getJSON(`${base}/${start}..${end}?from=USD&to=KRW,JPY,EUR,GBP,CAD`); break; } catch { }
+    try { j = await getJSON(`${base}/${start}..${end}?from=USD&to=KRW,JPY,EUR,GBP,CAD,CNY`); break; } catch { }
   }
   if (!j || !j.rates) throw new Error("Frankfurter 응답이 없어요");
   const days = Object.keys(j.rates).sort().reverse().slice(0, 2).map(date => {
     const r = j.rates[date];
-    return { date, usd: r.KRW, jpy100: r.KRW / r.JPY * 100, eur: r.KRW / r.EUR, gbp: r.KRW / r.GBP, cad: r.KRW / r.CAD };
+    return { date, usd: r.KRW, jpy100: r.KRW / r.JPY * 100, eur: r.KRW / r.EUR, gbp: r.KRW / r.GBP, cad: r.KRW / r.CAD, cny: r.KRW / r.CNY };
   });
   if (!days.length) throw new Error("Frankfurter 환율이 비어 있어요");
   return { source: "유럽중앙은행 기준환율", days };
@@ -53,7 +54,7 @@ async function fromFrankfurter() {
 async function fromErApi() {
   const j = await getJSON("https://open.er-api.com/v6/latest/USD");
   if (j.result !== "success") throw new Error("open.er-api 오류");
-  return { source: "ExchangeRate-API", days: [{ date: ymd(new Date(j.time_last_update_unix * 1000)), usd: j.rates.KRW, jpy100: j.rates.KRW / j.rates.JPY * 100, eur: j.rates.KRW / j.rates.EUR, gbp: j.rates.KRW / j.rates.GBP, cad: j.rates.KRW / j.rates.CAD }] };
+  return { source: "ExchangeRate-API", days: [{ date: ymd(new Date(j.time_last_update_unix * 1000)), usd: j.rates.KRW, jpy100: j.rates.KRW / j.rates.JPY * 100, eur: j.rates.KRW / j.rates.EUR, gbp: j.rates.KRW / j.rates.GBP, cad: j.rates.KRW / j.rates.CAD, cny: j.rates.KRW / j.rates.CNY }] };
 }
 
 const tries = [...(KEY ? [fromExim] : []), fromFrankfurter, fromErApi];
@@ -72,7 +73,7 @@ const data = {
   usd: { rate: r2(now.usd), prev: prev ? r2(prev.usd) : null },
   jpy100: { rate: r2(now.jpy100), prev: prev ? r2(prev.jpy100) : null },
 };
-for (const c of ["eur", "gbp", "cad"]) if (now[c]) data[c] = { rate: r2(now[c]), prev: prev && prev[c] ? r2(prev[c]) : null };
+for (const c of ["eur", "gbp", "cad", "cny"]) if (now[c]) data[c] = { rate: r2(now[c]), prev: prev && prev[c] ? r2(prev[c]) : null };
 await mkdir("site/data", { recursive: true });
 await writeFile("site/data/fx.json", JSON.stringify(data, null, 1));
 console.log(`환율 저장: 달러 ${data.usd.rate}원, 100엔 ${data.jpy100.rate}원 (${data.source}, ${data.date})`);

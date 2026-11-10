@@ -6,9 +6,9 @@
 <meta name="naver-site-verification" content="7ae891ecb90476d9316299663bb02e29645ef1b4" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>환전 계산기 (달러·엔 환율 우대 수수료 비교)</title>
-<meta name="description" content="오늘 달러·엔·유로·파운드 환율과 은행별 환전 우대율을 한눈에 보고, 우대율을 넣으면 실제로 내는 원화와 아낀 수수료를 계산하는 무료 환전 계산기">
+<meta name="description" content="오늘 달러·엔·유로·파운드·위안 환율과 은행별 환전 우대율을 한눈에 보고, 우대율을 넣으면 실제로 내는 원화와 아낀 수수료를 계산하는 무료 환전 계산기">
 <meta property="og:title" content="환전 계산기 (달러·엔 환율 우대 수수료 비교)">
-<meta property="og:description" content="오늘 달러·엔·유로·파운드 환율과 은행별 환전 우대율을 한눈에 보고, 우대율을 넣으면 실제로 내는 원화와 아낀 수수료를 계산하는 무료 환전 계산기">
+<meta property="og:description" content="오늘 달러·엔·유로·파운드·위안 환율과 은행별 환전 우대율을 한눈에 보고, 우대율을 넣으면 실제로 내는 원화와 아낀 수수료를 계산하는 무료 환전 계산기">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://calc-sumcha.com/og-exchange.png">
 <meta property="og:image:width" content="1200">
@@ -31,7 +31,7 @@
 <div class="topnav"><a class="brand" href="/"><span class="mark" aria-hidden="true">₩</span>숨차의 경제노트</a><button type="button" class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button><nav class="menu" aria-label="주 메뉴"><!--S--><a class="m-season" href="/yearend.html">연말정산</a><!--/S--><details class="dd" data-k="calc"><summary class="is-current">계산기</summary><div class="dd-panel dd-wide"><div class="dd-col"><b>월급 · 세금</b><a href="/yearend.html">연말정산 계산기</a><a href="/salary.html">연봉 실수령액 계산기</a><a href="/severance.html">퇴직금 계산기</a><a href="/unemployment.html">실업급여 계산기</a><a href="/hourly.html">시급·주휴수당 계산기</a></div><div class="dd-col"><b>예적금 · 대출</b><a href="/savings.html">예금·적금 이자 계산기</a><a href="/compound.html">복리 계산기</a><a href="/loan.html">대출 이자 계산기</a></div><div class="dd-col"><b>생활 · 사업</b><a href="/car.html">신차 구매 비용 계산기</a><a href="/margin.html">판매 마진 계산기</a><a href="/vat.html">부가세 계산기</a><a href="/exchange.html" aria-current="page">환전 계산기</a></div><a class="dd-all" href="/">전체 계산기 한눈에 보기 →</a></div></details><a href="/posts/tax/">세금·연금</a><a href="/posts/work/">월급·직장</a><a href="/posts/home/">대출·부동산</a><a href="/posts/money/">예적금·투자</a><a href="/posts/support/">지원금·혜택</a><a href="/posts/issue/">경제 이슈</a></nav></div>
   <header>
     <h1>환전 계산기</h1>
-    <p>오늘의 <strong>달러·엔·유로·파운드·캐나다 달러 환율</strong>과 은행별 <strong>환전 우대율</strong>을 한 번에 봐요. 우대율을 넣으면 실제로 내는 원화와 아낀 수수료를 계산해요.</p>
+    <p>오늘의 <strong>달러·엔·유로·파운드·캐나다 달러·위안 환율</strong>과 은행별 <strong>환전 우대율</strong>을 한 번에 봐요. 우대율을 넣으면 실제로 내는 원화와 아낀 수수료를 계산해요.</p>
     <div class="note" style="margin-top:10px"><span class="chip" id="exampleChip">예시: 1,000달러 · 우대 90%</span></div>
   </header>
 
@@ -39,7 +39,7 @@
     <form class="inputs" id="form" autocomplete="off" onsubmit="return false">
       <details open><summary>환전할 돈</summary>
         <div class="fields">
-          <div class="f"><label for="cur">통화</label><div class="in"><select id="cur"><option value="usd">미국 달러 (USD)</option><option value="jpy">일본 엔 (JPY)</option><option value="eur">유로 (EUR) · 독일·프랑스·이탈리아</option><option value="gbp">영국 파운드 (GBP)</option><option value="cad">캐나다 달러 (CAD)</option></select></div><small id="curHint">사는 외화 금액을 넣어요</small></div>
+          <div class="f"><label for="cur">통화</label><div class="in"><select id="cur"><option value="usd">미국 달러 (USD)</option><option value="jpy">일본 엔 (JPY)</option><option value="eur">유로 (EUR) · 독일·프랑스·이탈리아</option><option value="gbp">영국 파운드 (GBP)</option><option value="cad">캐나다 달러 (CAD)</option><option value="cny">중국 위안 (CNY)</option></select></div><small id="curHint">사는 외화 금액을 넣어요</small></div>
           <div class="f"><label for="amt">바꿀 외화</label><div class="in"><input id="amt" type="number" min="0" step="10" value="1000"><span id="amtUnit">달러</span></div><small id="amtHint">현찰로 받을 외화 금액</small></div>
           <div class="f"><label for="pref">환율 우대율</label><div class="in"><input id="pref" type="number" min="0" max="100" step="5" value="90"><span>%</span></div><small>은행 앱에 표시된 우대율</small></div>
           <div class="f"><label for="base">매매기준율</label><div class="in"><input id="base" type="number" min="0" step="0.01" value="1364"><span id="baseUnit">원</span></div><small id="baseHint">오늘 환율을 불러오는 중이에요</small></div>
@@ -53,7 +53,7 @@
       <div class="slip" style="padding-bottom:10px">
         <h2>은행·앱별 최대 환전 우대율 (달러·엔 현찰 기준)</h2>
         <div class="tablewrap" style="padding:0 18px"><table class="paytable"><tr><th>은행·앱</th><th style="text-align:right">달러</th><th style="text-align:right">엔</th><th>조건</th></tr><tr><td><b>토스뱅크</b><small style="display:block;color:var(--muted);font-size:.78rem">외화통장 환전</small></td><td class="v" style="text-align:right">100%</td><td class="v" style="text-align:right">100%</td><td style="font-size:.8rem;color:var(--muted)">환전 수수료 무료, 외화통장에 보관 후 카드 결제·현찰 인출</td></tr><tr><td><b>하나은행 트래블로그</b><small style="display:block;color:var(--muted);font-size:.78rem">트래블로그 카드 충전</small></td><td class="v" style="text-align:right">100%</td><td class="v" style="text-align:right">100%</td><td style="font-size:.8rem;color:var(--muted)">주요 통화 충전 수수료 무료, 해외 ATM 인출 조건 확인</td></tr><tr><td><b>카카오뱅크</b><small style="display:block;color:var(--muted);font-size:.78rem">달러박스</small></td><td class="v" style="text-align:right">100%</td><td class="v" style="text-align:right">-</td><td style="font-size:.8rem;color:var(--muted)">달러만 가능</td></tr><tr><td><b>신한은행</b><small style="display:block;color:var(--muted);font-size:.78rem">SOL뱅크 앱 환전</small></td><td class="v" style="text-align:right">최대 90%</td><td class="v" style="text-align:right">최대 90%</td><td style="font-size:.8rem;color:var(--muted)">기본 우대에 금액·실적별 추가 우대</td></tr><tr><td><b>KB국민은행</b><small style="display:block;color:var(--muted);font-size:.78rem">KB스타뱅킹 환전</small></td><td class="v" style="text-align:right">최대 90%</td><td class="v" style="text-align:right">최대 90%</td><td style="font-size:.8rem;color:var(--muted)">로그인·조건에 따라 달라짐</td></tr><tr><td><b>하나은행</b><small style="display:block;color:var(--muted);font-size:.78rem">하나원큐 환전</small></td><td class="v" style="text-align:right">최대 90%</td><td class="v" style="text-align:right">최대 90%</td><td style="font-size:.8rem;color:var(--muted)">로그인 시 최대, 비로그인 시 낮아짐</td></tr><tr><td><b>우리은행</b><small style="display:block;color:var(--muted);font-size:.78rem">우리WON뱅킹 환전</small></td><td class="v" style="text-align:right">85~90%</td><td class="v" style="text-align:right">85~90%</td><td style="font-size:.8rem;color:var(--muted)">금액·결제계좌에 따라 추가 우대</td></tr><tr><td><b>NH농협은행</b><small style="display:block;color:var(--muted);font-size:.78rem">NH올원뱅크 환전</small></td><td class="v" style="text-align:right">최대 90%</td><td class="v" style="text-align:right">최대 90%</td><td style="font-size:.8rem;color:var(--muted)">금액 구간별 우대</td></tr><tr><td><b>IBK기업은행</b><small style="display:block;color:var(--muted);font-size:.78rem">i-ONE뱅크 환전</small></td><td class="v" style="text-align:right">최대 90%</td><td class="v" style="text-align:right">최대 90%</td><td style="font-size:.8rem;color:var(--muted)">비대면 환전 기준</td></tr><tr><td><b>은행 창구</b><small style="display:block;color:var(--muted);font-size:.78rem">영업점 방문</small></td><td class="v" style="text-align:right">0~50%</td><td class="v" style="text-align:right">0~50%</td><td style="font-size:.8rem;color:var(--muted)">우대 쿠폰·주거래 등급이 없으면 우대가 거의 없어요</td></tr></table></div>
-        <p class="ntx-note" style="margin:8px 18px 4px">2026년 11월 10일에 각 은행 안내와 공개 비교 자료를 보고 정리했어요. 유로·파운드·캐나다 달러는 은행마다 우대율이 달러·엔보다 낮은 경우가 많아요. 우대율은 이벤트·금액·고객 등급에 따라 자주 바뀌니 환전 전에 앱에서 꼭 확인하세요.</p>
+        <p class="ntx-note" style="margin:8px 18px 4px">2026년 11월 10일에 각 은행 안내와 공개 비교 자료를 보고 정리했어요. 유로·파운드·캐나다 달러·위안은 은행마다 우대율이 달러·엔보다 낮은 경우가 많아요. 우대율은 이벤트·금액·고객 등급에 따라 자주 바뀌니 환전 전에 앱에서 꼭 확인하세요.</p>
       </div>
     </form>
 
@@ -72,7 +72,7 @@
   <div class="ad-slot" id="adMain"></div>
 
   <footer>
-    현찰을 살 때 환율은 매매기준율에 현찰 환전 수수료율(달러·엔은 보통 1.75%, 유로·파운드·캐나다 달러는 2% 안팎)을 더한 값이고, 우대율은 이 수수료를 깎아 주는 비율이에요. 예를 들어 90% 우대면 수수료 1.75%의 10%인 0.175%만 내요. 매매기준율은 한국수출입은행(또는 유럽중앙은행) 환율을 매일 아침 받아 오며, 은행이 실시간으로 고시하는 환율과는 조금 다를 수 있어요. 송금·외화예금·카드 결제는 수수료율이 달라요.
+    현찰을 살 때 환율은 매매기준율에 현찰 환전 수수료율(달러·엔은 보통 1.75%, 유로·파운드·캐나다 달러는 2% 안팎, 위안은 5% 안팎)을 더한 값이고, 우대율은 이 수수료를 깎아 주는 비율이에요. 예를 들어 90% 우대면 수수료 1.75%의 10%인 0.175%만 내요. 매매기준율은 한국수출입은행(또는 유럽중앙은행) 환율을 매일 아침 받아 오며, 은행이 실시간으로 고시하는 환율과는 조금 다를 수 있어요. 송금·외화예금·카드 결제는 수수료율이 달라요.
   </footer>
 
   <!-- [쿠팡파트너스 상품 자리] 상품을 넣으려면 아래 id="adCoupang" 칸 안에 블로그용 태그(<a>…</a>) 코드를 붙여 넣으세요 -->
@@ -95,7 +95,8 @@ const CUR={usd:{n:"달러",per:1,step:10,amt:1000,fb:1364,sp:1.75,hint:"현찰�
   jpy:{n:"엔",per:100,step:1000,amt:100000,fb:910,sp:1.75,hint:"은행 엔화 현찰 환전은 1,000엔 단위예요"},
   eur:{n:"유로",per:1,step:10,amt:1000,fb:1570,sp:1.98,hint:"독일·프랑스·이탈리아에서 쓰는 돈이에요"},
   gbp:{n:"파운드",per:1,step:10,amt:500,fb:1800,sp:1.98,hint:"영국에서 쓰는 돈이에요"},
-  cad:{n:"캐나다 달러",per:1,step:10,amt:1000,fb:980,sp:1.98,hint:"캐나다에서 쓰는 돈이에요"}};
+  cad:{n:"캐나다 달러",per:1,step:10,amt:1000,fb:980,sp:1.98,hint:"캐나다에서 쓰는 돈이에요"},
+  cny:{n:"위안",per:1,step:100,amt:3000,fb:190,sp:5,hint:"중국에서 쓰는 돈이에요. 위안화 현찰은 수수료가 높은 편이에요"}};
 const NAME=Object.fromEntries(Object.entries(CUR).map(([k,v])=>[k,v.n]));
 const unitOf=c=>CUR[c].per===100?"원/100엔":"원";
 let lastCur=null;
