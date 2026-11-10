@@ -225,7 +225,7 @@ function pageCat(c, all) {
 // ---------- 사이트맵 ----------
 async function sitemap(all) {
   const pages = (await readdir("site")).filter(n => n.endsWith(".html") && !n.startsWith("google"));
-  const pri = { "index.html": "1.0", "yearend.html": "0.9", "salary.html": "0.9", "savings.html": "0.9", "loan.html": "0.9", "car.html": "0.9", "margin.html": "0.9", "severance.html": "0.9", "hourly.html": "0.9", "vat.html": "0.9", "unemployment.html": "0.9", "compound.html": "0.9" };
+  const pri = { "index.html": "1.0", "yearend.html": "0.9", "salary.html": "0.9", "savings.html": "0.9", "loan.html": "0.9", "car.html": "0.9", "margin.html": "0.9", "severance.html": "0.9", "hourly.html": "0.9", "vat.html": "0.9", "unemployment.html": "0.9", "compound.html": "0.9", "exchange.html": "0.9" };
   const today = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
   const urls = pages.map(n => `  <url><loc>${SITE}/${n === "index.html" ? "" : n}</loc><lastmod>${today}</lastmod><priority>${pri[n] || "0.5"}</priority></url>`);
   urls.push(`  <url><loc>${SITE}/posts/</loc><lastmod>${today}</lastmod><priority>0.8</priority></url>`);

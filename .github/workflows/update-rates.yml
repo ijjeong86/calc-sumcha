@@ -1,4 +1,4 @@
-name: 사이트 배포 + 금리 갱신
+name: 사이트 배포 + 금리·환율 갱신
 
 on:
   push:
@@ -32,6 +32,11 @@ jobs:
         env:
           FSS_API_KEY: ${{ secrets.FSS_API_KEY }}
         run: node scripts/fetch-rates.mjs
+      - name: 환율 받아오기
+        continue-on-error: true   # 환율 서버가 잠깐 안 돼도 사이트 배포는 계속
+        env:
+          KOREAEXIM_API_KEY: ${{ secrets.KOREAEXIM_API_KEY }}
+        run: node scripts/fetch-fx.mjs
       - name: 정보 글 만들기
         run: node scripts/build-posts.mjs
       - uses: actions/configure-pages@v5

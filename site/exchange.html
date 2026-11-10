@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="AyxEZnU_y9K-pHDFXkksgQXj9Bq7QUcYZUnuaR0Hlgc" />
+<meta name="naver-site-verification" content="7ae891ecb90476d9316299663bb02e29645ef1b4" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>환전 계산기 (달러·엔 환율 우대 수수료 비교)</title>
+<meta name="description" content="오늘 달러·엔 환율과 은행별 환전 우대율을 한눈에 보고, 우대율을 넣으면 실제로 내는 원화와 아낀 수수료를 계산하는 무료 환전 계산기">
+<meta property="og:title" content="환전 계산기 (달러·엔 환율 우대 수수료 비교)">
+<meta property="og:description" content="오늘 달러·엔 환율과 은행별 환전 우대율을 한눈에 보고, 우대율을 넣으면 실제로 내는 원화와 아낀 수수료를 계산하는 무료 환전 계산기">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://calc-sumcha.com/og-exchange.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://calc-sumcha.com/exchange.html">
+<meta property="og:site_name" content="숨차의 계산기">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://calc-sumcha.com/exchange.html">
+<!-- [광고 승인 코드 자리] 애드센스·애드핏에서 "head 안에 넣으세요"라고 주는 코드가 있으면 이 줄 바로 아래에 붙여 넣으세요 -->
+</head>
+<body>
+<aside class="rail rail-l" aria-label="광고"><span class="rail-tag">광고</span><a href="https://link.coupang.com/a/h0qGxHPiuG" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/0be906d043593cc7da85ae628e67625d@2x.jpg" alt="LG전자 그램 17인치 i5 8GB 16GB 256GB 512GB 노트북 WIN11, WIN11 Pro" width="120" height="240"></a><a href="https://link.coupang.com/a/h0quo1j0qi" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image5.coupangcdn.com/image/affiliate/banner/4a448182838f266f4f207ae215f8763e@2x.jpg" alt="몸애비책 침향환 30% 선물세트(+보자기) 공진단경옥고상자 별매 30환, 112.5g, 1박스" width="120" height="240"></a><p class="rail-note">쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다.</p></aside>
+<aside class="rail rail-r" aria-label="광고"><span class="rail-tag">광고</span><a href="https://link.coupang.com/a/h0qwi0sQ6C" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image6.coupangcdn.com/image/affiliate/banner/f06feb1d6f8219a25e514665d037ff3b@2x.jpg" alt="무브핏 핏큐브 바이크 가정용 실내 자전거 접이식 미니, 크림 아이보리" width="120" height="240"></a><a href="https://link.coupang.com/a/h0qxBFWYZo" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/5a969659f84b7f338f6a91ea52635b7c@2x.jpg" alt="LG전자 코드제로 R5 로봇청소기 R585WKA, R585WKA1, 카밍베이지" width="120" height="240"></a><p class="rail-note">쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다.</p></aside>
+
+
+
+<div class="wrap">
+<div class="topnav"><a class="brand" href="/"><span class="mark" aria-hidden="true">₩</span>숨차의 계산기</a><button type="button" class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button><nav class="menu" aria-label="주 메뉴"><a class="m-season" href="/yearend.html">연말정산</a><details class="dd" data-k="calc"><summary class="is-current">계산기</summary><div class="dd-panel dd-wide"><div class="dd-col"><b>월급 · 세금</b><a href="/yearend.html">연말정산 계산기</a><a href="/salary.html">연봉 실수령액 계산기</a><a href="/severance.html">퇴직금 계산기</a><a href="/unemployment.html">실업급여 계산기</a><a href="/hourly.html">시급·주휴수당 계산기</a></div><div class="dd-col"><b>예적금 · 대출</b><a href="/savings.html">예금·적금 이자 계산기</a><a href="/compound.html">복리 계산기</a><a href="/loan.html">대출 이자 계산기</a></div><div class="dd-col"><b>생활 · 사업</b><a href="/car.html">신차 구매 비용 계산기</a><a href="/margin.html">판매 마진 계산기</a><a href="/vat.html">부가세 계산기</a><a href="/exchange.html" aria-current="page">환전 계산기</a></div><a class="dd-all" href="/">전체 계산기 한눈에 보기 →</a></div></details><a href="/posts/tax/">세금·연금</a><a href="/posts/work/">월급·직장</a><a href="/posts/home/">대출·부동산</a><a href="/posts/money/">예적금·투자</a><a href="/posts/support/">지원금·혜택</a><a href="/posts/issue/">경제 이슈</a></nav></div>
+  <header>
+    <h1>환전 계산기</h1>
+    <p>오늘의 <strong>달러·엔 환율</strong>과 은행별 <strong>환전 우대율</strong>을 한 번에 봐요. 우대율을 넣으면 실제로 내는 원화와 아낀 수수료를 계산해요.</p>
+    <div class="note" style="margin-top:10px"><span class="chip" id="exampleChip">예시: 1,000달러 · 우대 90%</span></div>
+  </header>
+
+  <div class="grid">
+    <form class="inputs" id="form" autocomplete="off" onsubmit="return false">
+      <details open><summary>환전할 돈</summary>
+        <div class="fields">
+          <div class="f"><label for="cur">통화</label><div class="in"><select id="cur"><option value="usd">미국 달러 (USD)</option><option value="jpy">일본 엔 (JPY)</option></select></div><small id="curHint">사는 외화 금액을 넣어요</small></div>
+          <div class="f"><label for="amt">바꿀 외화</label><div class="in"><input id="amt" type="number" min="0" step="10" value="1000"><span id="amtUnit">달러</span></div><small>현찰로 받을 외화 금액</small></div>
+          <div class="f"><label for="pref">환율 우대율</label><div class="in"><input id="pref" type="number" min="0" max="100" step="5" value="90"><span>%</span></div><small>은행 앱에 표시된 우대율</small></div>
+          <div class="f"><label for="base">매매기준율</label><div class="in"><input id="base" type="number" min="0" step="0.01" value="1364"><span id="baseUnit">원</span></div><small id="baseHint">오늘 환율을 불러오는 중이에요</small></div>
+          <div class="f"><label for="spread">현찰 환전 수수료율</label><div class="in"><input id="spread" type="number" min="0" max="10" step="0.01" value="1.75"><span>%</span></div><small>달러·엔 현찰은 보통 1.75%예요</small></div>
+        </div>
+      </details>
+      <div class="slip" style="padding-bottom:10px">
+        <h2>우대율별로 내는 돈</h2>
+        <div class="tablewrap" style="padding:0 18px"><table class="paytable" id="table"></table></div>
+      </div>
+      <div class="slip" style="padding-bottom:10px">
+        <h2>은행·앱별 최대 환전 우대율 (달러·엔 현찰 기준)</h2>
+        <div class="tablewrap" style="padding:0 18px"><table class="paytable"><tr><th>은행·앱</th><th style="text-align:right">달러</th><th style="text-align:right">엔</th><th>조건</th></tr><tr><td><b>토스뱅크</b><small style="display:block;color:var(--muted);font-size:.78rem">외화통장 환전</small></td><td class="v" style="text-align:right">100%</td><td class="v" style="text-align:right">100%</td><td style="font-size:.8rem;color:var(--muted)">환전 수수료 무료, 외화통장에 보관 후 카드 결제·현찰 인출</td></tr><tr><td><b>하나은행 트래블로그</b><small style="display:block;color:var(--muted);font-size:.78rem">트래블로그 카드 충전</small></td><td class="v" style="text-align:right">100%</td><td class="v" style="text-align:right">100%</td><td style="font-size:.8rem;color:var(--muted)">주요 통화 충전 수수료 무료, 해외 ATM 인출 조건 확인</td></tr><tr><td><b>카카오뱅크</b><small style="display:block;color:var(--muted);font-size:.78rem">달러박스</small></td><td class="v" style="text-align:right">100%</td><td class="v" style="text-align:right">-</td><td style="font-size:.8rem;color:var(--muted)">달러만 가능</td></tr><tr><td><b>신한은행</b><small style="display:block;color:var(--muted);font-size:.78rem">SOL뱅크 앱 환전</small></td><td class="v" style="text-align:right">최대 90%</td><td class="v" style="text-align:right">최대 90%</td><td style="font-size:.8rem;color:var(--muted)">기본 우대에 금액·실적별 추가 우대</td></tr><tr><td><b>KB국민은행</b><small style="display:block;color:var(--muted);font-size:.78rem">KB스타뱅킹 환전</small></td><td class="v" style="text-align:right">최대 90%</td><td class="v" style="text-align:right">최대 90%</td><td style="font-size:.8rem;color:var(--muted)">로그인·조건에 따라 달라짐</td></tr><tr><td><b>하나은행</b><small style="display:block;color:var(--muted);font-size:.78rem">하나원큐 환전</small></td><td class="v" style="text-align:right">최대 90%</td><td class="v" style="text-align:right">최대 90%</td><td style="font-size:.8rem;color:var(--muted)">로그인 시 최대, 비로그인 시 낮아짐</td></tr><tr><td><b>우리은행</b><small style="display:block;color:var(--muted);font-size:.78rem">우리WON뱅킹 환전</small></td><td class="v" style="text-align:right">85~90%</td><td class="v" style="text-align:right">85~90%</td><td style="font-size:.8rem;color:var(--muted)">금액·결제계좌에 따라 추가 우대</td></tr><tr><td><b>NH농협은행</b><small style="display:block;color:var(--muted);font-size:.78rem">NH올원뱅크 환전</small></td><td class="v" style="text-align:right">최대 90%</td><td class="v" style="text-align:right">최대 90%</td><td style="font-size:.8rem;color:var(--muted)">금액 구간별 우대</td></tr><tr><td><b>IBK기업은행</b><small style="display:block;color:var(--muted);font-size:.78rem">i-ONE뱅크 환전</small></td><td class="v" style="text-align:right">최대 90%</td><td class="v" style="text-align:right">최대 90%</td><td style="font-size:.8rem;color:var(--muted)">비대면 환전 기준</td></tr><tr><td><b>은행 창구</b><small style="display:block;color:var(--muted);font-size:.78rem">영업점 방문</small></td><td class="v" style="text-align:right">0~50%</td><td class="v" style="text-align:right">0~50%</td><td style="font-size:.8rem;color:var(--muted)">우대 쿠폰·주거래 등급이 없으면 우대가 거의 없어요</td></tr></table></div>
+        <p class="ntx-note" style="margin:8px 18px 4px">2026년 11월 10일에 각 은행 안내와 공개 비교 자료를 보고 정리했어요. 우대율은 이벤트·금액·고객 등급에 따라 자주 바뀌니 환전 전에 앱에서 꼭 확인하세요.</p>
+      </div>
+    </form>
+
+    <aside class="result" aria-live="polite">
+      <div class="hero refund" id="hero">
+        <div class="lab" id="heroLab">내는 원화</div>
+        <div class="big" id="big">0원</div>
+        <div class="split"><span>적용 환율 <b id="s1">0</b></span><span>아낀 수수료 <b id="s2">0</b></span></div>
+      </div>
+      <div class="slip" id="slip"></div>
+      <div class="tip" id="tip"></div>
+    </aside>
+  </div>
+
+  <!-- [광고 자리 1] 애드핏·애드센스 광고 코드를 아래 두 줄 사이에 붙여 넣으세요 -->
+  <div class="ad-slot" id="adMain"></div>
+
+  <footer>
+    현찰을 살 때 환율은 매매기준율에 현찰 환전 수수료율(달러·엔은 보통 1.75%)을 더한 값이고, 우대율은 이 수수료를 깎아 주는 비율이에요. 예를 들어 90% 우대면 수수료 1.75%의 10%인 0.175%만 내요. 매매기준율은 한국수출입은행(또는 유럽중앙은행) 환율을 매일 아침 받아 오며, 은행이 실시간으로 고시하는 환율과는 조금 다를 수 있어요. 송금·외화예금·카드 결제는 수수료율이 달라요.
+  </footer>
+
+  <!-- [쿠팡파트너스 상품 자리] 상품을 넣으려면 아래 id="adCoupang" 칸 안에 블로그용 태그(<a>…</a>) 코드를 붙여 넣으세요 -->
+  <p class="ad-note" id="coupangHead" style="font-weight:500;color:var(--ink);font-size:.85rem">함께 보면 좋은 상품</p>
+  <div class="ad-slot" id="adCoupang"><a href="https://link.coupang.com/a/h0qGxHPiuG" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/0be906d043593cc7da85ae628e67625d@2x.jpg" alt="LG전자 그램 17인치 i5 8GB 16GB 256GB 512GB 노트북 WIN11, WIN11 Pro" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0quo1j0qi" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image5.coupangcdn.com/image/affiliate/banner/4a448182838f266f4f207ae215f8763e@2x.jpg" alt="몸애비책 침향환 30% 선물세트(+보자기) 공진단경옥고상자 별매 30환, 112.5g, 1박스" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0qwi0sQ6C" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image6.coupangcdn.com/image/affiliate/banner/f06feb1d6f8219a25e514665d037ff3b@2x.jpg" alt="무브핏 핏큐브 바이크 가정용 실내 자전거 접이식 미니, 크림 아이보리" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0qxBFWYZo" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/5a969659f84b7f338f6a91ea52635b7c@2x.jpg" alt="LG전자 코드제로 R5 로봇청소기 R585WKA, R585WKA1, 카밍베이지" width="120" height="240"></a></div>
+  <p class="ad-note" id="coupangNote" hidden>이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>(n<0?"−":"")+Math.round(Math.abs(n)).toLocaleString("ko-KR")+"원";
+const f2=n=>n.toLocaleString("ko-KR",{minimumFractionDigits:2,maximumFractionDigits:2});
+const row=(l,x,c="")=>`<div class="row ${c}"><span>${l}</span><span class="v">${x}</span></div>`;
+(function(){var s=$("adCoupang");if(s&&s.children.length)$("coupangNote").hidden=false;})();
+let FX=null;
+const NAME={usd:"달러",jpy:"엔"};
+function setBase(){const c=$("cur").value;
+  $("amtUnit").textContent=NAME[c];$("baseUnit").textContent=c==="jpy"?"원/100엔":"원";
+  if(FX){const v=c==="jpy"?FX.jpy100.rate:FX.usd.rate;$("base").value=v;$("baseHint").textContent=`${FX.date} ${FX.source}`;}
+  else{$("base").value=c==="jpy"?910:1364;$("baseHint").textContent=c==="jpy"?"오늘 100엔 환율을 직접 넣어 주세요":"오늘 달러 환율을 직접 넣어 주세요";}}
+function calc(a,pref){const unit=a.cur==="jpy"?a.base/100:a.base;
+  const fee=unit*a.spread/100*(1-pref/100), rate=unit+fee;
+  return{rate,pay:rate*a.amt,full:(unit+unit*a.spread/100)*a.amt,mid:unit*a.amt};}
+function render(){const v=id=>Math.max(0,+$(id).value||0);
+  const a={cur:$("cur").value,amt:v("amt"),pref:Math.min(100,v("pref")),base:v("base"),spread:v("spread")};
+  const c=calc(a,a.pref), saved=c.full-c.pay;
+  const per=a.cur==="jpy"?100:1, rateShow=c.rate*per;
+  $("big").textContent=won(c.pay);
+  $("s1").textContent=f2(rateShow)+(a.cur==="jpy"?"원/100엔":"원");
+  $("s2").textContent=won(saved);
+  let h=`<h2>계산 내역</h2>`+row("매매기준율",f2(a.base)+(a.cur==="jpy"?"원/100엔":"원"))
+   +row(`현찰 살 때 (우대 없음, 수수료 ${a.spread}%)`,f2(a.base*(1+a.spread/100))+(a.cur==="jpy"?"원/100엔":"원"),"sub")
+   +row(`현찰 살 때 (우대 ${a.pref}%)`,f2(rateShow)+(a.cur==="jpy"?"원/100엔":"원"),"sub")
+   +row(`${a.amt.toLocaleString("ko-KR")}${NAME[a.cur]} 우대 없이`,won(c.full),"sub")
+   +row(`${a.amt.toLocaleString("ko-KR")}${NAME[a.cur]} 우대 ${a.pref}%`,won(c.pay),"tot")
+   +row("아낀 수수료",won(saved),"sub")
+   +row("그래도 내는 수수료",won(c.pay-c.mid),"sub");
+  $("slip").innerHTML=h;
+  const t=[];
+  const free=calc(a,100);
+  if(a.pref<100)t.push(`수수료 무료(100% 우대)인 외화통장·트래블카드로 바꾸면 <b>${won(c.pay-free.pay)}</b>를 더 아낄 수 있어요.`);
+  t.push(`다시 원화로 바꿀 때(현찰 팔 때)도 수수료가 붙어요. 남을 것 같으면 외화통장에 넣어 두거나 다음 여행에 쓰는 게 이득이에요.`);
+  if(a.cur==="jpy")t.push(`엔화 환율은 100엔 기준이에요. 1만 엔은 약 <b>${won(c.rate*10000)}</b>이에요.`);
+  $("tip").innerHTML=t.join("<br><br>");
+  let tb=`<tr><th>우대율</th><th style="text-align:right">적용 환율</th><th style="text-align:right">내는 원화</th></tr>`;
+  [0,50,80,90,100].forEach(p=>{const x=calc(a,p);const on=p===a.pref?' style="background:var(--accent-soft)"':'';
+    tb+=`<tr${on}><td>${p}%</td><td class="v" style="text-align:right">${f2(x.rate*per)}</td><td class="v" style="text-align:right">${won(x.pay)}</td></tr>`;});
+  $("table").innerHTML=tb;}
+$("cur").addEventListener("change",()=>{setBase();render();});
+$("form").addEventListener("input",e=>{if(e.target.id!=="cur"){const c=$("exampleChip");if(c)c.hidden=true;}render();});
+fetch("data/fx.json",{cache:"no-cache"}).then(r=>{if(!r.ok)throw 0;return r.json();}).then(d=>{FX=d;setBase();render();}).catch(()=>{setBase();render();});
+render();
+</script>
+<div class="visit" id="visit" hidden>
+  <div class="visit-head"><span>방문자</span><b class="visit-today"></b></div>
+  <div class="visit-chart"></div>
+</div>
+<script src="visitors.js" defer></script>
+<div class="sitefoot">
+  <span>© 2026 숨차의 일상 정보함</span>
+  <a class="minor" href="about.html">소개</a><a class="minor" href="contact.html">문의</a><a href="privacy.html">개인정보처리방침</a>
+  <a href="https://blog.naver.com/ijjeong86" target="_blank" rel="noopener">네이버 블로그</a>
+</div>
+<script src="/nav.js" defer></script>
+</body>
+</html>

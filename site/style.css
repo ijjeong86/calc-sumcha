@@ -332,3 +332,11 @@ summary{padding:16px 18px}
 .cat-calcs a:hover{filter:brightness(.97)}
 .menu>a{font-size:.95rem}
 @media (min-width:1081px){.menu>a,.dd>summary{padding:8px 10px}}
+
+/* 홈: 금리·환율 묶음 */
+.side{display:flex;flex-direction:column;gap:28px;min-width:0}
+.ratebox li.fx{grid-template-columns:minmax(0,1fr) auto}
+.ratebox li.fx .r{text-align:right;color:var(--ink)}
+.ratebox .chg{display:block;font-size:.76rem;font-weight:600;color:var(--muted)}
+.ratebox .chg.up{color:#c0392b}
+.ratebox .chg.down{color:#2160c4}
