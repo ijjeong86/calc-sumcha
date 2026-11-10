@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="AyxEZnU_y9K-pHDFXkksgQXj9Bq7QUcYZUnuaR0Hlgc" />
+<meta name="naver-site-verification" content="7ae891ecb90476d9316299663bb02e29645ef1b4" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>적금 이자 계산법: 연 4% 적금인데 실제 이자는 왜 절반일까</title>
+<meta name="description" content="월 50만원씩 연 4% 적금에 1년 넣으면 이자는 24만원이 아니라 세전 13만원이에요. 적금 이자가 적게 나오는 이유와 계산법, 예금과 비교하는 법을 정리했어요.">
+<meta property="og:title" content="적금 이자 계산법: 연 4% 적금인데 실제 이자는 왜 절반일까">
+<meta property="og:description" content="월 50만원씩 연 4% 적금에 1년 넣으면 이자는 24만원이 아니라 세전 13만원이에요. 적금 이자가 적게 나오는 이유와 계산법, 예금과 비교하는 법을 정리했어요.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://calc-sumcha.com/og-site.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://calc-sumcha.com/posts/savings-interest-real-rate.html">
+<meta property="og:site_name" content="숨차의 계산기">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://calc-sumcha.com/posts/savings-interest-real-rate.html">
+<!-- [광고 승인 코드 자리] 애드센스·애드핏에서 "head 안에 넣으세요"라고 주는 코드가 있으면 이 줄 바로 아래에 붙여 넣으세요 -->
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","headline":"적금 이자 계산법: 연 4% 적금인데 실제 이자는 왜 절반일까","description":"월 50만원씩 연 4% 적금에 1년 넣으면 이자는 24만원이 아니라 세전 13만원이에요. 적금 이자가 적게 나오는 이유와 계산법, 예금과 비교하는 법을 정리했어요.","datePublished":"2026-11-10","dateModified":"2026-11-10","author":{"@type":"Person","name":"숨차"},"publisher":{"@type":"Organization","name":"숨차의 계산기"},"mainEntityOfPage":"https://calc-sumcha.com/posts/savings-interest-real-rate.html"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"적금 금리가 7%면 정말 좋은 건가요?","acceptedAnswer":{"@type":"Answer","text":"월 납입 한도가 작은 경우가 많아요. 월 30만원 한도에 연 7%면 1년 이자는 세전 약 13만 6천원이라, 월 50만원 연 4% 적금과 비슷해요. 금리와 함께 한도를 꼭 보세요."}},{"@type":"Question","name":"이자에 붙는 세금은 얼마인가요?","acceptedAnswer":{"@type":"Answer","text":"이자소득세 14%와 지방소득세 1.4%를 합쳐 15.4%를 떼요. 비과세종합저축(만 65세 이상, 장애인 등) 대상이면 세금을 내지 않아요."}},{"@type":"Question","name":"적금은 단리인가요, 복리인가요?","acceptedAnswer":{"@type":"Answer","text":"대부분의 은행 정기적금은 단리예요. 복리 상품도 있지만 1년짜리라면 단리와 차이가 크지 않아요."}}]}]</script>
+</head>
+<body>
+<aside class="rail rail-l" aria-label="광고"><span class="rail-tag">광고</span><a href="https://link.coupang.com/a/h0qGxHPiuG" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/0be906d043593cc7da85ae628e67625d@2x.jpg" alt="LG전자 그램 17인치 i5 8GB 16GB 256GB 512GB 노트북 WIN11, WIN11 Pro" width="120" height="240"></a><a href="https://link.coupang.com/a/h0quo1j0qi" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image5.coupangcdn.com/image/affiliate/banner/4a448182838f266f4f207ae215f8763e@2x.jpg" alt="몸애비책 침향환 30% 선물세트(+보자기) 공진단경옥고상자 별매 30환, 112.5g, 1박스" width="120" height="240"></a><p class="rail-note">쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다.</p></aside>
+<aside class="rail rail-r" aria-label="광고"><span class="rail-tag">광고</span><a href="https://link.coupang.com/a/h0qwi0sQ6C" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image6.coupangcdn.com/image/affiliate/banner/f06feb1d6f8219a25e514665d037ff3b@2x.jpg" alt="무브핏 핏큐브 바이크 가정용 실내 자전거 접이식 미니, 크림 아이보리" width="120" height="240"></a><a href="https://link.coupang.com/a/h0qxBFWYZo" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/5a969659f84b7f338f6a91ea52635b7c@2x.jpg" alt="LG전자 코드제로 R5 로봇청소기 R585WKA, R585WKA1, 카밍베이지" width="120" height="240"></a><p class="rail-note">쿠팡 파트너스 활동의 일환으로 수수료를 제공받습니다.</p></aside>
+
+
+
+
+<div class="wrap">
+<div class="topnav"><a class="brand" href="/"><span class="mark" aria-hidden="true">₩</span>숨차의 계산기</a><button type="button" class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button><nav class="menu" aria-label="주 메뉴"><a class="m-season" href="/yearend.html">연말정산</a><details class="dd" data-k="calc"><summary>계산기</summary><div class="dd-panel dd-wide"><div class="dd-col"><b>월급 · 세금</b><a href="/yearend.html">연말정산 계산기</a><a href="/salary.html">연봉 실수령액 계산기</a><a href="/severance.html">퇴직금 계산기</a><a href="/unemployment.html">실업급여 계산기</a><a href="/hourly.html">시급·주휴수당 계산기</a></div><div class="dd-col"><b>예적금 · 대출</b><a href="/savings.html">예금·적금 이자 계산기</a><a href="/compound.html">복리 계산기</a><a href="/loan.html">대출 이자 계산기</a></div><div class="dd-col"><b>생활 · 사업</b><a href="/car.html">신차 구매 비용 계산기</a><a href="/margin.html">판매 마진 계산기</a><a href="/vat.html">부가세 계산기</a></div><a class="dd-all" href="/">전체 계산기 한눈에 보기 →</a></div></details><details class="dd" data-k="posts"><summary class="is-current">정보 글</summary><div class="dd-panel"><a href="/posts/">전체 글</a><a href="/posts/#tax">연말정산·세금</a><a href="/posts/#work">월급·직장</a><a href="/posts/#money">예적금·대출</a><a href="/posts/#car">자동차</a><a href="/posts/#life">생활·지원금</a></div></details></nav></div>
+<main class="post">
+<nav class="crumb" aria-label="위치"><a href="/posts/">정보 글</a> › <a href="/posts/#money">예적금·대출</a></nav>
+<h1>적금 이자 계산법: 연 4% 적금인데 실제 이자는 왜 절반일까</h1>
+<p class="post-meta">2026년 11월 10일 작성 · 2분 읽기</p>
+<p class="post-lead">적금 만기 날 이자를 보고 생각보다 적다고 느낀 적이 있다면, 계산이 틀린 게 아니에요. 적금은 돈이 들어가 있는 기간이 매달 달라서, 같은 금리라도 예금과 이자가 크게 차이 나요.</p>
+<section class="post-sum"><h2 class="sum-h">3줄 요약</h2><ul><li>월 50만원씩 <strong>연 4% 적금 12개월</strong>이면 이자는 세전 <strong>13만원</strong>, 세후 약 <strong>11만원</strong>이에요.</li><li>첫 달 넣은 돈은 12개월, 마지막 달 넣은 돈은 1개월만 이자가 붙어서 <strong>실제 수익률은 금리의 절반 정도</strong>예요.</li><li>목돈이 있다면 같은 금리의 <strong>예금이 이자가 약 2배</strong> 많고, 적금은 금리가 예금보다 꽤 높을 때 유리해요.</li></ul></section>
+<a class="post-cta" href="/savings.html"><span>예적금 계산기로 이자와 오늘의 은행 금리 비교하기</span><b>→</b></a>
+<nav class="post-toc" aria-label="목차"><b>목차</b><ol><li><a href="#s1">적금 이자 계산법</a></li><li><a href="#s2">이자가 절반인 이유</a></li><li><a href="#s3">예금과 비교하면</a></li><li><a href="#s4">적금 이자를 늘리는 방법</a></li></ol></nav>
+<!-- [글 광고 자리] 애드센스 승인 후 광고 코드를 아래 칸 안에 넣어요 -->
+<div class="ad-slot" id="adPost"></div>
+<article class="post-body">
+<p>적금 이자가 금리보다 적게 느껴지는 건 착각이 아니에요. 적금은 계산 방식 자체가 예금과 달라요.</p>
+<h2 id="s1">1. 적금 이자 계산법</h2>
+<blockquote><p>적금 이자 = 월 납입액 × 연 금리 × (1 + 2 + … + 개월 수) ÷ 12</p></blockquote>
+<p>12개월 적금이면 1부터 12까지 더한 <strong>78</strong>을 써요. 월 50만원, 연 4%라면 이래요.</p>
+<ul><li>500,000원 × 4% × 78 ÷ 12 = <strong>130,000원</strong> (세전)</li><li>이자소득세 15.4% 20,020원을 떼면 <strong>109,980원</strong> (세후)</li></ul>
+<h2 id="s2">2. 이자가 절반인 이유</h2>
+<div class="tablewrap"><table><thead><tr><th>넣은 달</th><th>이자 붙는 기간</th><th>이자 (세전)</th></tr></thead><tbody><tr><td>1회차</td><td>12개월</td><td>20,000원</td></tr><tr><td>2회차</td><td>11개월</td><td>18,333원</td></tr><tr><td>…</td><td>…</td><td>…</td></tr><tr><td>6회차</td><td>7개월</td><td>11,667원</td></tr><tr><td>…</td><td>…</td><td>…</td></tr><tr><td>12회차</td><td>1개월</td><td>1,667원</td></tr></tbody></table></div>
+<p>첫 달 넣은 돈만 1년 내내 이자가 붙고, 마지막에 넣은 돈은 한 달치만 붙어요. 평균으로 보면 돈이 은행에 있는 기간은 <strong>6.5개월</strong>이에요. 그래서 넣은 원금 600만원에 대한 실제 수익률은 세전 약 <strong>2.2%</strong>로, 금리 4%의 절반 정도예요.</p>
+<h2 id="s3">3. 예금과 비교하면</h2>
+<p>같은 600만원, 같은 연 4%라도 처음부터 한 번에 넣는 예금은 이자가 다르게 나와요.</p>
+<div class="tablewrap"><table><thead><tr><th>방법</th><th>1년 이자 (세전)</th><th>세후</th></tr></thead><tbody><tr><td>적금 (월 50만원 × 12개월)</td><td>130,000원</td><td>109,980원</td></tr><tr><td>예금 (600만원 한 번에)</td><td>240,000원</td><td>203,040원</td></tr></tbody></table></div>
+<p>그래서 <strong>목돈이 이미 있다면 예금</strong>, 월급에서 매달 모아야 한다면 적금이 맞아요. 적금 금리가 예금보다 대략 <strong>2배 가까이 높아야</strong> 같은 돈을 굴렸을 때 이자가 비슷해져요.</p>
+<h2 id="s4">4. 적금 이자를 늘리는 방법</h2>
+<ul><li><strong>금리와 한도를 같이 보기</strong>: 연 7% 특판 적금도 월 한도가 30만원이면 이자는 세전 약 13만 6천원이에요</li><li><strong>우대금리 조건 확인</strong>: 급여 이체, 카드 실적, 자동이체 같은 조건을 못 채우면 기본금리만 받아요</li><li><strong>목돈은 예금, 매달 돈은 적금</strong>: 보너스나 비상금 같은 목돈은 예금이나 파킹통장에 넣고, 월급에서 떼는 돈만 적금으로 모아요</li><li><strong>기본금리 순위 비교</strong>: 우대 조건 없이 받을 수 있는 기본금리가 높은 곳을 고르는 게 실속 있어요</li></ul>
+</article>
+<a class="post-cta" href="/savings.html"><span>예적금 계산기로 이자와 오늘의 은행 금리 비교하기</span><b>→</b></a>
+<section class="post-faq"><h2>자주 묻는 질문</h2><details><summary>적금 금리가 7%면 정말 좋은 건가요?</summary><p>월 납입 한도가 작은 경우가 많아요. 월 30만원 한도에 연 7%면 1년 이자는 세전 약 13만 6천원이라, 월 50만원 연 4% 적금과 비슷해요. 금리와 함께 한도를 꼭 보세요.</p></details><details><summary>이자에 붙는 세금은 얼마인가요?</summary><p>이자소득세 14%와 지방소득세 1.4%를 합쳐 15.4%를 떼요. 비과세종합저축(만 65세 이상, 장애인 등) 대상이면 세금을 내지 않아요.</p></details><details><summary>적금은 단리인가요, 복리인가요?</summary><p>대부분의 은행 정기적금은 단리예요. 복리 상품도 있지만 1년짜리라면 단리와 차이가 크지 않아요.</p></details></section>
+<section class="post-src"><h2>참고한 자료</h2><ol><li><a href="https://finlife.fss.or.kr" target="_blank" rel="noopener">금융상품통합비교공시 (금융감독원)</a></li><li><a href="https://www.law.go.kr/법령/소득세법" target="_blank" rel="noopener">소득세법 제129조(원천징수세율) (국가법령정보센터)</a></li></ol></section>
+<section class="post-rel"><h2>함께 보면 좋은 글</h2><ul><li><a href="/posts/year-end-tax-refund-tips-2026.html"><span class="rel-cat">연말정산·세금</span>연말정산 환급 많이 받는 법 2026: 카드 25% 문턱·연금저축 900만원·12월 31일 전에 할 7가지</a></li><li><a href="/posts/vat-filing-january-2027.html"><span class="rel-cat">연말정산·세금</span>부가세 확정신고 1월 25일: 같은 매출인데 간이과세자 세금은 왜 4분의 1일까</a></li><li><a href="/posts/unemployment-benefit-2026.html"><span class="rel-cat">월급·직장</span>실업급여 조건과 금액 2026: 월급 200만원과 400만원, 하루 금액 차이는 얼마일까</a></li><li><a href="/posts/severance-pay-calculation-2026.html"><span class="rel-cat">월급·직장</span>퇴직금 계산 방법 2026: 1년에서 하루 모자라면 0원? 세금 떼고 실제로 받는 돈은</a></li></ul></section>
+<p class="post-note">이 글은 2026년 11월 10일 기준 공개된 법령과 공식 안내를 바탕으로 정리했어요. 세법과 제도는 바뀔 수 있으니 실제 신고·신청 전에는 국세청 등 공식 기관에서 한 번 더 확인하세요.</p>
+</main>
+  <!-- [쿠팡파트너스 상품 자리] 상품을 넣으려면 아래 id="adCoupang" 칸 안에 블로그용 태그(<a>…</a>) 코드를 붙여 넣으세요 -->
+  <p class="ad-note" id="coupangHead" style="font-weight:500;color:var(--ink);font-size:.85rem">함께 보면 좋은 상품</p>
+  <div class="ad-slot" id="adCoupang"><a href="https://link.coupang.com/a/h0qGxHPiuG" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/0be906d043593cc7da85ae628e67625d@2x.jpg" alt="LG전자 그램 17인치 i5 8GB 16GB 256GB 512GB 노트북 WIN11, WIN11 Pro" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0quo1j0qi" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image5.coupangcdn.com/image/affiliate/banner/4a448182838f266f4f207ae215f8763e@2x.jpg" alt="몸애비책 침향환 30% 선물세트(+보자기) 공진단경옥고상자 별매 30환, 112.5g, 1박스" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0qwi0sQ6C" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://image6.coupangcdn.com/image/affiliate/banner/f06feb1d6f8219a25e514665d037ff3b@2x.jpg" alt="무브핏 핏큐브 바이크 가정용 실내 자전거 접이식 미니, 크림 아이보리" width="120" height="240"></a>
+    <a href="https://link.coupang.com/a/h0qxBFWYZo" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://img4a.coupangcdn.com/image/affiliate/banner/5a969659f84b7f338f6a91ea52635b7c@2x.jpg" alt="LG전자 코드제로 R5 로봇청소기 R585WKA, R585WKA1, 카밍베이지" width="120" height="240"></a></div>
+  <p class="ad-note" id="coupangNote" hidden>이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+</div>
+<script>(function(){var s=document.getElementById("adCoupang");if(s&&s.children.length)document.getElementById("coupangNote").hidden=false;})();</script>
+<div class="visit" id="visit" hidden>
+  <div class="visit-head"><span>방문자</span><b class="visit-today"></b></div>
+  <div class="visit-chart"></div>
+</div>
+<script src="/visitors.js" defer></script>
+<div class="sitefoot">
+  <span>© 2026 숨차의 일상 정보함</span>
+  <a class="minor" href="/about.html">소개</a><a class="minor" href="/contact.html">문의</a><a href="/privacy.html">개인정보처리방침</a>
+  <a href="https://blog.naver.com/ijjeong86" target="_blank" rel="noopener">네이버 블로그</a>
+</div>
+<script src="/nav.js" defer></script>
+</body>
+</html>
