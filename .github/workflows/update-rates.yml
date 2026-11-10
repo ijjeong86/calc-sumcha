@@ -32,6 +32,8 @@ jobs:
         env:
           FSS_API_KEY: ${{ secrets.FSS_API_KEY }}
         run: node scripts/fetch-rates.mjs
+      - name: 정보 글 만들기
+        run: node scripts/build-posts.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
