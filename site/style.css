@@ -384,3 +384,23 @@ summary{padding:16px 18px}
 .ft-box .ft-out p{margin:6px 0 8px;font-size:.9rem}
 .ft-box .ft-meta{font-size:.8rem;gap:4px 14px}
 .ft-box .ft-note{margin-top:10px}
+
+/* 정부지원금 조회 */
+.sp-list{display:flex;flex-direction:column;gap:10px;padding:4px 18px 12px}
+.sp-card{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--surface)}
+.sp-card.ok{border-color:var(--accent);box-shadow:inset 3px 0 0 var(--accent)}
+.sp-card.chk{box-shadow:inset 3px 0 0 #d9a21b}
+.sp-card.no{opacity:.75}
+.sp-h{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.sp-h b{font-size:1rem}
+.sp-tag{flex:none;font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:999px}
+.sp-tag.ok{background:var(--accent-soft);color:var(--accent)}
+.sp-tag.chk{background:#fbf0d6;color:#8a6100}
+.sp-tag.no{background:var(--field);color:var(--muted)}
+.sp-amt{margin-top:6px;font-weight:700;color:var(--ink);font-size:.92rem}
+.sp-card p{margin:6px 0;font-size:.86rem;line-height:1.6;color:var(--muted)}
+.sp-go{font-size:.8rem;color:var(--muted)}
+.sp-go a{color:var(--accent);font-weight:600}
+.sp-more>summary{margin:4px 18px 10px;font-size:.88rem}
+.sp-empty{color:var(--muted);font-size:.9rem;margin:6px 0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .sp-tag.chk{background:#3a3020;color:#f0c66a}}

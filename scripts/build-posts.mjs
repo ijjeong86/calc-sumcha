@@ -86,7 +86,7 @@ const CAT_INFO = [
   { name: "월급·직장", key: "work", desc: "최저임금, 주휴수당, 퇴직금, 실업급여처럼 직장인과 알바가 꼭 알아야 할 월급 이야기를 모았어요.", calcs: [["/salary.html", "연봉 실수령액 계산기"], ["/hourly.html", "시급·주휴수당 계산기"], ["/unemployment.html", "실업급여 계산기"]] },
   { name: "대출·부동산", key: "home", desc: "대출 규제, 금리, 전월세, 중개수수료처럼 집과 대출에 관한 제도를 계산 예시와 함께 정리했어요.", calcs: [["/loan.html", "대출 이자 계산기"]] },
   { name: "예적금·투자", key: "money", desc: "예금·적금 금리, 복리, 절세 계좌까지 돈을 모으고 불리는 방법을 숫자로 비교했어요.", calcs: [["/savings.html", "예금·적금 이자 계산기"], ["/compound.html", "복리 계산기"]] },
-  { name: "지원금·혜택", key: "support", desc: "근로장려금, 청년·출산 지원금처럼 신청해야 받는 정부 지원금의 조건과 금액을 정리했어요.", calcs: [] },
+  { name: "지원금·혜택", key: "support", desc: "근로장려금, 청년·출산 지원금처럼 신청해야 받는 정부 지원금의 조건과 금액을 정리했어요.", calcs: [["/support.html", "정부지원금 조회"]] },
   { name: "경제 이슈", key: "issue", desc: "기준금리, 환율, 새 경제 정책이 내 대출·예금·생활비에 어떤 영향을 주는지 풀어 썼어요.", calcs: [["/loan.html", "대출 이자 계산기"], ["/savings.html", "예금·적금 이자 계산기"]] },
 ];
 const CATS = Object.fromEntries(CAT_INFO.map(c => [c.name, c.key]));
@@ -228,7 +228,7 @@ function pageCat(c, all) {
 // ---------- 사이트맵 ----------
 async function sitemap(all) {
   const pages = (await readdir("site")).filter(n => n.endsWith(".html") && !n.startsWith("google"));
-  const pri = { "index.html": "1.0", "yearend.html": "0.9", "salary.html": "0.9", "savings.html": "0.9", "loan.html": "0.9", "car.html": "0.9", "margin.html": "0.9", "severance.html": "0.9", "hourly.html": "0.9", "vat.html": "0.9", "unemployment.html": "0.9", "compound.html": "0.9", "exchange.html": "0.9" };
+  const pri = { "index.html": "1.0", "yearend.html": "0.9", "salary.html": "0.9", "savings.html": "0.9", "loan.html": "0.9", "car.html": "0.9", "margin.html": "0.9", "severance.html": "0.9", "hourly.html": "0.9", "vat.html": "0.9", "unemployment.html": "0.9", "compound.html": "0.9", "exchange.html": "0.9", "support.html": "0.9" };
   const today = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
   const urls = pages.map(n => `  <url><loc>${SITE}/${n === "index.html" ? "" : n}</loc><lastmod>${today}</lastmod><priority>${pri[n] || "0.5"}</priority></url>`);
   urls.push(`  <url><loc>${SITE}/posts/</loc><lastmod>${today}</lastmod><priority>0.8</priority></url>`);
