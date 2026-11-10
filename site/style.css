@@ -354,3 +354,22 @@ summary{padding:16px 18px}
 .latest a img{width:76px;height:76px;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
 .latest a span{display:flex;flex-direction:column;gap:4px;min-width:0}
 .cards a:has(.card-img) .rel-cat,.post-rel a:has(.card-img) .rel-cat{justify-self:start}
+
+/* 띠별 오늘의 금전운 */
+.fortune .sec-h h2 small{font-size:.8rem;color:var(--muted);font-weight:500;margin-left:6px}
+.tti{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px}
+.tti button{display:flex;flex-direction:column;align-items:center;gap:2px;padding:9px 2px;border-radius:10px;font-weight:700;font-size:.92rem}
+.tti button small{font-size:.66rem;color:var(--muted);font-weight:500}
+.tti button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.tti button[aria-pressed="true"] small{color:#d8efe6}
+.ft-out{margin-top:12px;border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--surface)}
+.ft-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:1rem}
+.ft-star{color:#e0a100;letter-spacing:1px}
+.ft-star i{color:var(--line);font-style:normal}
+.ft-out p{margin:8px 0 10px;line-height:1.6}
+.ft-meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.85rem;color:var(--muted)}
+.ft-meta b{color:var(--ink);font-weight:600;margin-left:4px}
+.ft-note{font-size:.76rem;color:var(--muted);margin:8px 0 0}
+@media (max-width:760px){.tti{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.fortune .sec-h{flex-wrap:wrap;gap:4px 12px}
+.fortune .sec-h h2 small{white-space:nowrap}
