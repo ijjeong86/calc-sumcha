@@ -167,7 +167,7 @@ function pagePost(p, all) {
   const ld = [{
     "@context": "https://schema.org", "@type": "Article", headline: p.title, description: p.description || "",
     datePublished: p.date, dateModified: p.updated || p.date, author: { "@type": "Person", name: "숨차" },
-    publisher: { "@type": "Organization", name: "숨차의 계산기" }, mainEntityOfPage: url
+    publisher: { "@type": "Organization", name: "숨차의 경제노트" }, mainEntityOfPage: url
   }];
   if (faq.length) ld.push({ "@context": "https://schema.org", "@type": "FAQPage",
     mainEntity: faq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) });
@@ -200,7 +200,7 @@ function chips(all, cur) {
 }
 function pageIndex(all) {
   const url = `${SITE}/posts/`;
-  let s = head({ title: "정보 글 | 숨차의 계산기", desc: "세금·연금, 월급·직장, 대출·부동산, 예적금·투자, 지원금, 경제 이슈까지 계산기와 함께 보면 좋은 돈 정보 모음", url, image: `${SITE}/og-site.png` }) + rails;
+  let s = head({ title: "정보 글 | 숨차의 경제노트", desc: "세금·연금, 월급·직장, 대출·부동산, 예적금·투자, 지원금, 경제 이슈까지 계산기와 함께 보면 좋은 돈 정보 모음", url, image: `${SITE}/og-site.png` }) + rails;
   s += `<div class="wrap">\n${nav("")}\n<main class="post-list">\n<h1>정보 글</h1>\n<p class="post-lead">정부 제도가 바뀔 때마다 내 돈이 어떻게 달라지는지 정리했어요. 글마다 관련 계산기로 바로 이어져요.</p>\n`;
   s += chips(all, "");
   s += `<ul class="cards">${all.map(card).join("")}</ul>\n`;
@@ -213,7 +213,7 @@ function pageIndex(all) {
 function pageCat(c, all) {
   const url = `${SITE}/posts/${c.key}/`;
   const list = all.filter(p => p.category === c.name);
-  let s = head({ title: `${c.name} 정보 | 숨차의 계산기`, desc: c.desc, url, image: `${SITE}/og-site.png` }) + rails;
+  let s = head({ title: `${c.name} 정보 | 숨차의 경제노트`, desc: c.desc, url, image: `${SITE}/og-site.png` }) + rails;
   s += `<div class="wrap">\n${nav(c.key)}\n<main class="post-list">\n<nav class="crumb" aria-label="위치"><a href="/posts/">정보 글</a> › ${esc(c.name)}</nav>\n<h1>${esc(c.name)}</h1>\n<p class="post-lead">${esc(c.desc)}</p>\n`;
   if (c.calcs.length) s += `<div class="cat-calcs">${c.calcs.map(([h, t]) => `<a href="${h}">${esc(t)} <b>→</b></a>`).join("")}</div>\n`;
   s += chips(all, c.key);

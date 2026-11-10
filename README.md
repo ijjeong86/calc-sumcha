@@ -1,4 +1,4 @@
-# 숨차의 계산기 (calc-sumcha.com)
+# 숨차의 경제노트 (calc-sumcha.com)
 
 - `site/` : 사이트 파일 (Netlify가 이 폴더를 그대로 올려요)
 - `scripts/fetch-rates.mjs` : 금융감독원 오픈API에서 예금·적금 금리를 받아 `site/data/rates.json`으로 저장
