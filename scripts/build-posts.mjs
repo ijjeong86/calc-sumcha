@@ -229,7 +229,7 @@ try {
   let home = await readFile("site/index.html", "utf8");
   const a = "<!--LATEST_POSTS_START-->", b = "<!--LATEST_POSTS_END-->";
   if (home.includes(a) && unique.length) {
-    const li = unique.slice(0, 5).map(p => `<li><a href="posts/${p.slug}.html"><b>${esc(p.title)}</b><small>${esc(p.category)} · ${fmtDate(p.updated || p.date)}</small></a></li>`).join("");
+    const li = unique.slice(0, 5).map(p => `<li><a href="posts/${p.slug}.html"><b>${esc(p.title)}</b><small>${esc(p.category)}</small></a></li>`).join("");
     home = home.slice(0, home.indexOf(a) + a.length) + `<ul class="latest">${li}</ul>` + home.slice(home.indexOf(b));
     await writeFile("site/index.html", home);
   }
