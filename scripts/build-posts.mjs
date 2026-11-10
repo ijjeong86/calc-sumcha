@@ -129,7 +129,7 @@ async function listMd() {
     let names = [];
     try { names = await readdir(dir); } catch { continue; }
     for (const n of names) {
-      if (!n.endsWith(".md") || n.toLowerCase() === "readme.md") continue;
+      if (!n.endsWith(".md") || ["readme.md", "claude.md"].includes(n.toLowerCase())) continue;
       out.push(dir === "." ? n : `${dir}/${n}`);
     }
   }
