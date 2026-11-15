@@ -1,4 +1,4 @@
-// 최근 5일 방문자 그래프 (무료 카운터: abacus.jasoncameron.dev)
+// 최근 5일 방문자 그래프 (사주노트 서버 카운터, 안 되면 무료 카운터 abacus.jasoncameron.dev)
 // 같은 브라우저는 하루에 한 번만 셉니다. 서비스가 응답하지 않으면 위젯을 숨깁니다.
 (function () {
   var box = document.getElementById("visit");
@@ -8,19 +8,27 @@
   var days = [4, 3, 2, 1, 0].map(day), today = days[4];
   var seen = false;
   try { seen = localStorage.getItem("calc-visit-day") === today; } catch (e) {}
+  // 1순위: 사주노트 서버의 방문자 카운터 → 안 되면 예전 무료 카운터(abacus)
+  function fromOwn() {
+    return fetch("https://saju-note.co.kr/api/account?action=visit&site=calc" + (seen ? "" : "&hit=1"))
+      .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+      .then(function (j) { if (!j || !j.values || j.values.length !== 5) throw 0; return j.values; });
+  }
   function req(path) {
     return fetch(BASE + path).then(function (r) { return r.ok ? r.json() : { value: 0 }; })
       .then(function (j) { return j && typeof j.value === "number" ? j.value : 0; })
       .catch(function () { return null; });
   }
-  Promise.all(days.map(function (d, i) {
-    return req((i === 4 && !seen ? "/hit/" : "/get/") + NS + "/v-" + d);
-  })).then(function (vals) {
-    if (vals[4] === null) return;               // 카운터 서비스가 안 되면 표시하지 않음
+  function fromAbacus() {
+    return Promise.all(days.map(function (d, i) {
+      return req((i === 4 && !seen ? "/hit/" : "/get/") + NS + "/v-" + d);
+    })).then(function (vals) { if (vals[4] === null) throw 0; return vals; });
+  }
+  fromOwn().catch(fromAbacus).then(function (vals) {
     try { localStorage.setItem("calc-visit-day", today); } catch (e) {}
-    vals = vals.map(function (v) { return v || 0; });
-    draw(vals);
-  });
+    draw(vals.map(function (v) { return v || 0; }));
+  }).catch(function () {});              // 둘 다 안 되면 표시하지 않음
+
   function draw(vals) {
     var W = 230, H = 118, L = 22, R = 22, T = 30, B = 30;
     var max = Math.max.apply(null, vals.concat([1])), min = Math.min.apply(null, vals);
