@@ -31,3 +31,4 @@
 - 시즌 바로가기는 `scripts/season.mjs`의 SEASONS에서 바꿔요.
 - 금리 API 키(`FSS_API_KEY`), 환율 키(`KOREAEXIM_API_KEY`, 선택)는 GitHub Secrets에만 있어요. 파일에 쓰지 않아요.
 - 디자인을 바꾸면 `style.css?v=` 값을 올려 캐시를 갱신해요. 글꼴은 SUIT(본문·제목·숫자 모두)예요.
+- 방문자 그래프(site/visitors.js)는 사주노트 서버 `https://saju-note.co.kr/api/account?action=visit&site=calc` (Upstash Redis)에서 숫자를 받아요. 안 되면 예전 무료 카운터(abacus)로 넘어가요.
