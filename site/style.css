@@ -417,3 +417,13 @@ summary{padding:16px 18px}
 .post-log{margin-top:28px}
 .post-log h2{font-size:1.05rem}
 .post-log ul{margin:0;padding-left:18px;color:var(--muted);font-size:.88rem;line-height:1.7}
+/* 앱테크 체크리스트 */
+.at-list{display:flex;flex-direction:column;padding:0 14px 12px}
+.at-row{display:grid;grid-template-columns:22px minmax(0,1fr) auto;align-items:center;gap:10px;padding:11px 6px;border-top:1px solid var(--line);cursor:pointer}
+.at-row:first-child{border-top:0}
+.at-row input{width:18px;height:18px;accent-color:var(--accent)}
+.at-txt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.at-txt b{font-weight:600;font-size:.94rem}
+.at-txt small{color:var(--muted);font-size:.8rem}
+.at-row.on .at-txt b{color:var(--muted);text-decoration:line-through}
+.at-q{white-space:nowrap;font-size:.8rem;font-weight:600;padding:6px 10px;border-radius:8px;background:var(--accent-soft);color:var(--accent);text-decoration:none}
