@@ -1,7 +1,7 @@
 # 계산기 페이지 아래 설명(계산 기준·예시·자주 묻는 질문·관련 글)을 넣거나 바꿔요.
-# 사용: python3 scripts/calc-guides.py  → site/<계산기>.html 의 <!-- calc-guide --> 구간을 다시 씀
+# 사용: python3 scripts/calc-guides.py  → site/<계산기>.html 의 <!-- calc-guide --> 구간과 <head> 안 구조화 데이터(<!-- calc-ld -->)를 다시 씀
 # 숫자는 각 계산기 코드의 상수(세율·요율·상한액)와 같게 맞춰 두었어요. 계산기 상수를 바꾸면 여기도 같이 고쳐요.
-import re, pathlib
+import re, pathlib, json, html as html_lib
 
 def tbl(head, rows):
     h = '<tr>' + ''.join(f'<th>{x}</th>' for x in head) + '</tr>'
@@ -213,10 +213,39 @@ G['support'] = (
  REL(('earned-income-tax-credit-2027', '근로장려금 2027 신청'), ('child-tax-credit-2027', '자녀장려금 2027 신청'), ('youth-monthly-rent-support-2027', '청년월세 지원 2027'), ('median-income-2027-basic-livelihood', '2027 기준중위소득 6.7% 인상'), ('emergency-welfare-support-winter-2026', '긴급복지지원 신청 2026 겨울')))
 
 START, END = '<!-- calc-guide -->', '<!-- /calc-guide -->'
+LD_START, LD_END = '<!-- calc-ld -->', '<!-- /calc-ld -->'
+SITE = 'https://calc-sumcha.com'
+
+def plain(h): return html_lib.unescape(re.sub(r'<[^>]+>', '', h)).strip()
+
+def ld_block(name, s, guide):
+    # 검색엔진용 구조화 데이터: 계산기(WebApplication) + 자주 묻는 질문(FAQPage)
+    title = plain(re.search(r'<title>(.*?)</title>', s, re.S).group(1))
+    m = re.search(r'<meta name="description" content="([^"]*)"', s)
+    data = [{'@context': 'https://schema.org', '@type': 'WebApplication', 'name': title,
+             'description': html_lib.unescape(m.group(1)) if m else title,
+             'url': f'{SITE}/{name}.html', 'applicationCategory': 'FinanceApplication',
+             'operatingSystem': 'All', 'inLanguage': 'ko-KR',
+             'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'KRW'},
+             'publisher': {'@type': 'Organization', 'name': '숨차의 경제노트'}}]
+    f = re.search(r'<h2>자주 묻는 질문</h2>(.*?)(?=<h2>|$)', guide, re.S)
+    if f:
+        qa = re.findall(r'<h3>(.*?)</h3><p>(.*?)</p>', f.group(1), re.S)
+        if qa:
+            data.append({'@context': 'https://schema.org', '@type': 'FAQPage',
+                         'mainEntity': [{'@type': 'Question', 'name': plain(q),
+                                         'acceptedAnswer': {'@type': 'Answer', 'text': plain(a)}} for q, a in qa]})
+    return f'{LD_START}<script type="application/ld+json">{json.dumps(data, ensure_ascii=False)}</script>{LD_END}'
+
 def build():
     n = 0
     for name, html in G.items():
         p = pathlib.Path(f'site/{name}.html'); s = p.read_text(encoding='utf-8')
+        ld = ld_block(name, s, html)
+        if LD_START in s:
+            s = re.sub(re.escape(LD_START) + r'.*?' + re.escape(LD_END), lambda m: ld, s, flags=re.S)
+        else:
+            s = s.replace('</head>', ld + '\n</head>', 1)
         block = f'{START}\n  <article class="post-body" style="margin-top:28px">{html}</article>\n  {END}'
         if START in s:
             s = re.sub(re.escape(START) + r'.*?' + re.escape(END), lambda m: block, s, flags=re.S)
