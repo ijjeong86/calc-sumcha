@@ -87,6 +87,7 @@ const CAT_INFO = [
   { name: "대출·부동산", key: "home", desc: "대출 규제, 금리, 전월세, 중개수수료처럼 집과 대출에 관한 제도를 계산 예시와 함께 정리했어요.", calcs: [["/loan.html", "대출 이자 계산기"]] },
   { name: "예적금·투자", key: "money", desc: "예금·적금 금리, 복리, 절세 계좌까지 돈을 모으고 불리는 방법을 숫자로 비교했어요.", calcs: [["/savings.html", "예금·적금 이자 계산기"], ["/compound.html", "복리 계산기"]] },
   { name: "지원금·혜택", key: "support", desc: "근로장려금, 청년·출산 지원금처럼 신청해야 받는 정부 지원금의 조건과 금액을 정리했어요.", calcs: [["/support.html", "정부지원금 조회"]] },
+  { name: "할인·쿠폰", key: "deals", desc: "해외직구·여행·패션·뷰티 쇼핑몰에서 할인 받는 방법과 카드 혜택을 정리했어요. 쿠폰을 쓰기 전에 면세 한도와 조건까지 같이 확인하세요.", calcs: [["/customs.html", "해외직구 관세 계산기"], ["/exchange.html", "환전 계산기"]], groups: ["해외직구", "여행", "패션·뷰티", "카드 혜택"] },
   { name: "경제 이슈", key: "issue", desc: "기준금리, 환율, 새 경제 정책이 내 대출·예금·생활비에 어떤 영향을 주는지 풀어 썼어요.", calcs: [["/loan.html", "대출 이자 계산기"], ["/savings.html", "예금·적금 이자 계산기"]] },
 ];
 const CATS = Object.fromEntries(CAT_INFO.map(c => [c.name, c.key]));
@@ -220,6 +221,11 @@ function pageCat(c, all) {
   s += `<div class="wrap">\n${nav(c.key)}\n<main class="post-list">\n<nav class="crumb" aria-label="위치"><a href="/posts/">정보 글</a> › ${esc(c.name)}</nav>\n<h1>${esc(c.name)}</h1>\n<p class="post-lead">${esc(c.desc)}</p>\n`;
   if (c.calcs.length) s += `<div class="cat-calcs">${c.calcs.map(([h, t]) => `<a href="${h}">${esc(t)} <b>→</b></a>`).join("")}</div>\n`;
   s += chips(all, c.key);
+  if (c.groups && list.length) { // 할인·쿠폰: 묶음(group)별로 나눠 보여 줘요
+    const gs = c.groups.concat(list.some(p => !c.groups.includes(p.group)) ? ["기타"] : []);
+    s += `<nav class="deal-jump" aria-label="묶음">${gs.filter(g => list.some(p => (c.groups.includes(p.group) ? p.group : "기타") === g)).map((g, i) => `<a href="#g${i}">${esc(g)}</a>`).join("")}</nav>\n`;
+    gs.forEach((g, i) => { const l = list.filter(p => (c.groups.includes(p.group) ? p.group : "기타") === g); if (l.length) s += `<section class="deal-group" id="g${i}"><h2>${esc(g)}</h2><ul class="cards">${l.map(card).join("")}</ul></section>\n`; });
+  } else
   s += list.length ? `<ul class="cards">${list.map(card).join("")}</ul>\n` : `<p class="cards-empty">이 분류의 글은 곧 올라와요. 다른 분류 글을 먼저 둘러보세요.</p>\n`;
   s += `</main>\n${bottom}\n</div>\n${coupangScript}${tail}`;
   return s;

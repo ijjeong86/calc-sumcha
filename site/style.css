@@ -404,3 +404,9 @@ summary{padding:16px 18px}
 .sp-more>summary{margin:4px 18px 10px;font-size:.88rem}
 .sp-empty{color:var(--muted);font-size:.9rem;margin:6px 0}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .sp-tag.chk{background:#3a3020;color:#f0c66a}}
+/* 할인·쿠폰 묶음 페이지 */
+.deal-jump{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
+.deal-jump a{padding:7px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none;font-size:.88rem;font-weight:600;background:var(--surface)}
+.deal-jump a:hover{border-color:var(--accent);color:var(--accent)}
+.deal-group{margin-top:26px;scroll-margin-top:80px}
+.deal-group>h2{font-size:1.15rem;margin:0 0 12px}

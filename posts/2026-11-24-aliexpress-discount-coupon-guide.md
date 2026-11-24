@@ -1,7 +1,8 @@
 ---
 title: "알리익스프레스 할인코드 블랙프라이데이 2026: 쿠폰 5종 어떤 순서로 겹칠까? 코드 욕심내다 세금 4만원 더 내는 이유"
 description: "알리익스프레스 블랙프라이데이(11월 19일~12월 3일) 일정과 스토어 쿠폰·셀렉트 쿠폰·프로모 코드·코인·카드 할인이 적용되는 순서, 할인코드 최소금액이 150달러 면세 한도와 부딪히는 함정을 계산 예시로 정리했어요."
-category: "지원금·혜택"
+category: "할인·쿠폰"
+group: "해외직구"
 date: 2026-11-24
 slug: aliexpress-discount-coupon-guide
 image: "/img/posts/aliexpress-discount-coupon-guide.jpg"

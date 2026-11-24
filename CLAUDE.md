@@ -9,7 +9,7 @@
 맨 위 정보 칸 형식은 기존 글을 그대로 따라요.
 
 - `title`: 검색 키워드를 앞에, 뒤쪽은 답을 숨기는 질문·숫자형 훅
-- `description`, `category`(세금·연금 / 월급·직장 / 대출·부동산 / 예적금·투자 / 지원금·혜택 / 경제 이슈 중 하나), `date`(미래 날짜면 그날 자동 공개), `slug`
+- `description`, `category`(세금·연금 / 월급·직장 / 대출·부동산 / 예적금·투자 / 지원금·혜택 / 할인·쿠폰 / 경제 이슈 중 하나), `date`(미래 날짜면 그날 자동 공개), `slug`
 - `image: "/img/posts/<slug>.jpg"`, `thumb: "첫 줄|둘째 줄"`, `icon:` (그림 썸네일 대비용)
 - `photo:` Higgsfield로 만든 사진 주소 (아래 참고)
 - `lead`, `summary`(3줄 요약 3개), `calc`(관련 계산기 url·label), `faq`, `sources`(공식 자료 링크)
@@ -18,11 +18,19 @@
 
 본문은 `##` 소제목 4~6개, 표를 적극 사용. 숫자 예시는 계산해서 검증하고, 확정 안 된 제도는 "정부안·국회 통과 후 확정"이라고 적어요.
 
+## 할인·쿠폰 글 (/posts/deals/)
+
+쇼핑몰·여행·카드 할인 정리 글이에요. 맨 위에 `group:`(해외직구 / 여행 / 패션·뷰티 / 카드 혜택)을 넣으면 분류 페이지에서 묶음별로 보여요.
+- 확인 안 된 할인코드는 쓰지 않아요. 행사 일정·카드사 이벤트처럼 공식 자료로 확인한 것만 적고, 미발표 일정은 "공식 발표 전"이라고 적어요.
+- 해외직구 글은 면세 한도(150달러·미국 특송 200달러)와 `/customs.html` 계산기로 이어요.
+- 카드 글은 제휴(발급) 링크 없이 정보만 써요. 제휴 링크(알리·테무 어필리에이트 등)를 넣으면 글 아래에 수수료 안내 문구를 함께 넣어요.
+- 행사가 바뀌면 같은 파일을 고치고 `updated:` 날짜를 넣어요.
+
 ## 대표 사진 (필수)
 
 글마다 Higgsfield `gpt_image_2_6`, 정사각(1:1) 사진 1장을 만들어 `photo:`에 결과 주소를 넣어요 (약 0.25크레딧).
 프롬프트 형식: "Editorial lifestyle photograph for a Korean personal finance article about <주제>. <주제에 맞는 소품·장면>, soft natural light, <분류 색> tones, clean minimal composition, no readable text, no logos, no faces. Realistic magazine photo."
-분류 색: 세금·연금 green, 월급·직장 blue, 대출·부동산 warm orange/beige, 예적금·투자 purple, 지원금·혜택 pink/cream, 경제 이슈 teal.
+분류 색: 세금·연금 green, 월급·직장 blue, 대출·부동산 warm orange/beige, 예적금·투자 purple, 지원금·혜택 pink/cream, 할인·쿠폰 warm amber/cream, 경제 이슈 teal.
 그림 썸네일도 같이 만들어 둬요: `python3 scripts/thumbs.py` (사진을 못 받을 때 대신 쓰여요).
 
 ## 그 밖에

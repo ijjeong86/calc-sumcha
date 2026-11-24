@@ -1,7 +1,8 @@
 ---
 title: "테무 쿠폰 받는 법 2026: 신규 '쿠폰팩' 수십만원은 진짜일까? 조건 따져 보면 실제 할인은 따로 있어요"
 description: "테무(Temu) 신규 가입 쿠폰팩, 기존 회원 쿠폰, 장바구니 할인 알림, 앱 이벤트까지 할인 받는 방법과 쿠폰팩의 최소 주문금액 조건, 해외 발송 상품의 150달러 면세 한도와 합산과세 주의점을 정리했어요."
-category: "지원금·혜택"
+category: "할인·쿠폰"
+group: "해외직구"
 date: 2026-11-24
 slug: temu-coupon-discount-guide
 image: "/img/posts/temu-coupon-discount-guide.jpg"
