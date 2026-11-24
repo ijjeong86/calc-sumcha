@@ -27,6 +27,9 @@
 
 ## 그 밖에
 
+- 계산기 아래 설명(계산 기준·예시·FAQ·관련 글)은 `scripts/calc-guides.py`에서 고치고 `python3 scripts/calc-guides.py`로 다시 넣어요. 계산기 상수(세율·요율·상한액)를 바꾸면 여기 숫자도 같이 고쳐요.
+- 애드센스 코드(pub-6702302972903144)와 `site/ads.txt`가 있어요. 새 페이지를 만들면 `<head>`에 같은 코드를 넣어요.
+
 - 메뉴는 `site/*.html`의 topnav를 같이 고쳐야 해요 (글 페이지는 `site/car.html`의 메뉴를 복사해 만들어요).
 - 시즌 바로가기는 `scripts/season.mjs`의 SEASONS에서 바꿔요.
 - 금리 API 키(`FSS_API_KEY`), 환율 키(`KOREAEXIM_API_KEY`, 선택)는 GitHub Secrets에만 있어요. 파일에 쓰지 않아요.
