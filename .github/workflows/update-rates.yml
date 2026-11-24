@@ -56,5 +56,8 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
+      # 올린 결과물이 GitHub에 등록되기 전에 배포가 먼저 찾으면 실패해서 잠깐 기다려요
+      - name: 결과물 등록 대기
+        run: sleep 30
       - id: deployment
         uses: actions/deploy-pages@v4
