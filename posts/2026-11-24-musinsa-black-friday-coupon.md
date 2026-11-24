@@ -9,8 +9,8 @@ image: "/img/posts/musinsa-black-friday-coupon.jpg"
 photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261124_124116_b350ae99-3403-4cb2-9cb1-0d2275cdad20.png"
 thumb: "무신사 블프 쿠폰|언제 쓸까?"
 icon: gift
-refresh: "monthly"
-updated: 2026-11-24
+refresh: "weekly"
+updated: 2026-11-25
 deals:
   - name: "무진장 26 겨울 블프 본 행사"
     period: "11월 22일 19시 ~ 12월 2일 자정"
@@ -29,6 +29,7 @@ deals:
     url: "https://www.lotteeatz.com/event/main"
     note: "무진장 버거·팩 구매 시 무신사 행운권·오프라인 매장 할인 쿠폰"
 log:
+  - "2026-11-25: 행사 확인, 변경 없음 (블프 행사 기간이라 확인 주기를 weekly로 올림)"
   - "2026-11-24: 공식 보도자료로 종료일 12월 2일로 바로잡고 오픈런 뽑기·카운트업·유즈드·롯데리아 제휴 추가"
   - "2026-11-24: 처음 정리"
 lead: "무신사가 1년 중 가장 큰 할인 행사인 '무진장 겨울 블랙프라이데이'를 열었어요. 아우터를 장만하려고 기다린 분이 많을 텐데, 상품 할인율보다 쿠폰을 어떤 주문에 쓰느냐에 따라 실제 결제 금액이 꽤 달라져요."

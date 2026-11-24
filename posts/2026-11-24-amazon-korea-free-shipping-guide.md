@@ -9,8 +9,8 @@ image: "/img/posts/amazon-korea-free-shipping-guide.jpg"
 photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261124_124103_03c0632d-6d6e-4079-a4eb-a079ec780695.png"
 thumb: "아마존 무료배송|49달러 조건"
 icon: gift
-refresh: "monthly"
-updated: 2026-11-24
+refresh: "weekly"
+updated: 2026-11-25
 deals:
   - name: "아마존 블랙프라이데이 세일"
     period: "11월 19일 오후 5시 1분 ~ 11월 30일 (한국 시간)"
@@ -29,6 +29,7 @@ deals:
     url: "https://www.amazon.com"
     note: "'대한민국 무료배송' 표시 상품 49달러 이상, 결제 화면에서 배송비 확인"
 log:
+  - "2026-11-25: 행사 확인, 변경 없음 (블프 행사 기간이라 확인 주기를 weekly로 올림)"
   - "2026-11-24: 블프 세일 기간(11/19~11/30)과 당일 새 할인 시각 추가"
   - "2026-11-24: 처음 정리"
 lead: "블랙프라이데이가 다가오면 아마존 장바구니를 채우는 분이 많아요. 아마존은 한국 주소로 일정 금액 이상 사면 배송비를 받지 않는 프로모션을 하고 있는데, 모든 상품이 되는 건 아니에요. 그리고 배송비보다 더 큰 돈이 갈리는 기준이 하나 더 있어요."
