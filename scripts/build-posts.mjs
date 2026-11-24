@@ -87,7 +87,7 @@ const CAT_INFO = [
   { name: "대출·부동산", key: "home", desc: "대출 규제, 금리, 전월세, 중개수수료처럼 집과 대출에 관한 제도를 계산 예시와 함께 정리했어요.", calcs: [["/loan.html", "대출 이자 계산기"]] },
   { name: "예적금·투자", key: "money", desc: "예금·적금 금리, 복리, 절세 계좌까지 돈을 모으고 불리는 방법을 숫자로 비교했어요.", calcs: [["/savings.html", "예금·적금 이자 계산기"], ["/compound.html", "복리 계산기"]] },
   { name: "지원금·혜택", key: "support", desc: "근로장려금, 청년·출산 지원금처럼 신청해야 받는 정부 지원금의 조건과 금액을 정리했어요.", calcs: [["/support.html", "정부지원금 조회"]] },
-  { name: "할인·쿠폰", key: "deals", desc: "해외직구·여행·패션·뷰티 쇼핑몰에서 할인 받는 방법과 카드 혜택을 정리했어요. 쿠폰을 쓰기 전에 면세 한도와 조건까지 같이 확인하세요.", calcs: [["/customs.html", "해외직구 관세 계산기"], ["/exchange.html", "환전 계산기"]], groups: ["해외직구", "여행", "패션·뷰티", "카드 혜택"] },
+  { name: "할인·쿠폰", key: "deals", desc: "해외직구·여행·패션·뷰티 쇼핑몰에서 할인 받는 방법과 카드 혜택을 정리했어요. 쿠폰을 쓰기 전에 면세 한도와 조건까지 같이 확인하세요.", calcs: [["/customs.html", "해외직구 관세 계산기"], ["/exchange.html", "환전 계산기"]], groups: ["오늘의 할인", "해외직구", "여행", "패션·뷰티", "카드 혜택"] },
   { name: "경제 이슈", key: "issue", desc: "기준금리, 환율, 새 경제 정책이 내 대출·예금·생활비에 어떤 영향을 주는지 풀어 썼어요.", calcs: [["/loan.html", "대출 이자 계산기"], ["/savings.html", "예금·적금 이자 계산기"]] },
 ];
 const CATS = Object.fromEntries(CAT_INFO.map(c => [c.name, c.key]));
@@ -145,7 +145,7 @@ function parse(src, file) {
   if (meta.updated) meta.updated = String(meta.updated instanceof Date ? meta.updated.toISOString().slice(0, 10) : meta.updated);
   meta.slug = String(meta.slug).toLowerCase().replace(/[^a-z0-9-]/g, "-");
   // 할인·쿠폰 글처럼 주기적으로 고치는 글(refresh:)은 제목 앞에 [YYYY년 M월]을 붙여요
-  if (meta.refresh) { const [y, mo] = (meta.updated || meta.date).split("-"); meta.title = `[${y}년 ${+mo}월] ${meta.title}`; }
+  if (meta.refresh) { const [y, mo, dd] = (meta.updated || meta.date).split("-"); meta.title = meta.refresh === "daily" ? `[${+mo}월 ${+dd}일] ${meta.title}` : `[${y}년 ${+mo}월] ${meta.title}`; }
   meta.body = m[2];
   meta.file = file;
   return meta;
@@ -194,7 +194,7 @@ function pagePost(p, all) {
   if (sources.length) s += `<section class="post-src"><h2>참고한 자료</h2><ol>${sources.map(x => `<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a></li>`).join("")}</ol></section>\n`;
   if (Array.isArray(p.log) && p.log.length) s += `<section class="post-log"><h2>업데이트 내역</h2><ul>${p.log.map(x => `<li>${esc(x)}</li>`).join("")}</ul></section>\n`;
   if (related.length) s += `<section class="post-rel"><h2>함께 보면 좋은 글</h2><ul>${related.map(r => `<li><a href="/posts/${r.slug}.html">${r.image ? `<img class="card-img" src="${esc(sq(r.image))}" alt="${esc(r.title)}" loading="lazy" width="300" height="300">` : ""}<span class="rel-cat">${esc(r.category)}</span>${esc(r.title)}</a></li>`).join("")}</ul></section>\n`;
-  const REF = { weekly: "매주", biweekly: "2주마다", monthly: "매달", quarterly: "석 달마다" };
+  const REF = { daily: "매일", weekly: "매주", biweekly: "2주마다", monthly: "매달", quarterly: "석 달마다" };
   s += p.refresh
     ? `<p class="post-note">이 글은 ${fmtDate(p.updated || p.date)} 기준 각 쇼핑몰·카드사 공식 안내를 바탕으로 정리했고, ${REF[p.refresh] || "주기적으로"} 다시 확인해 고쳐요. 행사와 쿠폰은 예고 없이 바뀌거나 일찍 끝날 수 있으니 결제 전에 공식 페이지에서 한 번 더 확인하세요.</p>\n`
     : `<p class="post-note">이 글은 ${fmtDate(p.updated || p.date)} 기준 공개된 법령과 공식 안내를 바탕으로 정리했어요. 세법과 제도는 바뀔 수 있으니 실제 신고·신청 전에는 국세청 등 공식 기관에서 한 번 더 확인하세요.</p>\n`;
