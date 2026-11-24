@@ -410,3 +410,10 @@ summary{padding:16px 18px}
 .deal-jump a:hover{border-color:var(--accent);color:var(--accent)}
 .deal-group{margin-top:26px;scroll-margin-top:80px}
 .deal-group>h2{font-size:1.15rem;margin:0 0 12px}
+.deal-now{margin:18px 0;padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.deal-now h2{margin:0 0 10px;font-size:1.05rem}
+.deal-now h2 small{font-weight:500;font-size:.78rem;color:var(--muted);margin-left:6px}
+.deal-now td:first-child a{font-weight:600}
+.post-log{margin-top:28px}
+.post-log h2{font-size:1.05rem}
+.post-log ul{margin:0;padding-left:18px;color:var(--muted);font-size:.88rem;line-height:1.7}

@@ -1,5 +1,5 @@
 ---
-title: "트립닷컴 할인코드 2026: 신규회원 쿠폰 vs 카드사 즉시할인, 뭐가 더 클까? 같이 못 쓰는 조합 정리"
+title: "트립닷컴 할인코드: 신규회원 쿠폰 vs 카드사 즉시할인, 뭐가 더 클까? 같이 못 쓰는 조합 정리"
 description: "트립닷컴 신규회원 할인코드(호텔·렌터카·공항픽업), 신한카드 등 카드사 즉시할인(호텔 7%·항공 4%), 트립코인 적립과 중복 불가 조건, 전용 URL 접속 규칙까지 트립닷컴 예약 전에 확인할 할인을 정리했어요."
 category: "할인·쿠폰"
 group: "여행"
@@ -9,6 +9,23 @@ image: "/img/posts/tripcom-discount-guide.jpg"
 photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261124_124112_907a8eb3-43e4-4d0b-8a53-ba32a5ff49fd.png"
 thumb: "트립닷컴 할인|뭐가 더 클까?"
 icon: gift
+refresh: "biweekly"
+updated: 2026-11-24
+deals:
+  - name: "비자카드 프로모션"
+    period: "~ 12월 31일 예약"
+    url: "https://kr.trip.com/sale/w/3226/visa.html"
+    note: "비자카드 결제 할인, 예산 소진 시 조기 종료"
+  - name: "트립타임 호텔 특가"
+    period: "~ 12월 31일"
+    url: "https://kr.trip.com/sale/w/35086/kr-triptime.html"
+    note: "소개된 호텔 선착순 특가"
+  - name: "신규회원 호텔 쿠폰"
+    period: "~ 12월 31일"
+    url: "https://kr.trip.com/blog/trip-promotions/"
+    note: "호텔 첫 예약 최대 10% 할인"
+log:
+  - "2026-11-24: 처음 정리"
 lead: "트립닷컴은 항공권·호텔·기차·액티비티를 한 앱에서 예약할 수 있어 여행 준비를 몰아서 하기 좋아요. 할인도 신규회원 쿠폰, 카드사 즉시할인, 트립코인까지 종류가 많은데, 서로 같이 못 쓰는 조합이 있어서 무엇을 고를지가 중요해요."
 summary:
   - "처음 가입했다면 **신규회원 할인코드**(호텔 최대 10%, 렌터카 최대 8% 등)를 먼저 확인하세요."

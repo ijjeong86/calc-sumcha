@@ -1,5 +1,5 @@
 ---
-title: "아마존 한국 무료배송 조건 2026: 49달러 넘기면 끝일까? 블랙프라이데이 직구 전 200달러에서 갈리는 것"
+title: "아마존 한국 무료배송 조건: 49달러 넘기면 끝일까? 블랙프라이데이 직구 전 200달러에서 갈리는 것"
 description: "아마존 미국 사이트에서 한국으로 무료배송 받는 49달러 조건과 대상 상품 확인법, 블랙프라이데이(11월 27일)·사이버먼데이(11월 30일) 일정, 미국발 200달러 면세 한도와 관부가세 계산 예시를 정리했어요."
 category: "할인·쿠폰"
 group: "해외직구"
@@ -9,6 +9,23 @@ image: "/img/posts/amazon-korea-free-shipping-guide.jpg"
 photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261124_124103_03c0632d-6d6e-4079-a4eb-a079ec780695.png"
 thumb: "아마존 무료배송|49달러 조건"
 icon: gift
+refresh: "monthly"
+updated: 2026-11-24
+deals:
+  - name: "대한민국 무료배송"
+    period: "상시 프로모션"
+    url: "https://www.amazon.com"
+    note: "대한민국 무료배송 표시 상품 49달러 이상"
+  - name: "블랙프라이데이"
+    period: "11월 27일 (금)"
+    url: "https://www.amazon.com"
+    note: "미국 동부 0시 = 한국 오후 2시"
+  - name: "사이버먼데이"
+    period: "11월 30일 (월)"
+    url: "https://www.amazon.com"
+    note: "온라인 중심 할인"
+log:
+  - "2026-11-24: 처음 정리"
 lead: "블랙프라이데이가 다가오면 아마존 장바구니를 채우는 분이 많아요. 아마존은 한국 주소로 일정 금액 이상 사면 배송비를 받지 않는 프로모션을 하고 있는데, 모든 상품이 되는 건 아니에요. 그리고 배송비보다 더 큰 돈이 갈리는 기준이 하나 더 있어요."
 summary:
   - "한국 주소로 설정하고 **'대한민국 무료배송'** 표시가 붙은 상품을 **49달러 이상** 담으면 국제 배송비가 무료예요. 표시 없는 상품은 금액을 채워도 배송비가 붙어요."

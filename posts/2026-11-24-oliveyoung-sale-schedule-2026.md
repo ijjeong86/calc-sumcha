@@ -1,5 +1,5 @@
 ---
-title: "올리브영 세일 기간 2026: 12월 올영세일은 언제? 올영데이와 뭐가 다른지, 1년 중 가장 싸게 사는 때"
+title: "올리브영 세일 기간: 12월 올영세일은 언제? 올영데이와 뭐가 다른지, 1년 중 가장 싸게 사는 때"
 description: "올리브영 정기 할인 '올영세일'(3·6·9·12월 연 4회)과 매달 25~27일 '올영데이'의 차이, 12월 올영세일 시기와 쿠폰 받는 법, 장바구니 미리 담기 등 올리브영에서 싸게 사는 방법을 정리했어요."
 category: "할인·쿠폰"
 group: "패션·뷰티"
@@ -9,6 +9,19 @@ image: "/img/posts/oliveyoung-sale-schedule-2026.jpg"
 photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261124_124118_d585d4eb-7c29-4908-abc9-bb83cbc43535.png"
 thumb: "올영세일|12월은 언제?"
 icon: gift
+refresh: "monthly"
+updated: 2026-11-24
+deals:
+  - name: "12월 올영세일"
+    period: "공식 발표 전 (11월 말~12월 초 예상)"
+    url: "https://www.oliveyoung.co.kr"
+    note: "연 4회 정기 할인 중 마지막"
+  - name: "12월 올영데이"
+    period: "12월 25~27일"
+    url: "https://www.oliveyoung.co.kr"
+    note: "매달 25~27일 정기 행사"
+log:
+  - "2026-11-24: 처음 정리"
 lead: "화장품은 다 쓰기 전에 미리 사 두면 세일 때 훨씬 싸게 살 수 있어요. 올리브영은 할인 행사 주기가 정해져 있어서, 언제 큰 세일이 열리는지만 알아도 같은 제품을 더 싸게 살 수 있어요."
 summary:
   - "**올영세일**은 **3·6·9·12월** 연 4회 열리는 정기 할인이에요. 보통 7일 정도 진행되고, 12월 세일은 해마다 **12월 첫 주 무렵**에 열렸어요."

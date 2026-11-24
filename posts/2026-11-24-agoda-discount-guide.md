@@ -1,5 +1,5 @@
 ---
-title: "아고다 할인 받는 법 2026: 할인코드 5%보다 큰 할인은 어디에? 같은 호텔 결제 금액이 달라지는 4가지"
+title: "아고다 할인 받는 법: 할인코드 5%보다 큰 할인은 어디에? 같은 호텔 결제 금액이 달라지는 4가지"
 description: "아고다 할인코드, 카드사 제휴 할인, VIP 등급 특가, 앱 전용가까지 할인 종류별 차이와 중복 여부, 결제 통화(원화 결제) 함정, 무료 취소 조건까지 아고다에서 숙소를 싸게 예약하는 방법을 정리했어요."
 category: "할인·쿠폰"
 group: "여행"
@@ -9,6 +9,19 @@ image: "/img/posts/agoda-discount-guide.jpg"
 photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261124_124108_5902369f-2de5-4993-80c4-ac3061521329.png"
 thumb: "아고다 할인|코드보다 큰 것"
 icon: gift
+refresh: "monthly"
+updated: 2026-11-24
+deals:
+  - name: "아고다 메가 세일"
+    period: "11월 12~30일 (해외 안내 기준)"
+    url: "https://www.agoda.com/ko-kr"
+    note: "참여 호텔 최대 60%, 항공 최대 30% 할인"
+  - name: "VIP 등급 특가"
+    period: "상시"
+    url: "https://www.agoda.com/ko-kr"
+    note: "로그인 시 VIP 특가 표시 숙소"
+log:
+  - "2026-11-24: 처음 정리"
 lead: "아고다 결제창의 '프로모션 코드' 칸을 보면 일단 코드부터 찾게 되죠. 그런데 검색해서 나오는 코드는 대부분 몇 % 수준이에요. 같은 호텔, 같은 날짜인데 결제 금액이 달라지는 이유는 코드 말고도 여러 가지가 있어요."
 summary:
   - "아고다 할인은 **할인코드, 카드사 제휴 할인, VIP 등급 특가, 앱 전용가** 네 가지가 커요. 흔히 찾는 할인코드는 5~8% 수준이 많고, 더 큰 할인은 카드사 프로모션인 경우가 많아요."

@@ -144,6 +144,8 @@ function parse(src, file) {
   meta.date = String(meta.date instanceof Date ? meta.date.toISOString().slice(0, 10) : meta.date);
   if (meta.updated) meta.updated = String(meta.updated instanceof Date ? meta.updated.toISOString().slice(0, 10) : meta.updated);
   meta.slug = String(meta.slug).toLowerCase().replace(/[^a-z0-9-]/g, "-");
+  // 할인·쿠폰 글처럼 주기적으로 고치는 글(refresh:)은 제목 앞에 [YYYY년 M월]을 붙여요
+  if (meta.refresh) { const [y, mo] = (meta.updated || meta.date).split("-"); meta.title = `[${y}년 ${+mo}월] ${meta.title}`; }
   meta.body = m[2];
   meta.file = file;
   return meta;
@@ -182,6 +184,7 @@ function pagePost(p, all) {
   s += `<h1>${esc(p.title)}</h1>\n<p class="post-meta">${fmtDate(p.date)} 작성${p.updated ? ` · ${fmtDate(p.updated)} 수정` : ""} · ${mins}분 읽기</p>\n`;
   if (p.lead) s += `<p class="post-lead">${esc(p.lead)}</p>\n`;
   if (Array.isArray(p.summary) && p.summary.length) s += `<section class="post-sum"><h2 class="sum-h">3줄 요약</h2><ul>${p.summary.map(x => `<li>${marked.parseInline(String(x))}</li>`).join("")}</ul></section>\n`;
+  if (Array.isArray(p.deals) && p.deals.length) s += `<section class="deal-now post-body"><h2>지금 진행 중인 행사 <small>${fmtDate(p.updated || p.date)} 확인</small></h2><div class="tablewrap"><table><tr><th>행사</th><th>기간</th><th>내용</th></tr>${p.deals.map(d => `<tr><td>${d.url ? `<a href="${esc(d.url)}" target="_blank" rel="${d.sponsored === "true" ? "sponsored " : ""}noopener">${esc(d.name)}</a>` : esc(d.name)}</td><td>${esc(d.period || "")}</td><td>${marked.parseInline(String(d.note || ""))}</td></tr>`).join("")}</table></div></section>\n`;
   if (p.calc && p.calc.url) s += `<a class="post-cta" href="${esc(p.calc.url)}"><span>${esc(p.calc.label || "계산기로 바로 계산하기")}</span><b>→</b></a>\n`;
   if (toc.length > 1) s += `<nav class="post-toc" aria-label="목차"><b>목차</b><ol>${toc.map(t => `<li><a href="#${t.id}">${t.text}</a></li>`).join("")}</ol></nav>\n`;
   s += `<!-- [글 광고 자리] 애드센스 승인 후 광고 코드를 아래 칸 안에 넣어요 -->\n<div class="ad-slot" id="adPost"></div>\n`;
@@ -189,8 +192,12 @@ function pagePost(p, all) {
   if (p.calc && p.calc.url) s += `<a class="post-cta" href="${esc(p.calc.url)}"><span>${esc(p.calc.label || "계산기로 바로 계산하기")}</span><b>→</b></a>\n`;
   if (faq.length) s += `<section class="post-faq"><h2>자주 묻는 질문</h2>${faq.map(f => `<details><summary>${esc(f.q)}</summary><p>${marked.parseInline(String(f.a))}</p></details>`).join("")}</section>\n`;
   if (sources.length) s += `<section class="post-src"><h2>참고한 자료</h2><ol>${sources.map(x => `<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a></li>`).join("")}</ol></section>\n`;
+  if (Array.isArray(p.log) && p.log.length) s += `<section class="post-log"><h2>업데이트 내역</h2><ul>${p.log.map(x => `<li>${esc(x)}</li>`).join("")}</ul></section>\n`;
   if (related.length) s += `<section class="post-rel"><h2>함께 보면 좋은 글</h2><ul>${related.map(r => `<li><a href="/posts/${r.slug}.html">${r.image ? `<img class="card-img" src="${esc(sq(r.image))}" alt="${esc(r.title)}" loading="lazy" width="300" height="300">` : ""}<span class="rel-cat">${esc(r.category)}</span>${esc(r.title)}</a></li>`).join("")}</ul></section>\n`;
-  s += `<p class="post-note">이 글은 ${fmtDate(p.updated || p.date)} 기준 공개된 법령과 공식 안내를 바탕으로 정리했어요. 세법과 제도는 바뀔 수 있으니 실제 신고·신청 전에는 국세청 등 공식 기관에서 한 번 더 확인하세요.</p>\n`;
+  const REF = { weekly: "매주", biweekly: "2주마다", monthly: "매달", quarterly: "석 달마다" };
+  s += p.refresh
+    ? `<p class="post-note">이 글은 ${fmtDate(p.updated || p.date)} 기준 각 쇼핑몰·카드사 공식 안내를 바탕으로 정리했고, ${REF[p.refresh] || "주기적으로"} 다시 확인해 고쳐요. 행사와 쿠폰은 예고 없이 바뀌거나 일찍 끝날 수 있으니 결제 전에 공식 페이지에서 한 번 더 확인하세요.</p>\n`
+    : `<p class="post-note">이 글은 ${fmtDate(p.updated || p.date)} 기준 공개된 법령과 공식 안내를 바탕으로 정리했어요. 세법과 제도는 바뀔 수 있으니 실제 신고·신청 전에는 국세청 등 공식 기관에서 한 번 더 확인하세요.</p>\n`;
   s += `</main>\n${bottom}\n</div>\n${coupangScript}${tail}`;
   return s;
 }

@@ -1,5 +1,5 @@
 ---
-title: "알리익스프레스 할인코드 블랙프라이데이 2026: 쿠폰 5종 어떤 순서로 겹칠까? 코드 욕심내다 세금 4만원 더 내는 이유"
+title: "알리익스프레스 할인코드 블랙프라이데이: 쿠폰 5종 어떤 순서로 겹칠까? 코드 욕심내다 세금 4만원 더 내는 이유"
 description: "알리익스프레스 블랙프라이데이(11월 19일~12월 3일) 일정과 스토어 쿠폰·셀렉트 쿠폰·프로모 코드·코인·카드 할인이 적용되는 순서, 할인코드 최소금액이 150달러 면세 한도와 부딪히는 함정을 계산 예시로 정리했어요."
 category: "할인·쿠폰"
 group: "해외직구"
@@ -9,6 +9,27 @@ image: "/img/posts/aliexpress-discount-coupon-guide.jpg"
 photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf_20261124_122427_5ed85777-ff12-4d91-aa00-cbd28960b928.png"
 thumb: "알리 쿠폰 5종|겹치는 순서"
 icon: gift
+refresh: "weekly"
+updated: 2026-11-24
+deals:
+  - name: "블랙프라이데이 · 톱 브랜드 데이"
+    period: "11월 19~23일"
+    url: "https://ko.aliexpress.com"
+    note: "인기 상품 최대 70% 할인, 선착순 쿠폰"
+  - name: "블랙프라이데이 · 알급날"
+    period: "11월 24~26일"
+    url: "https://ko.aliexpress.com"
+    note: "행사 페이지에서 단계별 쿠폰 공개"
+  - name: "블랙프라이데이 · 베스트셀러"
+    period: "11월 27~30일"
+    url: "https://ko.aliexpress.com"
+    note: "해외직구 인기 상품"
+  - name: "블랙프라이데이 · 초이스데이"
+    period: "12월 1~3일"
+    url: "https://ko.aliexpress.com"
+    note: "블랙프라이데이 마지막 단계"
+log:
+  - "2026-11-24: 처음 정리"
 lead: "알리익스프레스는 11월 광군제가 끝나자마자 블랙프라이데이 행사를 이어 가고 있어요. 쿠폰과 할인코드가 여러 종류라 어떤 걸 먼저 챙겨야 할지 헷갈리는데, 순서보다 더 중요한 게 있어요. 할인코드 최소금액을 맞추려고 장바구니를 키우다 150달러 면세 한도를 넘기면 할인보다 세금이 더 커질 수 있거든요."
 summary:
   - "알리익스프레스 한국 **블랙프라이데이는 11월 19일~12월 3일**이에요. 기간마다 톱 브랜드 데이, 알급날, 베스트셀러, 초이스데이로 테마가 바뀌어요."
