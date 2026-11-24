@@ -95,7 +95,7 @@ const CATS = Object.fromEntries(CAT_INFO.map(c => [c.name, c.key]));
 // ---------- 공통 틀: car.html에서 머리말·광고·메뉴·바닥글을 가져와요 ----------
 const tpl = await readFile("site/car.html", "utf8");
 const abs = s => s.replace(/(href|src)="(?!https?:|#|\/|mailto:|tel:|data:)([^"]+)"/g, '$1="/$2"');
-const headRaw = tpl.split("</head>")[0];
+const headRaw = tpl.split("</head>")[0].replace(/<!-- calc-ld -->[\s\S]*?<!-- \/calc-ld -->\n?/, ""); // 계산기 구조화 데이터는 글에 넣지 않아요
 const rails = abs(tpl.split("<body>\n")[1].split('<div class="wrap">')[0]);
 const navRaw = tpl.match(/<div class="topnav">[\s\S]*?<\/nav><\/div>/)[0];
 const bottomStart = tpl.indexOf("  <!-- [쿠팡파트너스 상품 자리]");
@@ -250,6 +250,16 @@ async function sitemap(all) {
   await writeFile("site/sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join("\n")}\n</urlset>\n`);
 }
 
+// ---------- RSS (네이버 서치어드바이저 제출용) ----------
+async function rss(all) {
+  const rfc = d => new Date(d + "T09:00:00+09:00").toUTCString();
+  const items = [...all].sort((a, b) => (b.updated || b.date).localeCompare(a.updated || a.date)).slice(0, 50).map(p => {
+    const url = `${SITE}/posts/${p.slug}.html`;
+    return `<item><title>${esc(p.title)}</title><link>${url}</link><guid isPermaLink="true">${url}</guid><description>${esc(p.description || p.lead || "")}</description><category>${esc(p.category)}</category><pubDate>${rfc(p.updated || p.date)}</pubDate></item>`;
+  });
+  await writeFile("site/rss.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>숨차의 경제노트</title><link>${SITE}/</link><description>세금·대출·지원금·할인 정보와 돈 계산기</description><language>ko</language><lastBuildDate>${new Date().toUTCString()}</lastBuildDate>\n${items.join("\n")}\n</channel></rss>\n`);
+}
+
 // ---------- 실행 ----------
 const posts = [];
 for (const f of await listMd()) {
@@ -267,6 +277,7 @@ await writeFile("site/posts/index.html", pageIndex(unique));
 for (const c of CAT_INFO) { await mkdir(`site/posts/${c.key}`, { recursive: true }); await writeFile(`site/posts/${c.key}/index.html`, pageCat(c, unique)); }
 for (const p of unique) if (!CATS[p.category]) console.error("분류 이름 확인 필요:", p.file, p.category);
 await sitemap(unique);
+await rss(unique);
 // 첫 화면에 최신 글 5편 넣기
 try {
   let home = await readFile("site/index.html", "utf8");

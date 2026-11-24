@@ -24,6 +24,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2   # 바뀐 페이지를 검색엔진에 알리려고 직전 커밋까지 받아요
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -61,3 +63,6 @@ jobs:
         run: sleep 30
       - id: deployment
         uses: actions/deploy-pages@v4
+      - name: 검색엔진에 새 글 알리기 (IndexNow)
+        continue-on-error: true
+        run: node scripts/indexnow.mjs
