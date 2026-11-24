@@ -87,7 +87,7 @@ const CAT_INFO = [
   { name: "대출·부동산", key: "home", desc: "대출 규제, 금리, 전월세, 중개수수료처럼 집과 대출에 관한 제도를 계산 예시와 함께 정리했어요.", calcs: [["/loan.html", "대출 이자 계산기"]] },
   { name: "예적금·투자", key: "money", desc: "예금·적금 금리, 복리, 절세 계좌까지 돈을 모으고 불리는 방법을 숫자로 비교했어요.", calcs: [["/savings.html", "예금·적금 이자 계산기"], ["/compound.html", "복리 계산기"]] },
   { name: "지원금·혜택", key: "support", desc: "근로장려금, 청년·출산 지원금처럼 신청해야 받는 정부 지원금의 조건과 금액을 정리했어요.", calcs: [["/support.html", "정부지원금 조회"]] },
-  { name: "할인·쿠폰", key: "deals", desc: "해외직구·여행·패션·뷰티 쇼핑몰에서 할인 받는 방법과 카드 혜택을 정리했어요. 쿠폰을 쓰기 전에 면세 한도와 조건까지 같이 확인하세요.", calcs: [["/customs.html", "해외직구 관세 계산기"], ["/exchange.html", "환전 계산기"]], groups: ["오늘의 할인", "해외직구", "여행", "패션·뷰티", "카드 혜택"] },
+  { name: "할인·쿠폰", key: "deals", desc: "해외직구·여행·패션·뷰티 쇼핑몰에서 할인 받는 방법과 카드 혜택을 정리했어요. 쿠폰을 쓰기 전에 면세 한도와 조건까지 같이 확인하세요.", calcs: [["/customs.html", "해외직구 관세 계산기"], ["/subscription.html", "구독료 계산기"], ["/exchange.html", "환전 계산기"]], groups: ["오늘의 할인", "해외직구", "여행", "패션·뷰티", "구독 서비스", "카드 혜택"] },
   { name: "경제 이슈", key: "issue", desc: "기준금리, 환율, 새 경제 정책이 내 대출·예금·생활비에 어떤 영향을 주는지 풀어 썼어요.", calcs: [["/loan.html", "대출 이자 계산기"], ["/savings.html", "예금·적금 이자 계산기"]] },
 ];
 const CATS = Object.fromEntries(CAT_INFO.map(c => [c.name, c.key]));
@@ -241,7 +241,7 @@ function pageCat(c, all) {
 // ---------- 사이트맵 ----------
 async function sitemap(all) {
   const pages = (await readdir("site")).filter(n => n.endsWith(".html") && !n.startsWith("google"));
-  const pri = { "index.html": "1.0", "yearend.html": "0.9", "salary.html": "0.9", "savings.html": "0.9", "loan.html": "0.9", "car.html": "0.9", "margin.html": "0.9", "severance.html": "0.9", "hourly.html": "0.9", "vat.html": "0.9", "unemployment.html": "0.9", "compound.html": "0.9", "exchange.html": "0.9", "support.html": "0.9", "customs.html": "0.9", "apptech.html": "0.9" };
+  const pri = { "index.html": "1.0", "yearend.html": "0.9", "salary.html": "0.9", "savings.html": "0.9", "loan.html": "0.9", "car.html": "0.9", "margin.html": "0.9", "severance.html": "0.9", "hourly.html": "0.9", "vat.html": "0.9", "unemployment.html": "0.9", "compound.html": "0.9", "exchange.html": "0.9", "support.html": "0.9", "customs.html": "0.9", "apptech.html": "0.9", "subscription.html": "0.9" };
   const today = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
   const urls = pages.map(n => `  <url><loc>${SITE}/${n === "index.html" ? "" : n}</loc><lastmod>${today}</lastmod><priority>${pri[n] || "0.5"}</priority></url>`);
   urls.push(`  <url><loc>${SITE}/posts/</loc><lastmod>${today}</lastmod><priority>0.8</priority></url>`);
