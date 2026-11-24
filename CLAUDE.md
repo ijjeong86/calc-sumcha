@@ -43,6 +43,8 @@
 
 ## 그 밖에
 
+- `site/rss.xml`은 빌드 때 자동으로 만들어져요(최근 50편). 배포가 끝나면 `scripts/indexnow.mjs`가 오늘·어제 공개/수정된 글과 바뀐 페이지를 네이버·IndexNow에 알려요. 키 파일은 `site/84b4abd893cffab331c87a26f8de5b5d.txt`라 지우면 안 돼요.
+
 - 계산기 아래 설명(계산 기준·예시·FAQ·관련 글)은 `scripts/calc-guides.py`에서 고치고 `python3 scripts/calc-guides.py`로 다시 넣어요. 계산기 상수(세율·요율·상한액)를 바꾸면 여기 숫자도 같이 고쳐요.
 - 애드센스 코드(pub-6702302972903144)와 `site/ads.txt`가 있어요. 새 페이지를 만들면 `<head>`에 같은 코드를 넣어요.
 
