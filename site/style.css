@@ -294,7 +294,7 @@ summary{padding:16px 18px}
 .dd-panel a{display:block;padding:9px 12px;border-radius:8px;color:var(--ink);text-decoration:none;font-size:.94rem;white-space:nowrap}
 .dd-panel a:hover{background:var(--field)}
 .dd-panel a[aria-current]{color:var(--accent);font-weight:700}
-.dd-wide{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px 14px;min-width:600px;padding:16px}
+.dd-wide{left:0;right:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px 14px;min-width:600px;padding:16px}
 .dd-col{display:flex;flex-direction:column;gap:2px;min-width:0}
 .dd-col b{font-size:.76rem;color:var(--muted);font-weight:600;padding:2px 12px 6px;letter-spacing:.02em}
 .dd-all{grid-column:1/-1;margin-top:6px;border-top:1px solid var(--line);border-radius:0!important;padding-top:12px!important;color:var(--accent)!important;font-weight:600}
