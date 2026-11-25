@@ -427,3 +427,12 @@ summary{padding:16px 18px}
 .at-txt small{color:var(--muted);font-size:.8rem}
 .at-row.on .at-txt b{color:var(--muted);text-decoration:line-through}
 .at-q{white-space:nowrap;font-size:.8rem;font-weight:600;padding:6px 10px;border-radius:8px;background:var(--accent-soft);color:var(--accent);text-decoration:none}
+/* 홈: 이번 달 놓치면 안 되는 돈 (money-calendar.js) */
+.mc-home ol{list-style:none;margin:0;padding:0}
+.mc-home li{display:grid;grid-template-columns:74px minmax(0,1fr);gap:2px 10px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line)}
+.mc-home li:last-child{border-bottom:0}
+.mc-home li a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem}
+.mc-home li a:hover{color:var(--accent)}
+.mc-home li small{grid-column:2;color:var(--muted);font-size:.78rem}
+.mc-home .mc-d{display:inline-block;justify-self:start;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.mc-home .mc-d.hot{background:var(--owe-soft);color:var(--owe)}
