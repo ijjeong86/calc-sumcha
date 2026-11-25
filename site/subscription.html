@@ -145,7 +145,7 @@ function render(){
   const on=k=>ST[k]&&ST[k].on, pl=k=>(ST[k]||{}).plan||0, t=[];
   if(on("naver")&&on("netflix")){
     if(pl("netflix")==0)t.push(`<b>네이버플러스와 넷플릭스가 겹쳐요.</b> 네이버플러스 디지털 콘텐츠 혜택으로 넷플릭스를 고르면 <b>광고형 스탠다드</b>를 추가 요금 없이 볼 수 있어요. 따로 내는 넷플릭스 ${won(monthly(SVC[0]))}은 아낄 수 있어요 (1년 ${won(monthly(SVC[0])*12)}).`);
-    else{const up=pl("netflix")==1?6500:10000,cur=monthly(SVC[0]);t.push(`<b>네이버플러스와 넷플릭스가 겹쳐요.</b> 네이버플러스로 넷플릭스를 연결하면 광고형은 포함되고, ${pl("netflix")==1?"스탠다드":"프리미엄"}는 <b>차액 ${won(up)}</b>만 더 내면 돼요. 지금 따로 내는 ${won(cur)}보다 한 달 ${won(cur-up)}, <b>1년 ${won((cur-up)*12)}</b> 싸요.`);}
+    else{const up=pl("netflix")==1?6500:10000,cur=monthly(SVC[0]);t.push(`<b>네이버플러스와 넷플릭스가 겹쳐요.</b> 네이버플러스로 넷플릭스를 연결하면 광고형은 포함되고, ${pl("netflix")==1?"스탠다드":"프리미엄"}는 <b>차액 ${won(up)}</b>만 더 내면 돼요. 지금 따로 내는 ${won(cur)}보다 한 달 ${won(cur-up)}, <b>1년 ${won((cur-up)*12)}</b> 싸요.`);}}
   if(on("tving")&&on("wavve")){const sum=monthly(SVC[2])+monthly(SVC[3]),ad=pl("tving")==0&&pl("wavve")==0,b=ad?7000:15000,bn=ad?"광고형 더블 이용권":"스탠다드 더블 이용권";
     t.push(`<b>티빙과 웨이브를 따로 내고 있어요</b> (합계 ${won(sum)}). 둘을 묶은 ${bn}은 ${won(b)}이에요. `+(sum>b?`묶으면 한 달 ${won(sum-b)}, <b>1년 ${won((sum-b)*12)}</b>을 아껴요.`:sum==b?`값은 같지만 두 서비스를 스탠다드 화질로 볼 수 있어요.`:`지금 요금제가 더 싸요.`));}
   if(on("youtube")&&pl("youtube")==2)t.push(`<b>유튜브 프리미엄을 아이폰 앱에서 결제</b>하면 19,500원이에요. 웹(브라우저)에서 결제하면 14,900원이라 한 달 4,600원, <b>1년 55,200원</b>을 아껴요. 앱 결제를 해지하고 기간이 끝난 뒤 웹에서 다시 가입하세요.`);
@@ -167,11 +167,12 @@ $("form").addEventListener("input",e=>{const k=e.target.dataset.k,f=e.target.dat
   ST[k]=ST[k]||{};const s=SVC.find(x=>x.k===k);
   if(f==="on"){ST[k].on=e.target.checked?1:0;$("r-"+k).classList.toggle("off",!e.target.checked);}
   else if(f==="plan"){ST[k].plan=+e.target.value;if(!s.custom){ST[k].price=s.p[+e.target.value][1];$("r-"+k).querySelector('[data-f="price"]').value=ST[k].price;}}
-  else if(f==="price"){ST[k].price=Math.max(0,+e.target.value||0);if(s.custom&&ST[k].price>0&&!ST[k].on){ST[k].on=1;draw();}}
+  else if(f==="price"){ST[k].price=Math.max(0,+e.target.value||0);if(s.custom&&ST[k].price>0&&!ST[k].on){ST[k].on=1;$("r-"+k).classList.remove("off");$("r-"+k).querySelector('[data-f="on"]').checked=true;}}
   else if(f==="use")ST[k].use=e.target.value;
   else if(f==="name"){ST[k].name=e.target.value;if(e.target.value&&!ST[k].on){ST[k].on=1;$("r-"+k).classList.remove("off");$("r-"+k).querySelector('[data-f="on"]').checked=true;}}
   const c=$("exampleChip");if(c)c.hidden=true;save();render();});
 draw();render();
+if(SVC.some(x=>x.custom&&ST[x.k]&&ST[x.k].on)){const d=$("g-etc").closest("details");if(d)d.open=true;}
 </script>
 <div class="visit" id="visit" hidden>
   <div class="visit-head"><span>방문자</span><b class="visit-today"></b></div>
