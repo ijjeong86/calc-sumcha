@@ -10,8 +10,12 @@ photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf
 thumb: "오늘의 할인|어디가 쌀까?"
 icon: gift
 refresh: "daily"
-updated: 2026-11-25
+updated: 2026-11-26
 deals:
+  - name: "프랭크버거 블랙프라이데이"
+    period: "11월 13일 ~ 11월 27일"
+    url: "https://www.thepublic.kr/news/articleView.html?idxno=326673"
+    note: "더블비프치즈버거·JG버거 단품·세트 4종 메뉴당 3,000원 할인, 매장 주문만 (배달앱·자사 앱 주문 제외)"
   - name: "BBQ 블랙 프라이드 데이"
     period: "11월 매주 금요일 (남은 날 11월 27일)"
     url: "https://www.bbq.co.kr"
@@ -44,6 +48,10 @@ deals:
     period: "11월 2일 ~ 11월 30일"
     url: "https://www.pji.co.kr"
     note: "KT 멤버십 앱 쿠폰 받고 파파존스 홈페이지·앱으로 주문 후 매장 수령, 월 1회"
+  - name: "네네치킨 자사앱 11월 프로모션"
+    period: "11월 30일까지"
+    url: "https://www.businesskorea.co.kr/news/articleView.html?idxno=280221"
+    note: "네네치킨 앱 매주 수·금 치킨 전 메뉴 7,000원 쿠폰(발급 당일 1회), 다른 날은 날짜별 5,000원·3,000원 쿠폰"
   - name: "교촌치킨 블랙프라이데이"
     period: "11월 19일 ~ 12월 2일"
     url: "https://www.kyochon.com"
@@ -65,6 +73,7 @@ deals:
     url: "https://www.starbucks.co.kr"
     note: "첫 주문 후 같은 날 톨 오늘의 커피·디카페인 아메리카노 할인, 앱에서 조건 확인"
 log:
+  - "2026-11-26: 프랭크버거 블랙프라이데이(~11/27)·네네치킨 앱 11월 쿠폰(~11/30) 추가, 나머지 행사 진행 중 확인"
   - "2026-11-25: BBQ 블랙 프라이드 데이·파파존스 KT 포장 50%·투썸 홀리데이 사전예약·투썸 M포인트 추가"
   - "2026-11-24: 버거킹·bhc·롯데리아·맥도날드·교촌 행사 추가"
   - "2026-11-24: 처음 정리"
@@ -103,6 +112,10 @@ sources:
     url: "https://www.specialtimes.co.kr/news/articleView.html?idxno=487976"
   - title: "bhc, 블랙프라이데이 맞아 치킨·할인쿠폰 (아이뉴스24, 2026.11.24)"
     url: "https://m.inews24.com/v/2029855"
+  - title: "프랭크버거, 블랙프라이데이 맞아 프리미엄 버거 2종 할인 (더퍼블릭, 2026.11.13)"
+    url: "https://www.thepublic.kr/news/articleView.html?idxno=326673"
+  - title: "네네치킨, 자사앱 11월 프로모션 진행 (비즈니스코리아, 2026.11.02)"
+    url: "https://www.businesskorea.co.kr/news/articleView.html?idxno=280221"
   - title: "스타벅스 2026 겨울 e-프리퀀시 10월 22일~12월 31일 (비즈워치, 2026.10.15)"
     url: "https://news.bizwatch.co.kr/article/consumer/2026/10/15/0004"
   - title: "스타벅스 원 모어 커피 이용 안내 (디지털데일리)"
