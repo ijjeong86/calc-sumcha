@@ -94,7 +94,7 @@ const row=(l,x,c="")=>`<div class="row ${c}"><span>${l}</span><span class="v">${
 (function(){var s=$("adCoupang");if(s&&s.children.length)$("coupangNote").hidden=false;})();
 // 2026년 11월 기준 월 요금 (부가세 포함). 바뀌면 여기와 scripts/calc-guides.py 표를 같이 고쳐요.
 const SVC=[
- {k:"netflix",g:"ott",n:"넷플릭스",p:[["광고형 스탠다드",7000],["스탠다드",13500],["프리미엄",17000]]},
+ {k:"netflix",g:"ott",n:"넷플릭스",p:[["광고형 스탠다드",7000],["스탠다드",13500],["프리미엄",17000],["네이버플러스로 보는 중 · 광고형",0],["네이버플러스로 보는 중 · 스탠다드 (차액)",6500],["네이버플러스로 보는 중 · 프리미엄 (차액)",10000]]},
  {k:"youtube",g:"ott",n:"유튜브 프리미엄",p:[["라이트 (웹 결제)",8500],["프리미엄 (웹 결제)",14900],["프리미엄 (아이폰 앱 결제)",19500]]},
  {k:"tving",g:"ott",n:"티빙",p:[["광고형 스탠다드",5500],["베이직",9500],["스탠다드",13500],["프리미엄",17000]]},
  {k:"wavve",g:"ott",n:"웨이브",p:[["광고형 스탠다드",5500],["베이직",7900],["스탠다드",10900],["프리미엄",13900]]},
@@ -143,7 +143,10 @@ function render(){
   $("slip").innerHTML=h;
   // 겹치는 혜택·아끼는 방법
   const on=k=>ST[k]&&ST[k].on, pl=k=>(ST[k]||{}).plan||0, t=[];
-  if(on("naver")&&on("netflix")){
+  if(on("netflix")&&pl("netflix")>=3){
+    if(on("naver"))t.push(`<b>넷플릭스를 네이버플러스로 보고 있어요.</b> 같은 요금제를 넷플릭스에서 따로 결제할 때보다 한 달 7,000원, <b>1년 84,000원</b>을 아끼고 있어요.`);
+    else t.push(`넷플릭스를 네이버플러스로 본다면 <b>네이버플러스도 체크</b>해 주세요. 멤버십 요금이 합계에 들어가야 실제로 내는 돈이 맞아요.`);}
+  if(on("naver")&&on("netflix")&&pl("netflix")<3){
     if(pl("netflix")==0)t.push(`<b>네이버플러스와 넷플릭스가 겹쳐요.</b> 네이버플러스 디지털 콘텐츠 혜택으로 넷플릭스를 고르면 <b>광고형 스탠다드</b>를 추가 요금 없이 볼 수 있어요. 따로 내는 넷플릭스 ${won(monthly(SVC[0]))}은 아낄 수 있어요 (1년 ${won(monthly(SVC[0])*12)}).`);
     else{const up=pl("netflix")==1?6500:10000,cur=monthly(SVC[0]);t.push(`<b>네이버플러스와 넷플릭스가 겹쳐요.</b> 네이버플러스로 넷플릭스를 연결하면 광고형은 포함되고, ${pl("netflix")==1?"스탠다드":"프리미엄"}는 <b>차액 ${won(up)}</b>만 더 내면 돼요. 지금 따로 내는 ${won(cur)}보다 한 달 ${won(cur-up)}, <b>1년 ${won((cur-up)*12)}</b> 싸요.`);}}
   if(on("tving")&&on("wavve")){const sum=monthly(SVC[2])+monthly(SVC[3]),ad=pl("tving")==0&&pl("wavve")==0,b=ad?7000:15000,bn=ad?"광고형 더블 이용권":"스탠다드 더블 이용권";
