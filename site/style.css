@@ -436,3 +436,6 @@ summary{padding:16px 18px}
 .mc-home li small{grid-column:2;color:var(--muted);font-size:.78rem}
 .mc-home .mc-d{display:inline-block;justify-self:start;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
 .mc-home .mc-d.hot{background:var(--owe-soft);color:var(--owe)}
+/* 애드센스 자리가 광고를 못 받았을 때(unfilled) 빈 공간이 남지 않게 접어요 */
+ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important}
+.google-auto-placed:has(ins[data-ad-status="unfilled"]){display:none!important}
