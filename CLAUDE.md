@@ -50,6 +50,7 @@
 - 애드센스 코드(pub-6702302972903144)와 `site/ads.txt`가 있어요. 새 페이지를 만들면 `<head>`에 같은 코드를 넣어요.
 
 - 메뉴는 `site/*.html`의 topnav를 같이 고쳐야 해요 (글 페이지는 `site/car.html`의 메뉴를 복사해 만들어요).
+- 돈 달력(`/money-calendar.html`) 일정은 `site/money-calendar.js`의 MC 목록에서 고쳐요. 새 신청·마감 일정을 글로 쓰면 여기에도 넣고, `tbd: 1`(발표 전) 일정은 공식 발표가 나오면 start·end를 넣어요. 해가 바뀌기 전(11월쯤) 다음 해 일정을 추가해요. 파일을 고치면 html의 `money-calendar.js?v=` 값을 올려요.
 - 시즌 바로가기는 `scripts/season.mjs`의 SEASONS에서 바꿔요.
 - 금리 API 키(`FSS_API_KEY`), 환율 키(`KOREAEXIM_API_KEY`, 선택)는 GitHub Secrets에만 있어요. 파일에 쓰지 않아요.
 - 디자인을 바꾸면 `style.css?v=` 값을 올려 캐시를 갱신해요. 글꼴은 SUIT(본문·제목·숫자 모두)예요.
