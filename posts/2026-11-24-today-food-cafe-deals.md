@@ -10,12 +10,16 @@ photo: "https://d8j0ntlcm91z4.cloudfront.net/user_3JPaj6CPWlCwqPa7AUzniqsBrFh/hf
 thumb: "오늘의 할인|어디가 쌀까?"
 icon: gift
 refresh: "daily"
-updated: 2026-11-26
+updated: 2026-11-27
 deals:
   - name: "프랭크버거 블랙프라이데이"
     period: "11월 13일 ~ 11월 27일"
     url: "https://www.thepublic.kr/news/articleView.html?idxno=326673"
     note: "더블비프치즈버거·JG버거 단품·세트 4종 메뉴당 3,000원 할인, 매장 주문만 (배달앱·자사 앱 주문 제외)"
+  - name: "한솥도시락 블랙프라이데이"
+    period: "11월 25일 ~ 11월 27일"
+    url: "https://www.newstap.co.kr/news/articleView.html?idxno=338483"
+    note: "진달래 7,000원(20.5% 할인)·돈까스도련님 4,000원(23.1% 할인), 행사 참여 매장 방문·포장 주문"
   - name: "BBQ 블랙 프라이드 데이"
     period: "11월 매주 금요일 (남은 날 11월 27일)"
     url: "https://www.bbq.co.kr"
@@ -24,14 +28,14 @@ deals:
     period: "11월 14일 ~ 11월 29일"
     url: "https://www.burgerking.co.kr/event/detail/1777"
     note: "와퍼주니어·불고기와퍼주니어·콰트로치즈와퍼주니어·롱치킨버거 2개 묶음 할인"
+  - name: "파파이스 두배로데이 블프위크"
+    period: "11월 27일 ~ 11월 30일"
+    url: "https://www.foodtoday.or.kr/news/article.html?no=210118"
+    note: "마지막 회차로 루이 스모크 치폴레 버거 1+1, 참여 매장·주문 경로는 파파이스 앱 공지 확인"
   - name: "bhc 블프 랜덤 뽑기"
     period: "11월 23일 ~ 11월 30일"
     url: "https://www.bhc.co.kr"
     note: "bhc 앱 뽑기로 500원·1,000원(치즈볼)·4,000원 쿠폰, 최대 치킨 한 마리"
-  - name: "bhc 1만원 쿠폰 페이백"
-    period: "11월 23일 ~ 11월 30일"
-    url: "https://www.bhc.co.kr"
-    note: "기간 중 앱 누적 주문 10만원 이상 고객 30명 추첨, 3만원 이상 주문 시 1만원 할인"
   - name: "롯데리아 리아 스낵 타임"
     period: "11월 30일까지 매일 오후 2~6시"
     url: "https://www.lotteeatz.com/event/main"
@@ -68,11 +72,8 @@ deals:
     period: "10월 22일 ~ 12월 31일"
     url: "https://www.starbucks.co.kr"
     note: "미션 음료 3잔 포함 제조 음료 17잔 구매 시 증정품 예약"
-  - name: "스타벅스 원 모어 커피"
-    period: "상시 (하루 1회)"
-    url: "https://www.starbucks.co.kr"
-    note: "첫 주문 후 같은 날 톨 오늘의 커피·디카페인 아메리카노 할인, 앱에서 조건 확인"
 log:
+  - "2026-11-27: 한솥도시락 블랙프라이데이(~11/27)·파파이스 두배로데이 블프위크(~11/30) 추가, 상시 행사(스타벅스 원 모어 커피)·bhc 1만원 페이백 추첨 빼고 15개로 정리"
   - "2026-11-26: 프랭크버거 블랙프라이데이(~11/27)·네네치킨 앱 11월 쿠폰(~11/30) 추가, 나머지 행사 진행 중 확인"
   - "2026-11-25: BBQ 블랙 프라이드 데이·파파존스 KT 포장 50%·투썸 홀리데이 사전예약·투썸 M포인트 추가"
   - "2026-11-24: 버거킹·bhc·롯데리아·맥도날드·교촌 행사 추가"
@@ -118,8 +119,10 @@ sources:
     url: "https://www.businesskorea.co.kr/news/articleView.html?idxno=280221"
   - title: "스타벅스 2026 겨울 e-프리퀀시 10월 22일~12월 31일 (비즈워치, 2026.10.15)"
     url: "https://news.bizwatch.co.kr/article/consumer/2026/10/15/0004"
-  - title: "스타벅스 원 모어 커피 이용 안내 (디지털데일리)"
-    url: "https://www.ddaily.co.kr/page/view/2025090316451031418"
+  - title: "한솥도시락, 27일까지 블랙프라이데이…인기 메뉴 2종 최대 23.1% 할인 (뉴스탭, 2026.11.26)"
+    url: "https://www.newstap.co.kr/news/articleView.html?idxno=338483"
+  - title: "블랙프라이데이, 식탁으로 번졌다…식품·외식업계 할인 경쟁 (푸드투데이, 2026.11.26)"
+    url: "https://www.foodtoday.or.kr/news/article.html?no=210118"
 ---
 
 외식 할인은 하루이틀만 하는 행사가 많아서, 알고 가느냐 모르고 가느냐에 따라 같은 메뉴 값이 달라져요. 이 페이지는 매일 아침 새로 확인한 할인만 위 표에 남겨 둬요.
