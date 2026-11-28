@@ -65,10 +65,11 @@ deals:
     url: "https://www.starbucks.co.kr"
     note: "미션 음료 3잔 포함 제조 음료 17잔 구매 시 증정품 예약"
   - name: "폴 바셋 겨울 e-스탬프"
-    period: "2027년 1월 1일까지"
-    url: "https://daily.hankooki.com/news/articleView.html?idxno=1429276"
-    note: "설향 딸기 음료 5종 중 3잔 포함 총 15잔 구매 시 한정판 러그 증정"
+    period: "적립·앱 예약 2027년 1월 11일까지, 수령 1월 18일까지"
+    url: "https://www.baristapaulbassett.co.kr/whatsNews/event/View.pb?eventSeq=3654"
+    note: "설향 딸기 음료 5종 중 3잔 포함 총 15잔 구매 시 한정판 러그 증정. 한정 수량이라 일찍 끝날 수 있어요"
 log:
+  - "2026-11-28: 폴 바셋 겨울 e-스탬프 기간 바로잡음 (적립·앱 예약 1/11, 수령 1/18까지, 한정 수량)"
   - "2026-11-28: 끝난 프랭크버거·한솥도시락·BBQ 블랙 프라이드 데이 빼고, 배스킨라빈스 케이크 굿즈 사전예약(~12/2)·폴 바셋 겨울 e-스탬프(~1/1) 추가, 14개로 정리"
   - "2026-11-27: 한솥도시락 블랙프라이데이(~11/27)·파파이스 두배로데이 블프위크(~11/30) 추가, 상시 행사(스타벅스 원 모어 커피)·bhc 1만원 페이백 추첨 빼고 15개로 정리"
   - "2026-11-26: 프랭크버거 블랙프라이데이(~11/27)·네네치킨 앱 11월 쿠폰(~11/30) 추가, 나머지 행사 진행 중 확인"
@@ -114,6 +115,8 @@ sources:
     url: "https://news.bizwatch.co.kr/article/consumer/2026/10/15/0004"
   - title: "블랙프라이데이, 식탁으로 번졌다…식품·외식업계 할인 경쟁 (푸드투데이, 2026.11.26)"
     url: "https://www.foodtoday.or.kr/news/article.html?no=210118"
+  - title: "폴 바셋 겨울 e-stamp 이벤트 (폴 바셋 공식 안내)"
+    url: "https://www.baristapaulbassett.co.kr/whatsNews/event/View.pb?eventSeq=3654"
   - title: "[유통레이더] 배스킨라빈스·폴 바셋·세븐일레븐 外 (데일리한국, 2026.11.26)"
     url: "https://daily.hankooki.com/news/articleView.html?idxno=1429276"
 ---
